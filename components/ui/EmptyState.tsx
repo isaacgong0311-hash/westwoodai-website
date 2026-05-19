@@ -24,7 +24,7 @@ export default function EmptyState({ title, description, cta }: EmptyStateProps)
             href={cta.href}
             target={cta.external ? "_blank" : undefined}
             rel={cta.external ? "noopener noreferrer" : undefined}
-            className="mt-2 font-mono text-xs px-4 py-2 rounded-lg border border-[#2e2e45] text-[#e8e8f0] hover:border-[#b69bff]/40 hover:bg-[#b69bff]/5 transition-colors"
+            className="mt-2 font-mono text-xs px-4 py-2 rounded-lg border border-[#2e2e45] text-[#e8e8f0] hover:border-[#7ea3d8]/50 hover:bg-[#7ea3d8]/5 hover:scale-[1.03] active:scale-[0.97] transition-all"
           >
             {cta.label} {cta.external && "↗"}
           </a>

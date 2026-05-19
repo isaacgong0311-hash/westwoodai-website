@@ -1,6 +1,7 @@
 import competitionsData from "@/data/competitions.json";
 import type { Competition } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
+import Reveal from "@/components/ui/Reveal";
 
 const competitions = competitionsData as Competition[];
 
@@ -12,6 +13,7 @@ export default function CompetitionsPage() {
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
+        <Reveal>
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
             What we&apos;re entering
@@ -27,8 +29,10 @@ export default function CompetitionsPage() {
             Ping Aarav on Discord.
           </p>
         </div>
+        </Reveal>
 
         {competitions.length === 0 ? (
+          <Reveal delay={0.1}>
           <EmptyState
             title="Nothing on the slate yet"
             description="We'll line up the year's comps after the kickoff meeting. Spotted one we should hit? Let us know."
@@ -37,6 +41,7 @@ export default function CompetitionsPage() {
               href: "mailto:wwhs.aiexploration@gmail.com",
             }}
           />
+          </Reveal>
         ) : (
           <div>{/* list renders here */}</div>
         )}

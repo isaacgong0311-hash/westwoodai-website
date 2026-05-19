@@ -1,6 +1,7 @@
 import newsData from "@/data/news.json";
 import type { NewsItem } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
+import Reveal from "@/components/ui/Reveal";
 
 const news = newsData as NewsItem[];
 
@@ -12,6 +13,7 @@ export default function NewsPage() {
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
+        <Reveal>
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
             From the officers
@@ -27,12 +29,15 @@ export default function NewsPage() {
             happened and why we think it matters.
           </p>
         </div>
+        </Reveal>
 
         {news.length === 0 ? (
+          <Reveal delay={0.1}>
           <EmptyState
             title="Nothing here yet"
             description="First posts go up in September. For now, r/MachineLearning and Hacker News will hold you over."
           />
+          </Reveal>
         ) : (
           <div>{/* news cards render here */}</div>
         )}

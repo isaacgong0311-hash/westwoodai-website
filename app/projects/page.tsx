@@ -1,6 +1,7 @@
 import projectsData from "@/data/projects.json";
 import type { Project } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
+import Reveal from "@/components/ui/Reveal";
 
 const projects = projectsData as Project[];
 
@@ -12,6 +13,7 @@ export default function ProjectsPage() {
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-5xl mx-auto">
+        <Reveal>
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
             Stuff people made
@@ -27,8 +29,10 @@ export default function ProjectsPage() {
             cooking. Want yours up here? Drop it in #show-and-tell.
           </p>
         </div>
+        </Reveal>
 
         {projects.length === 0 ? (
+          <Reveal delay={0.1}>
           <EmptyState
             title="Nothing here yet"
             description="Projects show up as people submit them. Got something going? Post it in #show-and-tell — doesn't have to be done — and an officer will add it."
@@ -38,6 +42,7 @@ export default function ProjectsPage() {
               external: true,
             }}
           />
+          </Reveal>
         ) : (
           <div>{/* project grid would render here */}</div>
         )}

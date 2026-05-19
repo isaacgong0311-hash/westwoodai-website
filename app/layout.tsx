@@ -26,11 +26,16 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Westwood AI Club",
   description:
-    "Westwood High School's AI Club — building real projects, winning competitions, and learning together in Austin, TX.",
+    "Westwood High School's AI Club. Students messing around with AI in Austin, TX.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Westwood AI Club",
-    description: "Westwood High School's AI exploration club, Austin TX.",
+    description: "Students messing around with AI in Austin, TX.",
     siteName: "Westwood AI Club",
+    images: ["/logo.png"],
   },
 };
 
