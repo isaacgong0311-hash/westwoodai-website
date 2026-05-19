@@ -5,24 +5,20 @@
 export interface Member {
   id: string;
   name: string;
-  role: string; // officer title or "Member"
-  avatar: string; // emoji or path to image
-  grade: number;
-  attendance: number; // meetings attended
+  role: string;
+  attendance: number;
   projects: number;
   competitions: number;
   points: number;
-  badges: string[];
 }
 
 export interface Project {
   id: string;
   title: string;
-  emoji: string;
   author: string;
   authorId: string;
   description: string;
-  category: "LLMs" | "CV" | "ML" | "RL";
+  category: "LLMs" | "CV" | "ML" | "RL" | "Other";
   tags: string[];
   status: "active" | "completed" | "demo";
   link?: string;
@@ -31,7 +27,7 @@ export interface Project {
 
 export interface Meeting {
   id: string;
-  date: string | null; // null = TBD
+  date: string | null;
   topic: string;
   presenter: string;
   type: "lesson" | "speaker" | "workshop" | "competition" | "social";
@@ -88,34 +84,14 @@ export interface PromptEntry {
   submittedAt: string;
 }
 
-export interface ActivityEvent {
-  id: string;
-  type:
-    | "project_added"
-    | "competition_joined"
-    | "meeting_recap"
-    | "prompt_submitted"
-    | "news_posted"
-    | "member_joined";
-  actor: string;
-  message: string;
-  timestamp: string;
-  emoji: string;
-}
-
 export interface SiteConfig {
   nextMeeting: {
-    date: string | null; // ISO date string, or null if TBD
+    date: string | null;
     time: string;
     room: string;
     teacher: string;
     topic: string | null;
-    note: string | null; // shown when date is null
+    note: string | null;
   };
-  stats: {
-    members: number;
-    projects: number;
-    competitions: number;
-    yearsRunning: number;
-  };
+  founded: number;
 }

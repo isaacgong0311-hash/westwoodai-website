@@ -1,13 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import type { Member } from "@/lib/types";
-import Badge from "@/components/ui/Badge";
 
 type SortKey = "points" | "attendance" | "projects" | "competitions";
 
-const medalColors = ["text-yellow-400", "text-zinc-400", "text-amber-700"];
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
 interface LeaderboardTableProps {
   members: Member[];
@@ -15,30 +20,45 @@ interface LeaderboardTableProps {
 
 export default function LeaderboardTable({ members }: LeaderboardTableProps) {
   const [sortBy, setSortBy] = useState<SortKey>("points");
-  const sorted = [...members].sort((a, b) => b[sortBy] - a[sortBy]);
+
+  const sorted = [...members].sort((a, b) => {
+    const diff = b[sortBy] - a[sortBy];
+    if (diff !== 0) return diff;
+    return a.name.localeCompare(b.name);
+  });
 
   const cols: { key: SortKey; label: string }[] = [
     { key: "points", label: "Points" },
     { key: "attendance", label: "Attendance" },
     { key: "projects", label: "Projects" },
-    { key: "competitions", label: "Comps" },
+    { key: "competitions", label: "Competitions" },
   ];
 
+  const seasonStarted = members.some((m) => m.points > 0);
+
   return (
-    <div className="bg-[#111118] border border-[#1e1e2e] rounded-xl overflow-hidden">
-      {/* Sort tabs */}
-      <div className="px-5 py-3 border-b border-[#1e1e2e] flex items-center gap-1 overflow-x-auto">
-        <span className="font-mono text-[10px] text-[#55556a] mr-3 shrink-0">
-          Sort by:
+    <div className="border border-[#1e1e2e] rounded-xl overflow-hidden">
+      {!seasonStarted && (
+        <div className="px-5 py-3 border-b border-[#1e1e2e] bg-[#0e0e16]">
+          <p className="font-mono text-[11px] text-[#8888aa]">
+            2026–27 season hasn&apos;t started yet. First points awarded at the
+            kickoff meeting in August.
+          </p>
+        </div>
+      )}
+
+      <div className="px-5 py-3 border-b border-[#1e1e2e] flex items-center gap-1.5 overflow-x-auto">
+        <span className="font-mono text-[10px] text-[#55556a] mr-2 shrink-0 uppercase tracking-wider">
+          Sort
         </span>
         {cols.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => setSortBy(key)}
-            className={`font-mono text-xs px-3 py-1 rounded-md border transition-all shrink-0 ${
+            className={`font-mono text-[11px] px-2.5 py-1 rounded transition-colors shrink-0 ${
               sortBy === key
-                ? "bg-[#b69bff]/10 border-[#b69bff]/30 text-[#b69bff]"
-                : "border-[#1e1e2e] text-[#8888aa] hover:text-[#e8e8f0]"
+                ? "bg-[#1e1e2e] text-[#e8e8f0]"
+                : "text-[#8888aa] hover:text-[#e8e8f0]"
             }`}
           >
             {label}
@@ -46,13 +66,13 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
         ))}
       </div>
 
-      {/* Desktop table */}
-      <div className="hidden md:block overflow-x-auto">
+      {/* Desktop */}
+      <div className="hidden md:block">
         <table className="w-full">
           <thead>
             <tr className="border-b border-[#1e1e2e]">
               <th className="px-5 py-3 text-left font-mono text-[10px] text-[#55556a] uppercase tracking-wider w-12">
-                Rank
+                #
               </th>
               <th className="px-5 py-3 text-left font-mono text-[10px] text-[#55556a] uppercase tracking-wider">
                 Member
@@ -66,74 +86,72 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
               <th className="px-5 py-3 text-right font-mono text-[10px] text-[#55556a] uppercase tracking-wider">
                 Comps
               </th>
-              <th className="px-5 py-3 text-right font-mono text-[10px] text-[#b69bff] uppercase tracking-wider">
+              <th className="px-5 py-3 text-right font-mono text-[10px] text-[#55556a] uppercase tracking-wider">
                 Points
               </th>
             </tr>
           </thead>
           <tbody>
             {sorted.map((member, i) => (
-              <motion.tr
+              <tr
                 key={member.id}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="border-b border-[#1e1e2e] hover:bg-[#16161f] transition-colors"
+                className="border-b border-[#1e1e2e] last:border-b-0 hover:bg-[#0e0e16] transition-colors"
               >
-                <td className="px-5 py-4">
-                  <span
-                    className={`font-mono text-sm font-bold ${medalColors[i] ?? "text-[#55556a]"}`}
-                  >
-                    {i < 3 ? ["🥇", "🥈", "🥉"][i] : `#${i + 1}`}
+                <td className="px-5 py-3.5">
+                  <span className="font-mono text-xs text-[#55556a]">
+                    {i + 1}
                   </span>
                 </td>
-                <td className="px-5 py-4">
+                <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{member.avatar}</span>
+                    <div className="w-7 h-7 rounded-full border border-[#2e2e45] flex items-center justify-center shrink-0">
+                      <span className="font-mono text-[10px] text-[#8888aa]">
+                        {initials(member.name)}
+                      </span>
+                    </div>
                     <div>
-                      <p className="font-sans text-sm text-[#e8e8f0] font-medium">
+                      <p className="font-sans text-sm text-[#e8e8f0]">
                         {member.name}
                       </p>
                       <p className="font-mono text-[10px] text-[#55556a]">
-                        {member.role} · Grade {member.grade}
+                        {member.role}
                       </p>
                     </div>
                   </div>
                 </td>
-                <td className="px-5 py-4 text-right font-mono text-sm text-[#e8e8f0]">
+                <td className="px-5 py-3.5 text-right font-mono text-sm text-[#e8e8f0]">
                   {member.attendance}
                 </td>
-                <td className="px-5 py-4 text-right font-mono text-sm text-[#e8e8f0]">
+                <td className="px-5 py-3.5 text-right font-mono text-sm text-[#e8e8f0]">
                   {member.projects}
                 </td>
-                <td className="px-5 py-4 text-right font-mono text-sm text-[#e8e8f0]">
+                <td className="px-5 py-3.5 text-right font-mono text-sm text-[#e8e8f0]">
                   {member.competitions}
                 </td>
-                <td className="px-5 py-4 text-right">
-                  <span className="font-mono text-sm text-[#b69bff] font-semibold">
-                    {member.points.toLocaleString()}
-                  </span>
+                <td className="px-5 py-3.5 text-right font-mono text-sm text-[#e8e8f0]">
+                  {member.points}
                 </td>
-              </motion.tr>
+              </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Mobile cards */}
+      {/* Mobile */}
       <div className="md:hidden divide-y divide-[#1e1e2e]">
         {sorted.map((member, i) => (
-          <motion.div
+          <div
             key={member.id}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05 }}
-            className="px-4 py-4 flex items-center gap-3"
+            className="px-4 py-3 flex items-center gap-3"
           >
-            <span className="font-mono text-lg w-8 text-center">
-              {i < 3 ? ["🥇", "🥈", "🥉"][i] : <span className="text-[#55556a] text-sm">#{i + 1}</span>}
+            <span className="font-mono text-xs text-[#55556a] w-6">
+              {i + 1}
             </span>
-            <span className="text-2xl">{member.avatar}</span>
+            <div className="w-7 h-7 rounded-full border border-[#2e2e45] flex items-center justify-center shrink-0">
+              <span className="font-mono text-[10px] text-[#8888aa]">
+                {initials(member.name)}
+              </span>
+            </div>
             <div className="flex-1 min-w-0">
               <p className="font-sans text-sm text-[#e8e8f0]">{member.name}</p>
               <p className="font-mono text-[10px] text-[#55556a]">
@@ -141,12 +159,10 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
               </p>
             </div>
             <div className="text-right">
-              <p className="font-mono text-sm text-[#b69bff] font-semibold">
-                {member.points.toLocaleString()}
-              </p>
+              <p className="font-mono text-sm text-[#e8e8f0]">{member.points}</p>
               <p className="font-mono text-[10px] text-[#55556a]">pts</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
