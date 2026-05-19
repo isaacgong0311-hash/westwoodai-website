@@ -1,0 +1,122 @@
+[
+  {
+    "id": "reett-aulakh",
+    "name": "Reett Aulakh",
+    "role": "Co-President",
+    "avatar": "🦁",
+    "grade": 11,
+    "attendance": 18,
+    "projects": 4,
+    "competitions": 3,
+    "points": 1240,
+    "badges": ["founder-era", "top-contributor", "competition-winner"]
+  },
+  {
+    "id": "aanya-pathak",
+    "name": "Aanya Pathak",
+    "role": "Co-President",
+    "avatar": "⚡",
+    "grade": 11,
+    "attendance": 17,
+    "projects": 3,
+    "competitions": 4,
+    "points": 1185,
+    "badges": ["top-contributor", "3x-attendee", "competition-winner"]
+  },
+  {
+    "id": "aarav-karumanchi",
+    "name": "Aarav Karumanchi",
+    "role": "VP of Competition",
+    "avatar": "🏆",
+    "grade": 10,
+    "attendance": 16,
+    "projects": 5,
+    "competitions": 5,
+    "points": 1340,
+    "badges": ["competition-beast", "top-contributor", "project-lead"]
+  },
+  {
+    "id": "shruti-sivaraman",
+    "name": "Shruti Sivaraman",
+    "role": "VP of Teaching",
+    "avatar": "🎓",
+    "grade": 11,
+    "attendance": 18,
+    "projects": 3,
+    "competitions": 2,
+    "points": 1095,
+    "badges": ["perfect-attendance", "presenter", "mentor"]
+  },
+  {
+    "id": "reesha-malpani",
+    "name": "Reesha Malpani",
+    "role": "Secretary",
+    "avatar": "📋",
+    "grade": 10,
+    "attendance": 17,
+    "projects": 2,
+    "competitions": 3,
+    "points": 980,
+    "badges": ["organized", "3x-attendee"]
+  },
+  {
+    "id": "isaac-gong",
+    "name": "Isaac Gong",
+    "role": "Webmaster",
+    "avatar": "💻",
+    "grade": 10,
+    "attendance": 15,
+    "projects": 4,
+    "competitions": 2,
+    "points": 1020,
+    "badges": ["builder", "project-lead", "web-wizard"]
+  },
+  {
+    "id": "hamsika-kolluru",
+    "name": "Hamsika Kolluru",
+    "role": "Activities Coordinator",
+    "avatar": "🎉",
+    "grade": 10,
+    "attendance": 16,
+    "projects": 2,
+    "competitions": 2,
+    "points": 890,
+    "badges": ["community-builder", "3x-attendee"]
+  },
+  {
+    "id": "ishaan-sagar",
+    "name": "Ishaan Sagar",
+    "role": "Outreach Coordinator",
+    "avatar": "📡",
+    "grade": 11,
+    "attendance": 14,
+    "projects": 3,
+    "competitions": 3,
+    "points": 960,
+    "badges": ["networker", "competition-winner"]
+  },
+  {
+    "id": "priya-nair",
+    "name": "Priya Nair",
+    "role": "Member",
+    "avatar": "🔬",
+    "grade": 10,
+    "attendance": 13,
+    "projects": 2,
+    "competitions": 2,
+    "points": 720,
+    "badges": ["rising-star"]
+  },
+  {
+    "id": "arjun-mehta",
+    "name": "Arjun Mehta",
+    "role": "Member",
+    "avatar": "🤖",
+    "grade": 9,
+    "attendance": 12,
+    "projects": 1,
+    "competitions": 3,
+    "points": 650,
+    "badges": ["competition-beast"]
+  }
+]

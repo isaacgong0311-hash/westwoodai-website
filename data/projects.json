@@ -1,0 +1,101 @@
+[
+  {
+    "id": "warrior-tutor",
+    "title": "WarriorTutor",
+    "emoji": "📚",
+    "author": "Aarav Karumanchi",
+    "authorId": "aarav-karumanchi",
+    "description": "RAG-based tutoring assistant trained on Westwood's AP Physics and Calculus BC past exams. Answers questions with cited sources from the curriculum.",
+    "category": "LLMs",
+    "tags": ["RAG", "LangChain", "OpenAI", "Next.js"],
+    "status": "active",
+    "link": "https://github.com/westwoodai",
+    "date": "2026-03-15"
+  },
+  {
+    "id": "cafeteria-vision",
+    "title": "CafeteriaVision",
+    "emoji": "🍕",
+    "author": "Isaac Gong",
+    "authorId": "isaac-gong",
+    "description": "Real-time computer vision model that detects cafeteria crowding from a live feed and predicts wait times. Deployed as a web app during school hours.",
+    "category": "CV",
+    "tags": ["YOLOv8", "PyTorch", "FastAPI", "React"],
+    "status": "completed",
+    "link": "https://github.com/westwoodai",
+    "date": "2026-02-01"
+  },
+  {
+    "id": "stock-rl",
+    "title": "MarketBot",
+    "emoji": "📈",
+    "author": "Arjun Mehta",
+    "authorId": "arjun-mehta",
+    "description": "PPO agent trained on 10 years of S&P 500 data. Currently paper-trading with a Sharpe ratio of 1.4. Built as a deep dive into financial RL.",
+    "category": "RL",
+    "tags": ["Stable Baselines3", "Gymnasium", "Pandas", "Python"],
+    "status": "active",
+    "date": "2026-04-10"
+  },
+  {
+    "id": "sentiment-dashboard",
+    "title": "PulsePolitics",
+    "emoji": "🗳️",
+    "author": "Reett Aulakh",
+    "authorId": "reett-aulakh",
+    "description": "Sentiment analysis dashboard scraping Reddit and Twitter/X for political discourse trends. Visualizes topic shifts over time using a fine-tuned RoBERTa model.",
+    "category": "ML",
+    "tags": ["HuggingFace", "Transformers", "Plotly", "FastAPI"],
+    "status": "completed",
+    "date": "2025-11-20"
+  },
+  {
+    "id": "sign-lang",
+    "title": "SignSense",
+    "emoji": "🤟",
+    "author": "Priya Nair",
+    "authorId": "priya-nair",
+    "description": "ASL fingerspelling recognition using MediaPipe hand landmarks fed into a lightweight LSTM. Runs in real-time at 60fps in the browser via TensorFlow.js.",
+    "category": "CV",
+    "tags": ["MediaPipe", "TensorFlow.js", "LSTM", "WebRTC"],
+    "status": "demo",
+    "date": "2026-01-18"
+  },
+  {
+    "id": "essay-coach",
+    "title": "EssayCoach",
+    "emoji": "✍️",
+    "author": "Aanya Pathak",
+    "authorId": "aanya-pathak",
+    "description": "College essay feedback tool using Claude API with a custom rubric for Westwood's most common prompts. Gives specific, non-generic revision suggestions.",
+    "category": "LLMs",
+    "tags": ["Claude API", "Next.js", "Tailwind", "Vercel"],
+    "status": "active",
+    "link": "https://github.com/westwoodai",
+    "date": "2026-04-28"
+  },
+  {
+    "id": "churn-predictor",
+    "title": "RetentionML",
+    "emoji": "🔄",
+    "author": "Shruti Sivaraman",
+    "authorId": "shruti-sivaraman",
+    "description": "XGBoost pipeline predicting student club drop-off using attendance and engagement signals. Built to help officers identify at-risk members early.",
+    "category": "ML",
+    "tags": ["XGBoost", "scikit-learn", "Pandas", "Streamlit"],
+    "status": "completed",
+    "date": "2025-12-05"
+  },
+  {
+    "id": "doom-rl",
+    "title": "DoomRunner",
+    "emoji": "🎮",
+    "author": "Aarav Karumanchi",
+    "authorId": "aarav-karumanchi",
+    "description": "DQN agent that learned to navigate and survive in Doom's first level purely from pixel inputs. Trained for 72 hours on a borrowed GPU — peaked at 94% episode completion.",
+    "category": "RL",
+    "tags": ["DQN", "ViZDoom", "PyTorch", "CUDA"],
+    "status": "completed",
+    "date": "2026-03-30"
+  }
+]
