@@ -14,7 +14,7 @@ export default function ProjectsPage() {
       <div className="max-w-5xl mx-auto">
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
-            Member Work
+            Stuff people made
           </p>
           <h1
             className="font-serif text-4xl sm:text-5xl text-[#e8e8f0]"
@@ -23,15 +23,15 @@ export default function ProjectsPage() {
             Projects
           </h1>
           <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Things members are building — apps, models, experiments. Want yours
-            here? Share it in #show-and-tell on Discord.
+            Apps, models, half-finished experiments — whatever members are
+            cooking. Want yours up here? Drop it in #show-and-tell.
           </p>
         </div>
 
         {projects.length === 0 ? (
           <EmptyState
-            title="No projects yet"
-            description="Member projects will show up here as people submit them. If you're working on something — finished or not — post it in #show-and-tell on Discord and an officer will add it."
+            title="Nothing here yet"
+            description="Projects show up as people submit them. Got something going? Post it in #show-and-tell — doesn't have to be done — and an officer will add it."
             cta={{
               label: "Open Discord",
               href: "https://discord.gg/7QctqCABR",

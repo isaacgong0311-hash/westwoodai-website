@@ -13,7 +13,7 @@ export default function NextMeetingCard({ config }: NextMeetingCardProps) {
     <div className="border border-[#1e1e2e] rounded-xl p-5">
       <div className="flex items-center justify-between mb-4">
         <span className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest">
-          Next Meeting
+          Up next
         </span>
         {hasMeeting && days !== null && days >= 0 && (
           <span className="font-mono text-[10px] text-[#b69bff]">
@@ -37,7 +37,7 @@ export default function NextMeetingCard({ config }: NextMeetingCardProps) {
       ) : (
         <div className="space-y-3">
           <p className="font-sans text-base text-[#8888aa] leading-snug">
-            Schedule TBD
+            No date set yet
           </p>
           {config.note && (
             <p className="font-sans text-sm text-[#8888aa] leading-relaxed">

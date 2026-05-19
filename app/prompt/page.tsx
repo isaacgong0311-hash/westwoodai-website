@@ -14,7 +14,7 @@ export default function PromptPage() {
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
-            Weekly Challenge
+            Weekly thing
           </p>
           <h1
             className="font-serif text-4xl sm:text-5xl text-[#e8e8f0]"
@@ -23,15 +23,15 @@ export default function PromptPage() {
             Prompt of the Week
           </h1>
           <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Each week, an officer drops a prompt-engineering challenge. Submit
-            your best, vote on others, earn points.
+            Officer posts a prompt challenge. Send in your best one, vote on
+            everyone else&apos;s, rack up points.
           </p>
         </div>
 
         {challenge === null ? (
           <EmptyState
-            title="No active challenge"
-            description="The first Prompt of the Week launches at our kickoff meeting in August. Until then, the page sits empty by design — no fake content."
+            title="Nothing live yet"
+            description="First prompt drops at the kickoff meeting. Page stays empty till then — no filler."
           />
         ) : (
           <div>{/* challenge renders here */}</div>

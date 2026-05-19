@@ -1,8 +1,8 @@
 const items = [
-  { label: "Cadence", value: "Every other week" },
-  { label: "Days", value: "Mon / Wed alternating" },
+  { label: "When", value: "Every other week" },
+  { label: "Days", value: "Mon / Wed (alternating)" },
   { label: "Time", value: "4:30 PM" },
-  { label: "Room", value: "E1307 (Kluge)" },
+  { label: "Where", value: "E1307 · Mr. Kluge" },
 ];
 
 export default function MeetingInfo() {

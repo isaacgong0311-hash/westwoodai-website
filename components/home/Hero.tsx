@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -8,9 +8,19 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-5xl mx-auto">
-        <p className="font-mono text-[11px] text-[#55556a] uppercase tracking-widest mb-5">
-          Westwood High School · Austin, TX
-        </p>
+        <div className="flex items-center gap-4 mb-6">
+          <Image
+            src="/logo.png"
+            alt="Westwood AI Club logo"
+            width={72}
+            height={72}
+            priority
+            className="rounded-full"
+          />
+          <p className="font-mono text-[11px] text-[#55556a] uppercase tracking-widest">
+            Westwood High · Austin, TX
+          </p>
+        </div>
 
         <h1
           className="font-serif text-5xl sm:text-6xl leading-[1.1] tracking-tight text-[#e8e8f0] mb-6 max-w-3xl"
@@ -20,9 +30,9 @@ export default function Hero() {
         </h1>
 
         <p className="font-sans text-base sm:text-lg text-[#8888aa] max-w-2xl leading-relaxed mb-8">
-          A student-run club for learning, building, and competing in AI. We
-          meet every other week in Room E1307. New members welcome — no
-          prerequisites.
+          We&apos;re a bunch of students who like messing around with AI. We meet
+          every other week in Mr. Kluge&apos;s room, build stuff, enter comps,
+          and trade what we&apos;ve been learning. Show up — that&apos;s it.
         </p>
 
         <div className="flex flex-wrap gap-3">
@@ -32,7 +42,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="font-mono text-sm px-5 py-2.5 rounded-lg bg-[#e8e8f0] text-[#0a0a0f] hover:bg-white transition-colors font-medium"
           >
-            Join the Discord
+            Hop in the Discord
           </a>
           <a
             href="https://www.instagram.com/warriorai/"

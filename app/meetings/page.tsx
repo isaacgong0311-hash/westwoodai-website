@@ -35,7 +35,8 @@ export default function MeetingsPage() {
             Meetings
           </h1>
           <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Alternating Mondays and Wednesdays in Mr. Kluge&apos;s room.
+            Mondays and Wednesdays, switching off every week. Mr. Kluge&apos;s
+            room. Snacks sometimes.
           </p>
         </div>
 
@@ -72,8 +73,8 @@ export default function MeetingsPage() {
           </p>
           {past.length === 0 ? (
             <EmptyState
-              title="No meetings logged yet"
-              description="Once the 2026–27 season starts, every meeting will show up here with the topic, presenter, and slides. We don't backfill old meetings — we start fresh each year."
+              title="Nothing logged yet"
+              description="Once the year kicks off, every meeting shows up here with the topic, who ran it, and the slides. We don't backfill old years."
             />
           ) : (
             <div className="border border-[#1e1e2e] rounded-xl divide-y divide-[#1e1e2e]">

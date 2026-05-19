@@ -14,7 +14,7 @@ export default function CompetitionsPage() {
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
-            Internal & External
+            What we&apos;re entering
           </p>
           <h1
             className="font-serif text-4xl sm:text-5xl text-[#e8e8f0]"
@@ -23,17 +23,17 @@ export default function CompetitionsPage() {
             Competitions
           </h1>
           <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Hackathons, datathons, and internal challenges the club is entering.
-            Reach out to Aarav (VP of Competition) on Discord to join a team.
+            Hackathons, datathons, and our own challenges. Want in on a team?
+            Ping Aarav on Discord.
           </p>
         </div>
 
         {competitions.length === 0 ? (
           <EmptyState
-            title="No competitions listed"
-            description="The competition slate for the year goes up after the kickoff meeting. If you've spotted one we should enter, send it to the VP of Competition."
+            title="Nothing on the slate yet"
+            description="We'll line up the year's comps after the kickoff meeting. Spotted one we should hit? Let us know."
             cta={{
-              label: "Email an officer",
+              label: "Email us",
               href: "mailto:wwhs.aiexploration@gmail.com",
             }}
           />

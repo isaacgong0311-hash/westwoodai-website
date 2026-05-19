@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -25,8 +26,14 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#1e1e2e] bg-[#0a0a0f]/85 backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-mono text-[11px] text-[#55556a]">WWHS</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/logo.png"
+            alt="Westwood AI Club"
+            width={28}
+            height={28}
+            className="rounded-full"
+          />
           <span className="font-sans text-sm text-[#e8e8f0]">AI Club</span>
         </Link>
 

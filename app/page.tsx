@@ -14,37 +14,36 @@ const sections = [
     href: "/leaderboard",
     label: "Leaderboard",
     description:
-      "Member rankings by attendance, projects, and competition results. Resets each school year.",
+      "Points for showing up, building stuff, and placing in comps. Starts fresh every year.",
   },
   {
     href: "/projects",
     label: "Projects",
-    description:
-      "What members are building — from RAG apps to RL agents. Submit your own.",
+    description: "Stuff people in the club are making. Add yours when it's ready.",
   },
   {
     href: "/prompt",
     label: "Prompt of the Week",
     description:
-      "A new challenge each week. Submit your best prompt, vote on others'.",
+      "A weekly prompt challenge. Send in your best, vote on the rest.",
   },
   {
     href: "/competitions",
     label: "Competitions",
     description:
-      "Internal challenges and external comps we're entering as a club.",
+      "Hackathons and contests we're jumping into. Grab a teammate.",
   },
   {
     href: "/meetings",
     label: "Meetings",
     description:
-      "Topics, presenters, and slides from past meetings. First entry is the upcoming one.",
+      "What we did each meeting, plus what's next. Slides land here too.",
   },
   {
     href: "/news",
-    label: "News Digest",
+    label: "News",
     description:
-      "Officer-curated weekly summaries of what matters in AI right now.",
+      "Short writeups from officers on AI stuff actually worth your time.",
   },
 ];
 
@@ -67,7 +66,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-2 border border-[#1e1e2e] rounded-xl p-6">
             <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-4">
-              2026–27 Officer Team
+              Officers · 2026–27
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               {members.map((m) => (
@@ -91,7 +90,7 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 pb-20">
         <div className="max-w-5xl mx-auto">
           <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-5">
-            Sections
+            Where to go
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1e1e2e] border border-[#1e1e2e] rounded-xl overflow-hidden">
             {sections.map(({ href, label, description }) => (

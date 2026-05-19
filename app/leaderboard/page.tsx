@@ -24,8 +24,8 @@ export default function LeaderboardPage() {
             Leaderboard
           </h1>
           <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Points earned through attendance, projects, and competitions. Click
-            a column to sort.
+            Show up, build things, place in comps — get points. Click any
+            column to sort.
           </p>
         </div>
 
