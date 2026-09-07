@@ -1,27 +1,31 @@
 "use client";
 
-// Real things from the club's history — not generic AI buzzwords
-const TAGS = [
-  "MIT Sloan Management",
-  "Arctic Wolf",
-  "AutoScheduler.AI",
-  "Spicewood STEAM Day",
-  "Google Colab",
-  "PyTorch",
-  "HERStory Makers",
-  "Kyndryl & IBM",
-  "Baseball Analytics",
-  "Room E1307",
-  "Est. 2019",
-  "Mr. Kluge",
-  "Warriors AI",
-  "Austin TX",
-  "Python",
-  "No Membership Fees",
-  "Open to Everyone",
-];
+interface MarqueeProps {
+  founded: number;
+}
 
-export default function Marquee() {
+export default function Marquee({ founded }: MarqueeProps) {
+  // Real things from the club's history — not generic AI buzzwords
+  const TAGS = [
+    "MIT Sloan Management",
+    "Arctic Wolf",
+    "AutoScheduler.AI",
+    "Spicewood STEAM Day",
+    "Google Colab",
+    "PyTorch",
+    "HERStory Makers",
+    "Kyndryl & IBM",
+    "Baseball Analytics",
+    "Room E1307",
+    `Est. ${founded}`,
+    "Mr. Kluge",
+    "Warriors AI",
+    "Austin TX",
+    "Python",
+    "No Membership Fees",
+    "Open to Everyone",
+  ];
+
   const doubled = [...TAGS, ...TAGS];
   return (
     <div className="relative w-full overflow-hidden py-2.5 border-y border-[#1e1e2e] mb-2">

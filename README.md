@@ -49,12 +49,13 @@ This is the most common update you'll make.
 "stats": {
   "members": 84,
   "projects": 23,
-  "competitions": 11,
-  "yearsRunning": 4
+  "competitions": 11
 }
 ```
 
-Update these at the start of each semester.
+Shown as the animated counter row on the homepage. "Years Running" isn't stored here — it's computed automatically from `"founded"`.
+
+Set `"stats": null` to hide the whole row (e.g. before you have real numbers) instead of showing zeros. Update the real numbers at the start of each semester.
 
 ---
 

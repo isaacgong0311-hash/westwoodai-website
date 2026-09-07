@@ -94,4 +94,9 @@ export interface SiteConfig {
     note: string | null;
   };
   founded: number;
+  stats: {
+    members: number;
+    projects: number;
+    competitions: number;
+  } | null;
 }

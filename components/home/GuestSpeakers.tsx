@@ -54,6 +54,8 @@ const SPEAKERS = [
   },
 ];
 
+const earliestYear = Math.min(...SPEAKERS.map((s) => Number(s.year)));
+
 export default function GuestSpeakers() {
   return (
     <section className="px-4 sm:px-6 pb-14">
@@ -70,7 +72,7 @@ export default function GuestSpeakers() {
           </p>
           <div className="flex-1 h-px bg-[#1e1e2e]" />
           <span className="font-mono text-[10px] text-[#3a3a55]">
-            {SPEAKERS.length} speakers since 2022
+            {SPEAKERS.length} speakers since {earliestYear}
           </span>
         </motion.div>
 

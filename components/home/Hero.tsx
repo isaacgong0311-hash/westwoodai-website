@@ -2,19 +2,28 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
-// Real things this club has done — not generic AI vibes
-const SPECIFICS = [
-  "brought the CTO of MIT Sloan to Room E1307",
-  "presented AI to kids at Spicewood STEAM Day",
-  "had a VP of AI walk through cybersecurity",
-  "shipped projects to hackathons across Texas",
-  "been running since 2019 — six years strong",
-  "taught Python to students with zero CS background",
-];
+interface HeroProps {
+  founded: number;
+}
 
-export default function Hero() {
+export default function Hero({ founded }: HeroProps) {
+  const yearsRunning = new Date().getFullYear() - founded;
+
+  // Real things this club has done — not generic AI vibes
+  const SPECIFICS = useMemo(
+    () => [
+      "brought the CTO of MIT Sloan to Room E1307",
+      "presented AI to kids at Spicewood STEAM Day",
+      "had a VP of AI walk through cybersecurity",
+      "shipped projects to hackathons across Texas",
+      `been running since ${founded} — ${yearsRunning} year${yearsRunning === 1 ? "" : "s"} strong`,
+      "taught Python to students with zero CS background",
+    ],
+    [founded, yearsRunning]
+  );
+
   const [idx, setIdx] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [phase, setPhase] = useState<"typing" | "waiting" | "deleting">("typing");
@@ -34,12 +43,14 @@ export default function Hero() {
       if (displayed.length > 0) {
         t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 20);
       } else {
-        setPhase("typing");
-        setIdx((i) => (i + 1) % SPECIFICS.length);
+        t = setTimeout(() => {
+          setPhase("typing");
+          setIdx((i) => (i + 1) % SPECIFICS.length);
+        }, 0);
       }
     }
     return () => clearTimeout(t);
-  }, [displayed, phase, idx]);
+  }, [displayed, phase, idx, SPECIFICS]);
 
   return (
     <section className="relative pt-16 pb-14 px-4 sm:px-6 overflow-hidden">
@@ -62,7 +73,7 @@ export default function Hero() {
             Westwood HS · Austin, TX
           </span>
           <span className="font-mono text-[10px] text-[#3a3a55]">·</span>
-          <span className="font-mono text-[10px] text-[#55556a]">Est. 2019 · Room E1307 · Mr. Kluge</span>
+          <span className="font-mono text-[10px] text-[#55556a]">Est. {founded} · Room E1307 · Mr. Kluge</span>
         </motion.div>
 
         {/* Logo + Title */}
@@ -103,7 +114,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.22 }}
           className="flex items-start gap-2 mb-5 min-h-[2.5rem]"
         >
-          <span className="font-mono text-base text-[#55556a] mt-0.5 flex-shrink-0">we've</span>
+          <span className="font-mono text-base text-[#55556a] mt-0.5 flex-shrink-0">we&apos;ve</span>
           <span className="font-mono text-base text-[#c8c8e0] leading-tight">
             {displayed}
             <span className="cursor-blink inline-block w-0.5 h-4 bg-[#7ea3d8] align-middle ml-0.5" />

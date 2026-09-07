@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import type { SiteConfig } from "@/lib/types";
 
-const STATS = [
-  { value: 84, label: "Members", suffix: "+", color: "#b69bff" },
-  { value: 23, label: "Projects Built", suffix: "", color: "#6ee7ff" },
-  { value: 11, label: "Competitions", suffix: "", color: "#00ff88" },
-  { value: 4, label: "Years Running", suffix: "", color: "#c47855" },
-];
+interface StatEntry {
+  value: number;
+  label: string;
+  suffix: string;
+  color: string;
+}
 
 function useCountUp(target: number, duration: number, active: boolean) {
   const [count, setCount] = useState(0);
@@ -30,7 +31,7 @@ function useCountUp(target: number, duration: number, active: boolean) {
 
 function StatCard({
   value, label, suffix, color, delay,
-}: (typeof STATS)[0] & { delay: number }) {
+}: StatEntry & { delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const count = useCountUp(value, 1.6, visible);
@@ -82,7 +83,24 @@ function StatCard({
   );
 }
 
-export default function Stats() {
+interface StatsProps {
+  stats: SiteConfig["stats"];
+  founded: number;
+}
+
+export default function Stats({ stats, founded }: StatsProps) {
+  // No published numbers yet — say nothing rather than show zeros or made-up figures.
+  if (!stats) return null;
+
+  const yearsRunning = new Date().getFullYear() - founded;
+
+  const STATS: StatEntry[] = [
+    { value: stats.members, label: "Members", suffix: "+", color: "#b69bff" },
+    { value: stats.projects, label: "Projects Built", suffix: "", color: "#6ee7ff" },
+    { value: stats.competitions, label: "Competitions", suffix: "", color: "#00ff88" },
+    { value: yearsRunning, label: "Years Running", suffix: "", color: "#c47855" },
+  ];
+
   return (
     <section className="px-4 sm:px-6 pb-12">
       <div className="max-w-5xl mx-auto">

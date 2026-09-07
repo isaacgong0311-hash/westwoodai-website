@@ -4,6 +4,7 @@ import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import { SITE_URL } from "@/lib/site";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Westwood AI Club",
   description:
     "Westwood High School's AI Club. Students messing around with AI in Austin, TX.",

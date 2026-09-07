@@ -62,11 +62,11 @@ const HISTORY = [
 export default function HomePage() {
   return (
     <div>
-      <Hero />
-      <Marquee />
+      <Hero founded={config.founded} />
+      <Marquee founded={config.founded} />
 
       {/* Stats */}
-      <Stats />
+      <Stats stats={config.stats} founded={config.founded} />
 
       {/* Meeting info */}
       <section className="px-4 sm:px-6 pb-10">
