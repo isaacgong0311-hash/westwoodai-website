@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -16,12 +16,6 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -49,14 +43,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${geist.variable} ${instrumentSerif.variable} h-full`}
     >
-      <body
-        className="min-h-full flex flex-col"
-        style={{ fontFamily: "var(--font-geist-sans)" }}
-      >
+      <body className="min-h-full flex flex-col font-sans">
+        <a
+          href="#main"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:px-4 focus-visible:py-2 focus-visible:bg-ink focus-visible:text-paper focus-visible:rounded"
+        >
+          Skip to content
+        </a>
         <Nav />
-        <main className="flex-1 relative z-10">{children}</main>
+        <main id="main" className="flex-1 relative z-10">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
