@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Westwood AI Club",
   description:
-    "Westwood High School's AI Club. Students messing around with AI in Austin, TX.",
+    "Westwood High School's student-run AI club. Meetings, guest speakers, and projects in Austin, TX.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
     title: "Westwood AI Club",
-    description: "Students messing around with AI in Austin, TX.",
+    description: "Westwood High School's student-run AI club in Austin, TX.",
     siteName: "Westwood AI Club",
     images: ["/logo.png"],
   },

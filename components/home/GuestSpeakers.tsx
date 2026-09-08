@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const SPEAKERS = [
   {
@@ -58,60 +56,28 @@ const earliestYear = Math.min(...SPEAKERS.map((s) => Number(s.year)));
 
 export default function GuestSpeakers() {
   return (
-    <section className="px-4 sm:px-6 pb-14">
+    <section id="speakers" className="px-4 sm:px-6 pb-14 scroll-mt-20">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.45 }}
-          className="flex items-center gap-3 mb-5"
-        >
-          <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest">
-            Guest Speakers
-          </p>
-          <div className="flex-1 h-px bg-[#1e1e2e]" />
-          <span className="font-mono text-[10px] text-[#3a3a55]">
-            {SPEAKERS.length} speakers since {earliestYear}
-          </span>
-        </motion.div>
-
-        {/* Horizontal scroll on mobile, grid on desktop */}
-        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 pb-2">
-          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 w-max sm:w-auto">
-            {SPEAKERS.map((s, i) => (
-              <motion.div
-                key={s.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="w-56 sm:w-auto flex-shrink-0 border border-[#1e1e2e] rounded-xl p-4 bg-[#0a0a0f] hover:bg-[#0d0d14] hover:border-[#2e2e45] transition-all duration-200 group"
-              >
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <div className="w-7 h-7 rounded-full border border-[#2e2e45] bg-[#111118] flex items-center justify-center flex-shrink-0">
-                    <span className="font-mono text-[10px] text-[#55556a]">
-                      {s.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                    </span>
-                  </div>
-                  <span className="font-mono text-[10px] text-[#3a3a55]">{s.year}</span>
-                </div>
-                <p className="font-sans text-sm text-[#e8e8f0] leading-snug mb-1 group-hover:text-white transition-colors">
-                  {s.name}
+        <SectionHeader
+          title="Guest speakers"
+          count={`${SPEAKERS.length} since ${earliestYear}`}
+        />
+        <div>
+          {SPEAKERS.map((s) => (
+            <div key={s.name} className="flex gap-6 py-4 border-b border-rule last:border-b-0 items-baseline">
+              <span className="w-12 flex-shrink-0 text-sm text-ink-muted">{s.year}</span>
+              <div>
+                <h3 className="text-base text-ink">{s.name}</h3>
+                <p className="text-sm text-ink-muted mt-0.5">
+                  {s.title}, {s.org}
                 </p>
-                <p className="font-mono text-[10px] text-[#7ea3d8] mb-2">
-                  {s.title} · {s.org}
-                </p>
-                <p className="font-sans text-xs text-[#55556a] leading-snug italic">
+                <p className="font-serif text-lg italic text-ink mt-1">
                   &ldquo;{s.topic}&rdquo;
                 </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <p className="mt-3 font-mono text-[10px] text-[#3a3a55]">
-          Scroll → on mobile
-        </p>
       </div>
     </section>
   );

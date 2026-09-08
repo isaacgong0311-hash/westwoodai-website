@@ -11,23 +11,18 @@ const breakdown = [
 
 export default function PointsBreakdown() {
   return (
-    <div className="border border-[#1e1e2e] rounded-xl overflow-hidden">
-      <div className="px-5 py-4 border-b border-[#1e1e2e]">
-        <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest">
-          How points work
-        </p>
-      </div>
-      <div className="divide-y divide-[#1e1e2e]">
+    <div>
+      <h2 className="text-xs uppercase tracking-wider text-ink-muted border-b border-rule pb-3 mb-2">
+        How points work
+      </h2>
+      <div className="divide-y divide-rule">
         {breakdown.map(({ category, points, note }) => (
-          <div
-            key={category}
-            className="px-5 py-3 flex items-center justify-between"
-          >
+          <div key={category} className="py-3 flex items-center justify-between gap-3">
             <div>
-              <p className="font-sans text-sm text-[#e8e8f0]">{category}</p>
-              <p className="font-mono text-[10px] text-[#55556a]">{note}</p>
+              <p className="text-sm text-ink">{category}</p>
+              <p className="text-xs text-ink-muted">{note}</p>
             </div>
-            <span className="font-mono text-sm text-[#8888aa]">+{points}</span>
+            <span className="text-sm text-ink-muted tabular-nums">+{points}</span>
           </div>
         ))}
       </div>

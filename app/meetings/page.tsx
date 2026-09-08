@@ -1,6 +1,8 @@
 import meetingsData from "@/data/meetings.json";
 import type { Meeting } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
+import PageHeader from "@/components/ui/PageHeader";
+import Panel from "@/components/ui/Panel";
 import { formatDate } from "@/lib/utils";
 
 const meetings = meetingsData as Meeting[];
@@ -24,78 +26,51 @@ export default function MeetingsPage() {
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
-            Every other week · 4:30 PM · Room E1307
-          </p>
-          <h1
-            className="font-serif text-4xl sm:text-5xl text-[#e8e8f0]"
-            style={{ fontFamily: "var(--font-instrument-serif)" }}
-          >
-            Meetings
-          </h1>
-          <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Mondays and Wednesdays, switching off every week. Mr. Kluge&apos;s
-            room. Snacks sometimes.
-          </p>
-        </div>
+        <PageHeader
+          eyebrow="Every other week · 4:30 PM · Room E1307"
+          title="Meetings"
+          description="Meetings alternate Mondays and Wednesdays in Mr. Kluge's room."
+        />
 
         {upcoming && (
-          <div className="mb-8">
-            <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-3">
-              Next Up
-            </p>
-            <div className="border border-[#1e1e2e] rounded-xl p-5">
-              <p className="font-mono text-[11px] text-[#b69bff] uppercase tracking-wider mb-2">
+          <div className="mb-10">
+            <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-3">Next up</h2>
+            <Panel raised className="p-5">
+              <p className="text-xs uppercase tracking-wider text-accent mb-2">
                 {typeLabels[upcoming.type]}
               </p>
-              <h3 className="font-sans text-lg text-[#e8e8f0] mb-1">
-                {upcoming.topic}
-              </h3>
-              <p className="font-mono text-xs text-[#8888aa]">
-                {upcoming.presenter}
-              </p>
-              <p className="font-mono text-xs text-[#55556a] mt-1">
+              <h3 className="text-lg text-ink mb-1">{upcoming.topic}</h3>
+              <p className="text-sm text-ink-muted">{upcoming.presenter}</p>
+              <p className="text-sm text-ink-muted mt-1">
                 {upcoming.date ? formatDate(upcoming.date) : "Date TBD"}
               </p>
               {upcoming.notes && (
-                <p className="font-sans text-sm text-[#8888aa] mt-3 leading-relaxed">
-                  {upcoming.notes}
-                </p>
+                <p className="text-sm leading-relaxed text-ink mt-3">{upcoming.notes}</p>
               )}
-            </div>
+            </Panel>
           </div>
         )}
 
         <div>
-          <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-3">
-            Archive
-          </p>
+          <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-3">Archive</h2>
           {past.length === 0 ? (
             <EmptyState
               title="Nothing logged yet"
-              description="Once the year kicks off, every meeting shows up here with the topic, who ran it, and the slides. We don't backfill old years."
+              description="Once the year starts, every meeting will be listed here with the topic, presenter, and slides."
             />
           ) : (
-            <div className="border border-[#1e1e2e] rounded-xl divide-y divide-[#1e1e2e]">
+            <div className="divide-y divide-rule">
               {past.map((m) => (
-                <div
-                  key={m.id}
-                  className="px-5 py-4 flex items-start justify-between gap-4"
-                >
+                <div key={m.id} className="py-4 flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <p className="font-mono text-[10px] text-[#b69bff] uppercase tracking-wider mb-1">
+                    <p className="text-xs uppercase tracking-wider text-accent mb-1">
                       {typeLabels[m.type]}
                     </p>
-                    <p className="font-sans text-sm text-[#e8e8f0]">
-                      {m.topic}
-                    </p>
-                    <p className="font-mono text-[11px] text-[#55556a] mt-0.5">
-                      {m.presenter}
-                    </p>
+                    <p className="text-sm text-ink">{m.topic}</p>
+                    <p className="text-sm text-ink-muted mt-0.5">{m.presenter}</p>
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="font-mono text-[11px] text-[#55556a]">
+                    <p className="text-sm text-ink-muted">
                       {m.date ? formatDate(m.date) : "TBD"}
                     </p>
                     {m.slidesUrl && (
@@ -103,7 +78,7 @@ export default function MeetingsPage() {
                         href={m.slidesUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-[11px] text-[#8888aa] hover:text-[#e8e8f0] transition-colors"
+                        className="text-sm text-ink-muted hover:text-ink"
                       >
                         Slides ↗
                       </a>

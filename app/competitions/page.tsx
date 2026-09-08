@@ -1,7 +1,7 @@
 import competitionsData from "@/data/competitions.json";
 import type { Competition } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
-import Reveal from "@/components/ui/Reveal";
+import PageHeader from "@/components/ui/PageHeader";
 
 const competitions = competitionsData as Competition[];
 
@@ -13,37 +13,23 @@ export default function CompetitionsPage() {
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
-        <Reveal>
-        <div className="mb-8">
-          <p className="font-mono text-[10px] text-[#55556a] uppercase tracking-widest mb-2">
-            What we&apos;re entering
-          </p>
-          <h1
-            className="font-serif text-4xl sm:text-5xl text-[#e8e8f0]"
-            style={{ fontFamily: "var(--font-instrument-serif)" }}
-          >
-            Competitions
-          </h1>
-          <p className="font-sans text-[#8888aa] mt-3 text-sm max-w-xl leading-relaxed">
-            Hackathons, datathons, and our own challenges. Want in on a team?
-            Ping Aarav on Discord.
-          </p>
-        </div>
-        </Reveal>
+        <PageHeader
+          eyebrow="What we're entering"
+          title="Competitions"
+          description="Hackathons, datathons, and challenges we're entering as a club."
+        />
 
         {competitions.length === 0 ? (
-          <Reveal delay={0.1}>
           <EmptyState
-            title="Nothing on the slate yet"
-            description="We'll line up the year's comps after the kickoff meeting. Spotted one we should hit? Let us know."
+            title="Nothing scheduled yet"
+            description="We'll add competitions after the kickoff meeting. Know of one we should enter? Let us know."
             cta={{
               label: "Email us",
               href: "mailto:wwhs.aiexploration@gmail.com",
             }}
           />
-          </Reveal>
         ) : (
-          <div>{/* list renders here */}</div>
+          <div>{/* list renders here once competitions.json has entries */}</div>
         )}
       </div>
     </div>
