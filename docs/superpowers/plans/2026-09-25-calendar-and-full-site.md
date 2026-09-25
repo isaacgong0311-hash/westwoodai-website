@@ -1,5 +1,7 @@
 # Westwood AI Club site — work plan to "fully functional"
 
+> **Status (2026-09-25):** all three phases implemented on `feat/calendar-and-pages`. Deviations from the text below: Phase 3 signs the service-account JWT with `node:crypto` instead of adding `google-auth-library`; the leaderboard relies on page-level ISR (`revalidate = 900`) rather than a cache wrapper. Remaining work is the Google setup in README (calendar, form, sheet, env vars), which needs the club's Google account.
+
 ## Context
 
 The site (`westwood-ai/`, Next.js 16.2 App Router, Tailwind v4, deployed to Vercel project `westwoodai-website2`) is a good-looking shell but mostly static:

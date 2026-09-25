@@ -49,7 +49,7 @@ export default async function HomePage() {
       <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-1">
-            <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} />
+            <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} checkinUrl={config.checkinUrl} />
             {rest.length > 0 && (
               <div className="mt-8">
                 <p className="text-xs uppercase tracking-wider text-ink-muted mb-1">Also coming up</p>

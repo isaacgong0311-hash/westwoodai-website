@@ -69,21 +69,39 @@ Fallbacks for when nothing is on the calendar: default `time`, `room`, `teacher`
 
 ---
 
-### Leaderboard — `data/members.json`
+### Leaderboard — Google Form + Sheet
 
-```json
-{
-  "id": "first-last",
-  "name": "First Last",
-  "role": "Member",
-  "attendance": 5,
-  "projects": 1,
-  "competitions": 0,
-  "points": 200
-}
-```
+Points are tallied automatically from one **private** Google Sheet (owned by the club Gmail). The site reads it every ~15 minutes. Until it's set up, the page shows `data/members.json` instead.
 
-The table sorts automatically. Just update `"points"` (and the sub-counts) after each meeting. Point values live in `lib/points.ts`.
+**The sheet needs three tabs, named exactly:**
+
+| Tab | Columns (row 1 headers) | Who fills it |
+|---|---|---|
+| `Roster` | `id` · `name` · `role` · `email` (optional) · `show full name` (optional, `TRUE`) | Officers, once per new member |
+| `Checkins` | Created by the Google Form — `Timestamp`, `Name`, … | The form, automatically |
+| `Awards` | `member id` · `category` · `date` · `note` | Officers, when someone earns points |
+
+- **`role`**: `Member` or an officer title. For privacy (most members are minors), members show as "First L." unless `show full name` is `TRUE`; officers always show full names.
+- **`category`** in Awards is one of: `project`, `projectDemo`, `competitionEntry`, `competitionPlacement`, `promptEntry`, `promptWinner`, `lesson` (or the label shown on the leaderboard, e.g. "Competition entry"). Point values are in `lib/points.ts`. Tip: add a dropdown (Data → Data validation) so nobody typos it.
+
+**Check-in form:**
+
+1. Create a Google Form with a **Name** question (dropdown of names from the Roster works best) and a **Code** short-answer question.
+2. On the Code question: ⋮ → **Response validation** → Text → *is equal to* → today's code. **Change the code every meeting** and say it out loud in the room.
+3. If the school's Google Workspace allows it, turn on **Collect email addresses** (verified) and fill the Roster's `email` column — check-ins then match by email, which stops people checking in friends.
+4. Responses → **Link to Sheets** → pick the leaderboard sheet, then rename the new tab to `Checkins`.
+5. Put the form's link in `data/config.json` as `"checkinUrl"` — a "Check in" button then appears on the homepage on meeting days.
+
+A check-in counts once per person per day, and only on days that have a club event on the Google Calendar (so an old code can't be reused on a random Tuesday).
+
+**One-time setup** (free):
+
+1. Sheet: File → Settings → **Time zone: (GMT-06:00) Central Time**.
+2. [Google Cloud Console](https://console.cloud.google.com/), same project as the calendar: enable the **Google Sheets API** → IAM & Admin → Service Accounts → **Create service account** (no roles needed) → Keys → Add key → **JSON**. A file downloads.
+3. Share the sheet with the service account's email (`…@….iam.gserviceaccount.com`) as **Viewer**.
+4. In Vercel env vars add `LEADERBOARD_SHEET_ID` (the long ID in the sheet's URL, between `/d/` and `/edit`) and `GOOGLE_SERVICE_ACCOUNT_KEY` (paste the entire JSON file's contents). Redeploy. Treat that JSON like a password — never commit it.
+
+`data/members.json` is still used for the officer list on the homepage.
 
 ---
 

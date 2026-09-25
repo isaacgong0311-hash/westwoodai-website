@@ -9,9 +9,10 @@ interface NextMeetingCardProps {
   event: ClubEvent | null;
   /** Room/teacher/note fallbacks from data/config.json. */
   defaults: SiteConfig["nextMeeting"];
+  checkinUrl: SiteConfig["checkinUrl"];
 }
 
-export default function NextMeetingCard({ event, defaults }: NextMeetingCardProps) {
+export default function NextMeetingCard({ event, defaults, checkinUrl }: NextMeetingCardProps) {
   const days = event ? daysUntil(eventStartKey(event)) : null;
 
   return (
@@ -62,9 +63,21 @@ export default function NextMeetingCard({ event, defaults }: NextMeetingCardProp
         </div>
       )}
 
-      <Link href="/calendar" className="inline-block text-sm text-accent hover:text-ink mt-5">
-        Full calendar &rarr;
-      </Link>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5">
+        {days === 0 && checkinUrl && (
+          <a
+            href={checkinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm bg-ink text-paper hover:bg-accent px-3 py-1.5"
+          >
+            Check in ↗
+          </a>
+        )}
+        <Link href="/calendar" className="text-sm text-accent hover:text-ink">
+          Full calendar &rarr;
+        </Link>
+      </div>
     </Panel>
   );
 }

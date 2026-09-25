@@ -12,13 +12,17 @@ export const POINTS = {
   lesson: 100,
 } as const;
 
-export const POINTS_BREAKDOWN = [
-  { category: "Meeting attendance", points: POINTS.attendance, note: "per meeting" },
-  { category: "Project submission", points: POINTS.project, note: "per project" },
-  { category: "Project demo", points: POINTS.projectDemo, note: "at a showcase" },
-  { category: "Competition entry", points: POINTS.competitionEntry, note: "per competition" },
-  { category: "Competition placement", points: POINTS.competitionPlacement, note: "top 3 finish" },
-  { category: "Prompt entry", points: POINTS.promptEntry, note: "per submission" },
-  { category: "Prompt winner", points: POINTS.promptWinner, note: "most upvotes" },
-  { category: "Lesson delivery", points: POINTS.lesson, note: "presenting" },
+export type PointKey = keyof typeof POINTS;
+
+// `key` is also what officers type in the leaderboard sheet's Awards tab
+// (the `category` label works too).
+export const POINTS_BREAKDOWN: { key: PointKey; category: string; points: number; note: string }[] = [
+  { key: "attendance", category: "Meeting attendance", points: POINTS.attendance, note: "per meeting" },
+  { key: "project", category: "Project submission", points: POINTS.project, note: "per project" },
+  { key: "projectDemo", category: "Project demo", points: POINTS.projectDemo, note: "at a showcase" },
+  { key: "competitionEntry", category: "Competition entry", points: POINTS.competitionEntry, note: "per competition" },
+  { key: "competitionPlacement", category: "Competition placement", points: POINTS.competitionPlacement, note: "top 3 finish" },
+  { key: "promptEntry", category: "Prompt entry", points: POINTS.promptEntry, note: "per submission" },
+  { key: "promptWinner", category: "Prompt winner", points: POINTS.promptWinner, note: "most upvotes" },
+  { key: "lesson", category: "Lesson delivery", points: POINTS.lesson, note: "presenting" },
 ];
