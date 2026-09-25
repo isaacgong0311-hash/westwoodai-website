@@ -25,15 +25,32 @@ export interface Project {
   date: string;
 }
 
-export interface Meeting {
+export type EventType =
+  | "meeting"
+  | "speaker"
+  | "workshop"
+  | "competition"
+  | "social"
+  | "deadline";
+
+/**
+ * One event from the club's Google Calendar (see lib/calendar.ts), normalized.
+ * `start`/`end` are ISO datetimes for timed events, or bare "YYYY-MM-DD"
+ * strings for all-day events — in which case `end` is exclusive, the way
+ * Google stores it (a one-day event on Oct 5 has end "2026-10-06").
+ */
+export interface ClubEvent {
   id: string;
-  date: string | null;
-  topic: string;
-  presenter: string;
-  type: "lesson" | "speaker" | "workshop" | "competition" | "social";
+  title: string;
+  type: EventType;
+  start: string;
+  end: string;
+  allDay: boolean;
+  location?: string;
+  presenter?: string;
   slidesUrl?: string;
-  notes?: string;
-  isUpcoming?: boolean;
+  description?: string;
+  htmlLink?: string;
 }
 
 export interface Competition {
@@ -85,12 +102,12 @@ export interface PromptEntry {
 }
 
 export interface SiteConfig {
+  // Fallbacks for when the calendar has nothing scheduled (or an event has
+  // no location). Actual dates live in Google Calendar, not here.
   nextMeeting: {
-    date: string | null;
     time: string;
     room: string;
     teacher: string;
-    topic: string | null;
     note: string | null;
   };
   founded: number;

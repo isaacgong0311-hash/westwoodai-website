@@ -1,7 +1,7 @@
 # Westwood AI Club Website
 
-Built with Next.js 16, TypeScript, Tailwind CSS, and Framer Motion.  
-Deployed on Vercel. All content is in `/data/*.json` — no database needed.
+Built with Next.js 16, TypeScript, and Tailwind CSS. Deployed on Vercel.  
+Events come from the club's **Google Calendar**; everything else is in `/data/*.json` — no database needed.
 
 ---
 
@@ -23,44 +23,47 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ---
 
-### Next meeting — `data/config.json`
+### Events & meetings — Google Calendar
 
-This is the most common update you'll make.
+The Calendar page, the homepage "Up next" card, and the past-meetings archive
+all read from the club's public Google Calendar. **Officers never need to touch
+code or redeploy** — add or edit an event in Google Calendar and the site
+updates within ~15 minutes.
 
-```json
-"nextMeeting": {
-  "date": "2026-09-08",   ← YYYY-MM-DD format, or null if TBD
-  "time": "4:30 PM",
-  "room": "E1307",
-  "teacher": "Mr. Kluge",
-  "topic": "Fall Kickoff", ← null if not decided yet
-  "note": null             ← Only shown when date is null
-}
+**Adding an event:**
+
+- **Title** → the topic ("Intro to Neural Networks")
+- **Location** → the room ("E1307"). Leave blank to use the default room from `data/config.json`.
+- **Recurring meetings** → use Google's "Repeat" (e.g. every 2 weeks). Edit or cancel one date without affecting the rest.
+- **Description** → optional `key: value` lines at the very top, then anything you want people to read:
+
+```
+type: speaker
+presenter: Dr. Dean Teffer, Arctic Wolf
+slides: https://docs.google.com/presentation/d/...
+
+Bring questions! We'll have pizza.
 ```
 
-- Set `"date": null` before you know the schedule — the card shows "TBD" with the note.
-- Set `"date"` to the real date once you know it.
+| Key | Values | Default |
+|---|---|---|
+| `type` | `meeting` · `speaker` · `workshop` · `competition` · `social` · `deadline` | `meeting` |
+| `presenter` | any text | — |
+| `slides` | a link — shows a "Slides" button (add it after the meeting too) | — |
 
----
+Events marked **Private** in Google Calendar are hidden from the site.
 
-### Meetings archive — `data/meetings.json`
+**One-time setup** (already done if the calendar shows events):
 
-```json
-{
-  "id": "meet-19",
-  "date": "2026-09-08",        ← null for TBD
-  "topic": "Intro to Neural Networks",
-  "presenter": "Shruti Sivaraman",
-  "type": "lesson",            ← lesson | speaker | workshop | competition | social
-  "slidesUrl": "https://...",  ← null if no slides
-  "notes": "Brief recap.",
-  "isUpcoming": true           ← true = shown as "Next Up". Only one should be true.
-}
-```
+1. From the club Gmail, create a calendar named "Westwood AI Club". In its settings, tick **Make available to public**, and share it with officers ("Make changes to events").
+2. In [Google Cloud Console](https://console.cloud.google.com/) (free): create a project → enable the **Google Calendar API** → Credentials → **Create API key** → restrict it to the Calendar API.
+3. In Vercel → Project → Settings → Environment Variables, add `GOOGLE_CALENDAR_ID` (calendar settings → "Integrate calendar" → Calendar ID) and `GOOGLE_CALENDAR_API_KEY`. Redeploy once. For local dev: `vercel env pull .env.local` (see `.env.example`).
 
-**To add a new meeting:**
-1. Find the current upcoming entry, change `"isUpcoming": false`
-2. Add a new object at the top of the array with `"isUpcoming": true`
+If those variables are missing or Google is unreachable, the site still builds and shows "Schedule coming soon".
+
+### Meeting defaults — `data/config.json`
+
+Fallbacks for when nothing is on the calendar: default `time`, `room`, `teacher`, and a `note` shown while the schedule is TBD.
 
 ---
 
@@ -186,7 +189,7 @@ Vercel dashboard → your project → Settings → Domains.
 | Next.js 16 (App Router) | Framework |
 | TypeScript | Type safety |
 | Tailwind CSS v4 | Styling |
-| Framer Motion | Animations |
+| Google Calendar API | Events |
 | Vercel | Hosting |
 
 **Upgrading to a real database later:** all TypeScript interfaces are in `/lib/types.ts`. When you switch to Supabase, replace the JSON imports in each `app/*/page.tsx` with async fetch calls — the component code stays the same.

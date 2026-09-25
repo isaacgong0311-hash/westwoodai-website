@@ -9,6 +9,7 @@ const socials = [
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/calendar", label: "Calendar" },
   { href: "/#speakers", label: "Speakers" },
   { href: "/leaderboard", label: "Leaderboard" },
 ];

@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/calendar", label: "Calendar" },
   { href: "/#speakers", label: "Speakers" },
   { href: "/leaderboard", label: "Leaderboard" },
 ];
@@ -17,6 +18,7 @@ export default function Nav() {
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
+    if (href === "/calendar") return pathname.startsWith("/calendar");
     if (href === "/leaderboard") return pathname.startsWith("/leaderboard");
     return false;
   }

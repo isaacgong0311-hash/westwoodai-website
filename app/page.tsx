@@ -3,6 +3,8 @@ import MeetingInfo from "@/components/home/MeetingInfo";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
 import SectionHeader from "@/components/ui/SectionHeader";
+import AgendaList from "@/components/calendar/AgendaList";
+import { getUpcomingEvents } from "@/lib/calendar";
 import configData from "@/data/config.json";
 import membersData from "@/data/members.json";
 import type { SiteConfig, Member } from "@/lib/types";
@@ -10,11 +12,11 @@ import type { SiteConfig, Member } from "@/lib/types";
 const config = configData as SiteConfig;
 const members = membersData as Member[];
 
-// The homepage is statically prerendered, but NextMeetingCard's "in N days"
-// badge is computed from `new Date()` at render time — without revalidation
-// that value would be baked in at build time and never update again. An
-// hourly regen is more than enough freshness for a day-granularity countdown.
-export const revalidate = 3600;
+// The homepage is statically prerendered, but the next meeting comes from
+// Google Calendar and NextMeetingCard's "in N days" badge is computed from
+// `new Date()` at render time — regenerate every 15 minutes (matching the
+// calendar fetch cache in lib/calendar.ts) so both stay current.
+export const revalidate = 900;
 
 // Club history — pulled from Google Sites officer page
 const HISTORY = [
@@ -28,7 +30,12 @@ const HISTORY = [
   { year: "2019–20", president: "Aarya Agarwal" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const upcoming = await getUpcomingEvents();
+  // The card is for the next time the club meets; deadlines go in the list below it.
+  const cardEvent = upcoming.find((e) => e.type !== "deadline") ?? null;
+  const rest = upcoming.filter((e) => e !== cardEvent).slice(0, 3);
+
   return (
     <div>
       <Hero founded={config.founded} />
@@ -42,7 +49,13 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-1">
-            <NextMeetingCard config={config.nextMeeting} />
+            <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} />
+            {rest.length > 0 && (
+              <div className="mt-8">
+                <p className="text-xs uppercase tracking-wider text-ink-muted mb-1">Also coming up</p>
+                <AgendaList events={rest} groupByMonth={false} />
+              </div>
+            )}
           </div>
 
           <div className="lg:col-span-2">

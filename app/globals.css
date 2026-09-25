@@ -23,6 +23,15 @@
   --color-rule: #e3ddd2;
   --color-accent: #a85826;
 
+  /* Event-type dots on the calendar. Decorative — the type is always also
+     written out as text wherever it matters (agenda rows, event pages). */
+  --color-event-meeting: #a85826;
+  --color-event-speaker: #3f6b4f;
+  --color-event-workshop: #3b5f8a;
+  --color-event-competition: #7a4a7e;
+  --color-event-social: #9a7b1f;
+  --color-event-deadline: #a33a2a;
+
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), Georgia, serif;
 }
