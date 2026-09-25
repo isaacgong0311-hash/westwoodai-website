@@ -51,6 +51,8 @@ export interface ClubEvent {
   slidesUrl?: string;
   description?: string;
   htmlLink?: string;
+  /** An on-site page with more detail (e.g. /competitions for a deadline). */
+  related?: { label: string; href: string };
 }
 
 export interface Competition {

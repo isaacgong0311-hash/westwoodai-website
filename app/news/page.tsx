@@ -1,15 +1,17 @@
-import newsData from "@/data/news.json";
-import type { NewsItem } from "@/lib/types";
+import type { Metadata } from "next";
 import EmptyState from "@/components/ui/EmptyState";
 import PageHeader from "@/components/ui/PageHeader";
+import Tag from "@/components/ui/Tag";
+import { news } from "@/lib/content";
+import { formatShortDate } from "@/lib/utils";
 
-const news = newsData as NewsItem[];
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "News — Westwood AI Club",
 };
 
 export default function NewsPage() {
+  const sorted = [...news].sort((a, b) => b.date.localeCompare(a.date));
+
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
@@ -25,7 +27,34 @@ export default function NewsPage() {
             description="The first posts go up in September."
           />
         ) : (
-          <div>{/* news cards render here once news.json has entries */}</div>
+          <div className="divide-y divide-rule border-t border-rule">
+            {sorted.map((item) => (
+              <article key={item.id} className="py-8">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-ink-muted mb-2">
+                  <span>{formatShortDate(item.date)}</span>
+                  <span>&middot;</span>
+                  <span>{item.category}</span>
+                  {item.hot && <Tag tone="accent">Hot</Tag>}
+                </div>
+                <h2 className="font-serif text-2xl font-normal text-ink leading-tight mb-1">
+                  <a
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent"
+                  >
+                    {item.title}
+                  </a>
+                </h2>
+                <p className="text-sm text-ink-muted mb-4">{item.source} ↗</p>
+                <p className="text-sm leading-relaxed text-ink mb-5">{item.summary}</p>
+                <blockquote className="border-l-2 border-accent pl-4">
+                  <p className="font-serif italic text-lg leading-snug text-ink">{item.officerTake}</p>
+                  <footer className="text-xs text-ink-muted mt-2">&mdash; {item.officer}</footer>
+                </blockquote>
+              </article>
+            ))}
+          </div>
         )}
       </div>
     </div>

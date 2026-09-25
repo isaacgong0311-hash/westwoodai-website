@@ -7,7 +7,7 @@ import Panel from "@/components/ui/Panel";
 import configData from "@/data/config.json";
 import { getEvent } from "@/lib/calendar";
 import { EVENT_TYPES, formatEventWhen, googleAddLink, isPast } from "@/lib/events";
-import type { SiteConfig } from "@/lib/types";
+import type { ClubEvent, SiteConfig } from "@/lib/types";
 
 const config = configData as SiteConfig;
 
@@ -15,13 +15,19 @@ export const revalidate = 900;
 
 type Props = { params: Promise<{ id: string }> };
 
+/** The event's location, else the usual room — except deadlines, which don't happen anywhere. */
+function eventLocation(event: ClubEvent): string | null {
+  if (event.location) return event.location;
+  return event.type === "deadline" ? null : `Room ${config.nextMeeting.room}`;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = await getEvent(decodeURIComponent((await params).id));
   if (!event) return { title: "Event not found — Westwood AI Club" };
-  const where = event.location ?? `Room ${config.nextMeeting.room}`;
+  const where = eventLocation(event);
   return {
     title: `${event.title} — Westwood AI Club`,
-    description: `${formatEventWhen(event)} · ${where}`,
+    description: [formatEventWhen(event), where].filter(Boolean).join(" · "),
   };
 }
 
@@ -55,7 +61,7 @@ export default async function EventPage({ params }: Props) {
   if (!event) notFound();
 
   const past = isPast(event);
-  const where = event.location ?? `Room ${config.nextMeeting.room}`;
+  const where = eventLocation(event);
 
   return (
     <div className="px-4 sm:px-6 py-12">
@@ -76,8 +82,12 @@ export default async function EventPage({ params }: Props) {
           <dl className="grid grid-cols-[5.5rem_1fr] gap-y-2 text-sm">
             <dt className="text-ink-muted">When</dt>
             <dd className="text-ink">{formatEventWhen(event)}</dd>
-            <dt className="text-ink-muted">Where</dt>
-            <dd className="text-ink">{where}</dd>
+            {where && (
+              <>
+                <dt className="text-ink-muted">Where</dt>
+                <dd className="text-ink">{where}</dd>
+              </>
+            )}
             {event.presenter && (
               <>
                 <dt className="text-ink-muted">Presenter</dt>
@@ -103,6 +113,11 @@ export default async function EventPage({ params }: Props) {
           {event.slidesUrl && (
             <Button href={event.slidesUrl} external variant={past ? "primary" : "secondary"}>
               Slides ↗
+            </Button>
+          )}
+          {event.related && (
+            <Button href={event.related.href} variant="secondary">
+              {event.related.label}&nbsp;&rarr;
             </Button>
           )}
           {event.htmlLink && (

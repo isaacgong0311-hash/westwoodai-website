@@ -19,7 +19,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## How to edit content
 
-**You never need to touch component code.** Just edit the JSON files in `/data/` and redeploy (or push to GitHub if auto-deploy is set up).
+**You never need to touch component code.** Events go in Google Calendar (below); everything else is a JSON file in `/data/` — edit it and push to GitHub (auto-deploys).
+
+Pages with no content yet (empty `[]`, or `"current": null`) stay reachable but are left out of the nav, footer, and sitemap. They appear automatically once you add the first entry.
 
 ---
 
@@ -74,17 +76,14 @@ Fallbacks for when nothing is on the calendar: default `time`, `room`, `teacher`
   "id": "first-last",
   "name": "First Last",
   "role": "Member",
-  "avatar": "🤖",
-  "grade": 10,
   "attendance": 5,
   "projects": 1,
   "competitions": 0,
-  "points": 200,
-  "badges": []
+  "points": 200
 }
 ```
 
-The table sorts automatically. Just update `"points"` (and the sub-counts) after each meeting.
+The table sorts automatically. Just update `"points"` (and the sub-counts) after each meeting. Point values live in `lib/points.ts`.
 
 ---
 
@@ -94,11 +93,10 @@ The table sorts automatically. Just update `"points"` (and the sub-counts) after
 {
   "id": "my-project",
   "title": "Project Name",
-  "emoji": "🚀",
   "author": "First Last",
   "authorId": "first-last",
   "description": "What it does in 1-2 sentences.",
-  "category": "LLMs",   ← LLMs | CV | ML | RL
+  "category": "LLMs",   ← LLMs | CV | ML | RL | Other
   "tags": ["Python", "PyTorch"],
   "status": "active",   ← active | completed | demo
   "link": "https://github.com/westwoodai/...",  ← optional
@@ -122,9 +120,11 @@ The table sorts automatically. Just update `"points"` (and the sub-counts) after
   "status": "open",            ← open | forming | upcoming | closed
   "description": "What the competition is about.",
   "link": "https://...",       ← optional
-  "participants": ["member-id"]
+  "participants": ["member-id"]  ← ids from members.json; shown as names
 }
 ```
+
+Each competition's `deadline` also shows up on the Calendar automatically — don't add it to Google Calendar too.
 
 ---
 
@@ -149,7 +149,25 @@ The table sorts automatically. Just update `"points"` (and the sub-counts) after
 
 ### Prompt of the Week — `data/prompt.json`
 
-Replace the `"current"` object each week. Start with an empty `"entries": []` — entries submitted through the site are client-side only for now.
+Set `"current"` to the week's challenge (or `null` for none):
+
+```json
+{
+  "current": {
+    "id": "2026-w40",
+    "title": "Explain backprop to a 5th grader",
+    "description": "What to do, in a sentence or two.",
+    "context": "Rules or setup text (line breaks are kept).",
+    "postedBy": "Your Name",
+    "postedDate": "2026-09-28",
+    "deadline": "2026-10-05",
+    "difficulty": "medium",   ← easy | medium | hard
+    "entries": []
+  }
+}
+```
+
+Members submit in the Discord channel. To feature the best ones on the site, add them to `"entries"` as `{ "id", "author", "authorId", "content", "votes", "submittedAt" }` — they're shown ranked by `votes`.
 
 ---
 

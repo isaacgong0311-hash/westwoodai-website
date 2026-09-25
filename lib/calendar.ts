@@ -1,4 +1,5 @@
-// Reads the club's public Google Calendar. Officers edit events in Google
+// Reads the club's public Google Calendar (plus competition deadlines from
+// data/competitions.json, so they show up without double entry). Officers edit events in Google
 // Calendar; the site picks changes up within 15 minutes. See README
 // "Adding events" for the description conventions parsed below.
 //
@@ -6,6 +7,7 @@
 // never bundled for the browser. Any failure (missing env, Google down,
 // bad key) logs and returns no events — pages fall back to empty states
 // instead of failing the build.
+import { competitions } from "@/lib/content";
 import type { ClubEvent } from "@/lib/types";
 import { isEventType, isPast } from "@/lib/events";
 import { dateKey } from "@/lib/utils";
@@ -104,8 +106,35 @@ function toClubEvent(e: GoogleEvent): ClubEvent {
   };
 }
 
-/** Every event this season, oldest first. */
+/** Competition deadlines as all-day "deadline" events. IDs are prefixed so they can't collide with Google's. */
+function competitionDeadlines(): ClubEvent[] {
+  return competitions.map((c) => {
+    const next = new Date(Date.parse(c.deadline) + 86400000).toISOString().slice(0, 10);
+    return {
+      id: `comp-${c.id}`,
+      title: `${c.name} deadline`,
+      type: "deadline",
+      start: c.deadline,
+      end: next,
+      allDay: true,
+      description: [c.description, c.link && `Details: ${c.link}`].filter(Boolean).join("\n\n"),
+      related: { label: "All competitions", href: "/competitions" },
+    };
+  });
+}
+
+/** Sort key: all-day events sort from the start of their day (05:00 UTC ≈ midnight in Austin). */
+function sortKey(e: ClubEvent): number {
+  return e.allDay ? Date.parse(`${e.start}T05:00:00Z`) : Date.parse(e.start);
+}
+
+/** Every event this season (calendar + competition deadlines), oldest first. */
 export async function getAllEvents(): Promise<ClubEvent[]> {
+  const events = [...(await fetchCalendarEvents()), ...competitionDeadlines()];
+  return events.sort((a, b) => sortKey(a) - sortKey(b));
+}
+
+async function fetchCalendarEvents(): Promise<ClubEvent[]> {
   const calendarId = process.env.GOOGLE_CALENDAR_ID;
   const key = process.env.GOOGLE_CALENDAR_API_KEY;
   if (!calendarId || !key) return [];
@@ -124,7 +153,8 @@ export async function getAllEvents(): Promise<ClubEvent[]> {
     });
     if (!res.ok) {
       // Don't log the URL — it carries the API key.
-      console.error(`[calendar] Google Calendar API returned ${res.status}: ${await res.text()}`);
+      const body = (await res.json().catch(() => null)) as { error?: { message?: string } } | null;
+      console.error(`[calendar] Google Calendar API returned ${res.status}: ${body?.error?.message ?? "no details"}`);
       return [];
     }
     const data = (await res.json()) as { items?: GoogleEvent[] };

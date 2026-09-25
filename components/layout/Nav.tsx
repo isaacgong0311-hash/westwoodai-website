@@ -4,23 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import type { SiteLink } from "@/lib/content";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/calendar", label: "Calendar" },
-  { href: "/#speakers", label: "Speakers" },
-  { href: "/leaderboard", label: "Leaderboard" },
-];
-
-export default function Nav() {
+export default function Nav({ links }: { links: SiteLink[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
-    if (href === "/calendar") return pathname.startsWith("/calendar");
-    if (href === "/leaderboard") return pathname.startsWith("/leaderboard");
-    return false;
+    if (href.includes("#")) return false;
+    return pathname.startsWith(href);
   }
 
   return (

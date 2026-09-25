@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteLinks } from "@/lib/content";
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/warriorai/" },
@@ -7,12 +8,6 @@ const socials = [
   { label: "Email", href: "mailto:wwhs.aiexploration@gmail.com" },
 ];
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/calendar", label: "Calendar" },
-  { href: "/#speakers", label: "Speakers" },
-  { href: "/leaderboard", label: "Leaderboard" },
-];
 
 export default function Footer() {
   return (
@@ -31,7 +26,7 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-wider text-ink-muted mb-4">Pages</p>
             <div className="flex flex-col gap-2">
-              {navLinks.map(({ href, label }) => (
+              {siteLinks().map(({ href, label }) => (
                 <Link key={href} href={href} className="text-sm text-ink-muted hover:text-ink">
                   {label}
                 </Link>

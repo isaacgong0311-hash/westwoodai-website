@@ -5,6 +5,7 @@ import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
+import { siteLinks } from "@/lib/content";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -52,7 +53,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Nav />
+        <Nav links={siteLinks().filter((l) => l.primary)} />
         <main id="main" className="flex-1 relative z-10">
           {children}
         </main>
