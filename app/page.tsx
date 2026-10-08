@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero";
 import MeetingInfo from "@/components/home/MeetingInfo";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
+import StartHere from "@/components/home/StartHere";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AgendaList from "@/components/calendar/AgendaList";
 import { getUpcomingEvents } from "@/lib/calendar";
@@ -38,13 +39,15 @@ export default async function HomePage() {
 
   return (
     <div>
-      <Hero founded={config.founded} />
+      <Hero />
 
       <section className="px-4 sm:px-6 pb-14">
         <div className="max-w-5xl mx-auto">
           <MeetingInfo />
         </div>
       </section>
+
+      <StartHere />
 
       <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">

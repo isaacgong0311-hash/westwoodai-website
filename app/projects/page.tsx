@@ -38,7 +38,7 @@ export default async function ProjectsPage({
         {projects.length === 0 ? (
           <EmptyState
             title="Nothing posted yet"
-            description="Projects go up here as members share them. If you're working on something, post it in #show-and-tell and an officer will add it."
+            description="Member projects will appear here once their creators share them with the club. Working on something? Send it to the officers in Discord."
             cta={{
               label: "Open Discord",
               href: "https://discord.gg/7QctqCABR",

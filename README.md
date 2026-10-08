@@ -23,6 +23,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Pages with no content yet (empty `[]`, or `"current": null`) stay reachable but are left out of the nav, footer, and sitemap. They appear automatically once you add the first entry.
 
+Only publish verified club information in these files. In particular, don't add a student project, competition entry, officer news note, or prompt result until the member or officer has supplied it. The homepage links to the club's [public presentation and code archive](https://sites.google.com/view/westwoodaiclub/more/previous-slides) so visitors have real learning material while those sections are empty. The club's [existing site](https://sites.google.com/view/westwoodaiclub/home) and [FAQ](https://sites.google.com/view/westwoodaiclub/more/faq) are the sources for membership and beginner information.
+
+The calendar and leaderboard need the club's Google credentials described below. Without them, the calendar shows a schedule pending message and the leaderboard shows the officer roster as a zero-point preview; neither state represents live events or standings.
+
 ---
 
 ### Events & meetings — Google Calendar

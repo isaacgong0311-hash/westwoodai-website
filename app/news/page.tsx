@@ -24,7 +24,8 @@ export default function NewsPage() {
         {news.length === 0 ? (
           <EmptyState
             title="Nothing posted yet"
-            description="The first posts go up in September."
+            description="There are no officer-written news notes yet. Check back for stories the club chooses to discuss."
+            cta={{ label: "Follow club updates", href: "https://www.instagram.com/warriorai/", external: true }}
           />
         ) : (
           <div className="divide-y divide-rule border-t border-rule">

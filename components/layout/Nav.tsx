@@ -3,12 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import type { SiteLink } from "@/lib/content";
 
 export default function Nav({ links }: { links: SiteLink[] }) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -58,35 +56,20 @@ export default function Nav({ links }: { links: SiteLink[] }) {
           Discord ↗
         </a>
 
-        <button
-          className="md:hidden p-2 text-ink"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          <div className="w-5 flex flex-col gap-1.5">
-            <span
-              className={`block h-px bg-current transition-transform origin-center duration-200 ${open ? "rotate-45 translate-y-[5px]" : ""}`}
-            />
-            <span
-              className={`block h-px bg-current transition-opacity duration-200 ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-px bg-current transition-transform origin-center duration-200 ${open ? "-rotate-45 -translate-y-[5px]" : ""}`}
-            />
-          </div>
-        </button>
-      </div>
-
-      {open && (
-        <div id="mobile-nav" className="md:hidden border-t border-rule">
-          <nav className="px-4 py-3 flex flex-col gap-1">
+        <details className="md:hidden group">
+          <summary className="list-none cursor-pointer p-2 text-sm text-ink flex items-center gap-2 [&::-webkit-details-marker]:hidden">
+            <span aria-hidden="true" className="flex w-4 flex-col gap-1">
+              <span className="h-px bg-current" />
+              <span className="h-px bg-current" />
+              <span className="h-px bg-current" />
+            </span>
+            Menu
+          </summary>
+          <nav aria-label="Mobile navigation" className="absolute left-0 right-0 top-full border-b border-rule bg-paper px-4 py-3 flex flex-col gap-1 shadow-sm">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
                 className={`text-sm px-3 py-2 ${
                   isActive(href) ? "text-accent" : "text-ink"
                 }`}
@@ -103,8 +86,8 @@ export default function Nav({ links }: { links: SiteLink[] }) {
               Discord ↗
             </a>
           </nav>
-        </div>
-      )}
+        </details>
+      </div>
     </header>
   );
 }

@@ -51,7 +51,7 @@ export default function CompetitionsPage() {
         {competitions.length === 0 ? (
           <EmptyState
             title="Nothing scheduled yet"
-            description="We'll add competitions after the kickoff meeting. Know of one we should enter? Let us know."
+            description="No club competitions have been announced here. Know of a challenge the club should enter? Send it to the officers."
             cta={{
               label: "Email us",
               href: "mailto:wwhs.aiexploration@gmail.com",

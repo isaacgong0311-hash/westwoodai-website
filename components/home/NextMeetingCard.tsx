@@ -50,7 +50,7 @@ export default function NextMeetingCard({ event, defaults, checkinUrl }: NextMee
         </div>
       ) : (
         <div className="space-y-3">
-          <p className="text-base text-ink leading-snug">Schedule TBD</p>
+          <p className="text-base text-ink leading-snug">No meeting listed yet</p>
           {defaults.note && (
             <p className="text-sm leading-relaxed text-ink-muted">{defaults.note}</p>
           )}
@@ -64,6 +64,11 @@ export default function NextMeetingCard({ event, defaults, checkinUrl }: NextMee
       )}
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5">
+        {!event && (
+          <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="text-sm text-accent hover:text-ink">
+            Get meeting updates ↗
+          </a>
+        )}
         {days === 0 && checkinUrl && (
           <a
             href={checkinUrl}

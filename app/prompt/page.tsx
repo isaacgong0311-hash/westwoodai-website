@@ -32,7 +32,8 @@ export default function PromptPage() {
         {challenge === null ? (
           <EmptyState
             title="Nothing posted yet"
-            description="The first prompt goes up at the kickoff meeting."
+            description="No prompt challenge is active right now. Join the club Discord to hear when the next one is posted."
+            cta={{ label: "Join the Discord", href: "https://discord.gg/7QctqCABR", external: true }}
           />
         ) : (
           <>

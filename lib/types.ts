@@ -114,5 +114,4 @@ export interface SiteConfig {
   };
   /** The meeting check-in Google Form (see README "Leaderboard"); null hides check-in links. */
   checkinUrl: string | null;
-  founded: number;
 }

@@ -6,6 +6,7 @@ const socials = [
   { label: "Discord", href: "https://discord.gg/7QctqCABR" },
   { label: "Linktree", href: "https://linktr.ee/westwoodhsaiclub" },
   { label: "Email", href: "mailto:wwhs.aiexploration@gmail.com" },
+  { label: "Lesson archive", href: "https://sites.google.com/view/westwoodaiclub/more/previous-slides" },
 ];
 
 
@@ -54,7 +55,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-rule">
           <p className="text-xs text-ink-muted">
-            &copy; 2026 Westwood AI Club &middot; Austin Independent School District
+            &copy; 2026 Westwood AI Club &middot; Round Rock ISD
           </p>
         </div>
       </div>

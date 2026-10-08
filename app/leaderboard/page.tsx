@@ -1,6 +1,7 @@
 import LeaderboardTable from "@/components/leaderboard/LeaderboardTable";
 import PointsBreakdown from "@/components/leaderboard/PointsBreakdown";
 import PageHeader from "@/components/ui/PageHeader";
+import Panel from "@/components/ui/Panel";
 import configData from "@/data/config.json";
 import { members as fallbackMembers } from "@/lib/content";
 import { getLeaderboard } from "@/lib/leaderboard";
@@ -27,6 +28,14 @@ export default async function LeaderboardPage() {
           title="Leaderboard"
           description="Members earn points for showing up, building things, and placing in competitions. The board resets at the start of every school year."
         />
+
+        {!live && (
+          <Panel raised className="px-5 py-4 mb-8">
+            <p className="text-sm leading-relaxed text-ink">
+              Live scoring is not connected yet. The names below are the officer roster, shown with zero points as a preview of the board.
+            </p>
+          </Panel>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">

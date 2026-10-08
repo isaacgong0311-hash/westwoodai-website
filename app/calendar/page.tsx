@@ -15,7 +15,7 @@ const config = configData as SiteConfig;
 
 export const metadata: Metadata = {
   title: "Calendar — Westwood AI Club",
-  description: "Every Westwood AI Club meeting, guest speaker, and deadline. Subscribe once and it stays synced.",
+  description: "Westwood AI Club meetings, guest speakers, and deadlines when announced.",
 };
 
 const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
@@ -39,18 +39,18 @@ export default async function CalendarPage({
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-5xl mx-auto">
         <PageHeader
-          eyebrow={`Every other week · ${config.nextMeeting.time} · Room ${config.nextMeeting.room}`}
+          eyebrow={`${config.nextMeeting.time} · Room ${config.nextMeeting.room}`}
           title="Calendar"
-          description="Meetings, guest speakers, workshops, and competition deadlines. Tap any event for details and slides."
+            description="Find confirmed meetings, guest speakers, workshops, and competition deadlines here."
         />
 
         {subscribe && <SubscribeLinks links={subscribe} />}
 
         {events.length === 0 ? (
           <EmptyState
-            title="Schedule coming soon"
+            title="No dates listed yet"
             description={config.nextMeeting.note ?? "Officers haven't posted this season's events yet — check back soon."}
-            cta={{ label: "Join the Discord", href: "https://discord.gg/7QctqCABR", external: true }}
+            cta={{ label: "Join the mailing list", href: "https://forms.gle/m1a5LrzEBHhacpbg6", external: true }}
           />
         ) : (
           <>

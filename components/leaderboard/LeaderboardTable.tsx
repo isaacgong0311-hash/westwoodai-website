@@ -33,8 +33,7 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
       {!seasonStarted && (
         <Panel raised className="px-5 py-3 mb-6">
           <p className="text-sm text-ink-muted">
-            The 2026&ndash;27 season hasn&rsquo;t started yet &mdash; first
-            points go out at the kickoff meeting in August.
+            No points have been recorded for the 2026&ndash;27 season yet.
           </p>
         </Panel>
       )}
