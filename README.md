@@ -3,6 +3,8 @@
 Built with Next.js 16, TypeScript, and Tailwind CSS. Deployed on Vercel.  
 Events come from the club's **Google Calendar**; everything else is in `/data/*.json` — no database needed.
 
+The current visual direction is the [maker-club redesign](docs/superpowers/specs/2026-10-08-maker-club-redesign-design.md): bold Westwood blue/rust identity, original CSS/SVG club artwork, and a join-first homepage. Keep its graphics and motion progressive so every page remains usable without JavaScript or animation.
+
 ---
 
 ## Running locally

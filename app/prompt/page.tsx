@@ -21,7 +21,7 @@ export default function PromptPage() {
   const entries = challenge ? [...challenge.entries].sort((a, b) => b.votes - a.votes) : [];
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <div className="max-w-3xl mx-auto">
         <PageHeader
           eyebrow="Prompt of the week"
@@ -37,7 +37,7 @@ export default function PromptPage() {
           />
         ) : (
           <>
-            <article className="mb-12">
+            <article className="mb-12 rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)] sm:p-8">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <Tag tone={closed ? "muted" : "accent"}>
                   {closed
@@ -50,7 +50,7 @@ export default function PromptPage() {
                 </Tag>
                 <Tag>{challenge.difficulty[0].toUpperCase() + challenge.difficulty.slice(1)}</Tag>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-ink leading-tight mb-2">
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-ink leading-tight mb-2">
                 {challenge.title}
               </h2>
               <p className="text-sm text-ink-muted mb-6">

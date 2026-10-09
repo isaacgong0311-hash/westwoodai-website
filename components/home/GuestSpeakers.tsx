@@ -56,26 +56,24 @@ const earliestYear = Math.min(...SPEAKERS.map((s) => Number(s.year)));
 
 export default function GuestSpeakers() {
   return (
-    <section id="speakers" className="px-4 sm:px-6 pb-14 scroll-mt-20">
-      <div className="max-w-5xl mx-auto">
+    <section id="speakers" className="px-4 sm:px-6 py-20 scroll-mt-24 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <p className="mb-3 text-xs font-black uppercase tracking-[.2em] text-accent">Ideas from beyond the classroom</p>
         <SectionHeader
-          title="Guest speakers"
-          count={`${SPEAKERS.length} since ${earliestYear}`}
+          title="People who came to share."
+          count={`${SPEAKERS.length} guest speakers since ${earliestYear}`}
         />
-        <div>
-          {SPEAKERS.map((s) => (
-            <div key={s.name} className="flex gap-6 py-4 border-b border-rule last:border-b-0 items-baseline">
-              <span className="w-12 flex-shrink-0 text-sm text-ink-muted">{s.year}</span>
-              <div>
-                <h3 className="text-base text-ink">{s.name}</h3>
-                <p className="text-sm text-ink-muted mt-0.5">
-                  {s.title}, {s.org}
-                </p>
-                <p className="font-serif text-lg italic text-ink mt-1">
-                  &ldquo;{s.topic}&rdquo;
-                </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SPEAKERS.map((s, i) => (
+            <article key={s.name} className={`relative flex min-h-60 flex-col overflow-hidden rounded-[1.75rem] border p-6 sm:p-7 ${i === 0 ? "border-accent bg-blue-soft sm:col-span-2 lg:col-span-2" : "border-rule bg-paper"}`}>
+              <div className="mb-8 flex items-start justify-between gap-3">
+                <span className={`rounded-full px-3 py-1 text-xs font-bold ${i === 0 ? "bg-accent text-white" : "bg-white text-accent"}`}>{s.year}</span>
+                <span aria-hidden="true" className={`font-serif text-5xl leading-none ${i === 0 ? "text-accent/20" : "text-accent-warm/20"}`}>&ldquo;</span>
               </div>
-            </div>
+              <h3 className="text-2xl font-black tracking-tight text-ink">{s.name}</h3>
+              <p className="mt-1 text-sm text-ink-muted">{s.title}, {s.org}</p>
+              <p className="mt-auto pt-7 font-serif text-xl italic leading-tight text-accent-warm">{s.topic}</p>
+            </article>
           ))}
         </div>
       </div>

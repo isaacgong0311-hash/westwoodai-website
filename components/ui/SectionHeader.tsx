@@ -11,9 +11,9 @@ interface SectionHeaderProps {
  */
 export default function SectionHeader({ title, count }: SectionHeaderProps) {
   return (
-    <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-2">
-      <h2 className="font-serif text-2xl font-normal text-ink">{title}</h2>
-      {count && <span className="text-sm text-ink-muted">{count}</span>}
+    <div className="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink/10 pb-5 mb-5">
+      <h2 className="font-sans text-3xl sm:text-4xl font-black tracking-[-0.045em] text-ink">{title}</h2>
+      {count && <span className="rounded-full bg-blue-soft px-3 py-1 text-xs font-semibold text-accent">{count}</span>}
     </div>
   );
 }

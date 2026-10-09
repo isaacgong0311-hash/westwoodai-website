@@ -13,15 +13,17 @@ interface PageHeaderProps {
  */
 export default function PageHeader({ eyebrow, title, description, centered = false }: PageHeaderProps) {
   return (
-    <div className={`mb-10 ${centered ? "text-center" : ""}`}>
-      <p className="text-xs uppercase tracking-wider text-ink-muted mb-2">
+    <div className={`relative isolate overflow-hidden rounded-[2rem] bg-night px-7 py-10 sm:px-10 sm:py-12 mb-10 poster-grid ${centered ? "text-center" : ""}`}>
+      <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 size-80 rounded-full border-[38px] border-white/7" />
+      <span aria-hidden="true" className="pointer-events-none absolute right-10 bottom-5 size-24 rounded-full bg-accent-warm/25 blur-2xl" />
+      <p className="relative text-xs font-semibold uppercase tracking-[0.18em] text-[#a9c5ff] mb-3">
         {eyebrow}
       </p>
-      <h1 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-ink mb-4">
+      <h1 className={`relative max-w-3xl font-sans text-4xl sm:text-6xl font-black tracking-[-0.05em] leading-[.98] text-white mb-5 ${centered ? "mx-auto" : ""}`}>
         {title}
       </h1>
       {description && (
-        <p className={`text-base leading-relaxed text-ink ${centered ? "mx-auto" : ""} max-w-xl`}>
+        <p className={`relative text-base leading-relaxed text-[#e7eeff] ${centered ? "mx-auto" : ""} max-w-xl`}>
           {description}
         </p>
       )}

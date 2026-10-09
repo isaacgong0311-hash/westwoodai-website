@@ -27,7 +27,7 @@ export default async function ProjectsPage({
     .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <PageHeader
           eyebrow="What members are building"
@@ -68,14 +68,14 @@ export default async function ProjectsPage({
               </nav>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-rule">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {shown.map((p) => (
-                <article key={p.id} className="border-r border-b border-rule p-6 flex flex-col">
+                <article key={p.id} className="flex flex-col rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)]">
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <p className="text-xs uppercase tracking-wider text-ink-muted">{p.category}</p>
                     <Tag tone={p.status === "active" ? "accent" : "muted"}>{STATUS_LABELS[p.status]}</Tag>
                   </div>
-                  <h2 className="font-serif text-2xl font-normal text-ink leading-tight mb-1">{p.title}</h2>
+                  <h2 className="text-2xl font-black tracking-tight text-ink leading-tight mb-1">{p.title}</h2>
                   <p className="text-sm text-ink-muted mb-3">
                     {p.author} &middot; {formatShortDate(p.date)}
                   </p>

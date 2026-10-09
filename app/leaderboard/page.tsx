@@ -21,7 +21,7 @@ export default async function LeaderboardPage() {
   const members = live ?? fallbackMembers;
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <PageHeader
           eyebrow="2026–27 season"
@@ -30,7 +30,7 @@ export default async function LeaderboardPage() {
         />
 
         {!live && (
-          <Panel raised className="px-5 py-4 mb-8">
+          <Panel raised className="px-5 py-4 mb-8 !bg-blue-soft">
             <p className="text-sm leading-relaxed text-ink">
               Live scoring is not connected yet. The names below are the officer roster, shown with zero points as a preview of the board.
             </p>

@@ -24,27 +24,27 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
 
   return (
     <section aria-labelledby="month-heading">
-      <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-4">
+      <div className="flex items-center justify-between gap-4 pb-4 mb-4">
         <Link
           href={`/calendar?month=${prev}`}
           scroll={false}
-          className="text-sm text-ink-muted hover:text-ink"
+          className="rounded-full border border-rule bg-white px-4 py-2 text-sm font-bold text-accent hover:border-accent"
         >
           &larr;&nbsp;{formatMonth(prev, { year: false })}
         </Link>
-        <h2 id="month-heading" className="font-serif text-2xl font-normal text-ink">
+        <h2 id="month-heading" className="text-2xl font-black tracking-tight text-ink">
           {formatMonth(month)}
         </h2>
         <Link
           href={`/calendar?month=${next}`}
           scroll={false}
-          className="text-sm text-ink-muted hover:text-ink"
+          className="rounded-full border border-rule bg-white px-4 py-2 text-sm font-bold text-accent hover:border-accent"
         >
           {formatMonth(next, { year: false })}&nbsp;&rarr;
         </Link>
       </div>
 
-      <div className="grid grid-cols-7 text-xs uppercase tracking-wider text-ink-muted mb-2">
+      <div className="grid grid-cols-7 text-xs font-black uppercase tracking-wider text-accent mb-2">
         {WEEKDAYS.map((d) => (
           <div key={d} className="px-2">
             {d}
@@ -52,7 +52,7 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         ))}
       </div>
 
-      <div className="grid grid-cols-7 border-t border-l border-rule">
+      <div className="grid grid-cols-7 overflow-hidden rounded-2xl border-t border-l border-rule shadow-[0_12px_30px_rgba(17,26,51,.05)]">
         {monthWeeks(month).flat().map((day, i) => {
           const dayEvents = day ? byDay.get(day) ?? [] : [];
           const isToday = day === today;
@@ -61,14 +61,14 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
               key={day ?? `pad-${i}`}
               className={cn(
                 "min-h-28 border-r border-b border-rule p-1.5 flex flex-col gap-1",
-                day ? "bg-paper" : "bg-paper-raised",
+                day ? "bg-white" : "bg-blue-soft/40",
               )}
             >
               {day && (
                 <span
                   className={cn(
-                    "text-xs tabular-nums px-1 self-start",
-                    isToday ? "bg-accent text-paper" : day < today ? "text-ink-muted" : "text-ink",
+                    "rounded-lg text-xs font-bold tabular-nums px-2 py-1 self-start",
+                    isToday ? "bg-accent text-white" : day < today ? "text-ink-muted" : "text-ink",
                   )}
                 >
                   {isToday && <span className="sr-only">Today, </span>}

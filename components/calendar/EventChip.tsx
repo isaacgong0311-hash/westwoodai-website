@@ -24,8 +24,8 @@ export default function EventChip({ event, muted }: { event: ClubEvent; muted?: 
       href={eventHref(event)}
       title={`${EVENT_TYPES[event.type].label}: ${event.title}`}
       className={cn(
-        "flex items-center gap-1.5 px-1.5 py-1 text-xs leading-tight bg-paper border border-rule",
-        "transition-[border-color,transform] duration-150 hover:border-ink-muted hover:-translate-y-px",
+        "flex items-center gap-1.5 rounded-md px-1.5 py-1 text-xs leading-tight bg-blue-soft border border-rule",
+        "transition-[border-color,transform] duration-150 hover:border-accent hover:-translate-y-px",
         muted ? "text-ink-muted" : "text-ink",
       )}
     >

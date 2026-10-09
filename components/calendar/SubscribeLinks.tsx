@@ -5,19 +5,19 @@ interface SubscribeLinksProps {
 /** "Subscribe once, stay synced" — both links add the whole club calendar, not a copy. */
 export default function SubscribeLinks({ links }: SubscribeLinksProps) {
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-rule py-4 mb-10">
-      <p className="text-sm text-ink">Get every event on your phone:</p>
+    <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-rule bg-blue-soft p-5 mb-10">
+      <p className="mr-auto text-sm font-bold text-ink">Get every event on your phone</p>
       <a
         href={links.google}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-accent hover:text-ink underline underline-offset-4 decoration-rule hover:decoration-ink"
+        className="rounded-full bg-white px-4 py-2 text-xs font-bold text-accent hover:text-ink"
       >
         Add to Google Calendar ↗
       </a>
       <a
         href={links.ical}
-        className="text-sm text-accent hover:text-ink underline underline-offset-4 decoration-rule hover:decoration-ink"
+        className="rounded-full bg-white px-4 py-2 text-xs font-bold text-accent hover:text-ink"
       >
         Apple / Outlook
       </a>

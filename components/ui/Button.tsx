@@ -9,10 +9,10 @@ interface ButtonProps {
   className?: string;
 }
 
-const base = "inline-block text-sm px-5 py-2.5 transition-colors";
+const base = "inline-flex min-h-11 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5";
 const variants = {
-  primary: "bg-ink text-paper hover:bg-accent",
-  secondary: "text-ink-muted hover:text-ink underline decoration-rule underline-offset-4 hover:decoration-ink",
+  primary: "bg-accent text-white shadow-[0_7px_0_#173d83] hover:bg-ink hover:shadow-[0_7px_0_#0a1021]",
+  secondary: "border border-ink/25 bg-white text-ink hover:border-accent hover:text-accent hover:shadow-lg",
 };
 
 /**

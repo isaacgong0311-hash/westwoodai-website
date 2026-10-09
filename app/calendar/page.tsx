@@ -36,7 +36,7 @@ export default async function CalendarPage({
   const subscribe = getSubscribeLinks();
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <PageHeader
           eyebrow={`${config.nextMeeting.time} · Room ${config.nextMeeting.room}`}

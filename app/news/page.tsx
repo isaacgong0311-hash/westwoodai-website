@@ -13,7 +13,7 @@ export default function NewsPage() {
   const sorted = [...news].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <div className="max-w-3xl mx-auto">
         <PageHeader
           eyebrow="From the officers"
@@ -28,16 +28,16 @@ export default function NewsPage() {
             cta={{ label: "Follow club updates", href: "https://www.instagram.com/warriorai/", external: true }}
           />
         ) : (
-          <div className="divide-y divide-rule border-t border-rule">
+          <div className="space-y-4">
             {sorted.map((item) => (
-              <article key={item.id} className="py-8">
+              <article key={item.id} className="rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)] sm:p-8">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-ink-muted mb-2">
                   <span>{formatShortDate(item.date)}</span>
                   <span>&middot;</span>
                   <span>{item.category}</span>
                   {item.hot && <Tag tone="accent">Hot</Tag>}
                 </div>
-                <h2 className="font-serif text-2xl font-normal text-ink leading-tight mb-1">
+                <h2 className="text-2xl font-black tracking-tight text-ink leading-tight mb-1">
                   <a
                     href={item.sourceUrl}
                     target="_blank"

@@ -14,7 +14,7 @@ interface PanelProps {
 export default function Panel({ children, className = "", raised = false }: PanelProps) {
   return (
     <div
-      className={`border border-rule ${raised ? "bg-paper-raised" : "bg-paper"} ${className}`}
+      className={`rounded-3xl border border-rule shadow-[0_14px_36px_rgba(17,26,51,.05)] ${raised ? "bg-paper-raised" : "bg-paper"} ${className}`}
     >
       {children}
     </div>

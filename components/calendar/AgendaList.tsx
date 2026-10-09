@@ -27,10 +27,10 @@ export default function AgendaList({ events, muted = false, groupByMonth = true 
                 {formatMonth(month)}
               </p>
             )}
-            <Link href={eventHref(event)} className="group flex items-start gap-4 py-4">
+            <Link href={eventHref(event)} className="group flex items-start gap-4 rounded-xl px-2 py-4 hover:bg-blue-soft/60">
               <div className="w-12 shrink-0 text-center">
                 <p className="text-xs uppercase tracking-wider text-ink-muted">{weekday}</p>
-                <p className={cn("font-serif text-3xl leading-none mt-1", muted ? "text-ink-muted" : "text-ink")}>
+                <p className={cn("text-3xl font-black leading-none mt-1 tabular-nums", muted ? "text-ink-muted" : "text-ink")}>
                   {day}
                 </p>
               </div>
@@ -39,7 +39,7 @@ export default function AgendaList({ events, muted = false, groupByMonth = true 
                   <TypeDot event={event} />
                   {EVENT_TYPES[event.type].label}
                 </p>
-                <p className={cn("text-sm group-hover:text-accent", muted ? "text-ink-muted" : "text-ink")}>
+                <p className={cn("text-sm font-bold group-hover:text-accent", muted ? "text-ink-muted" : "text-ink")}>
                   {event.title}
                 </p>
                 <p className="text-sm text-ink-muted mt-0.5">

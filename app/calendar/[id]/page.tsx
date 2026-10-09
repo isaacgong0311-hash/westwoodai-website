@@ -64,7 +64,7 @@ export default async function EventPage({ params }: Props) {
   const where = eventLocation(event);
 
   return (
-    <div className="px-4 sm:px-6 py-12">
+    <div className="px-4 sm:px-6 py-16">
       <article className="max-w-3xl mx-auto">
         <Link href="/calendar" className="text-sm text-ink-muted hover:text-ink">
           &larr; Calendar
@@ -74,7 +74,7 @@ export default async function EventPage({ params }: Props) {
           <TypeDot event={event} className="size-2" />
           {EVENT_TYPES[event.type].label}
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-ink mb-8">
+        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-ink mb-8">
           {event.title}
         </h1>
 

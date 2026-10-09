@@ -11,8 +11,8 @@ export default function Tag({ children, tone = "muted" }: TagProps) {
   return (
     <span
       className={cn(
-        "inline-block text-xs px-1.5 py-0.5 border whitespace-nowrap",
-        tone === "accent" ? "text-accent border-accent" : "text-ink-muted border-ink-muted/40",
+        "inline-flex items-center rounded-full text-xs font-semibold px-3 py-1 whitespace-nowrap",
+        tone === "accent" ? "text-accent bg-blue-soft" : "text-ink-muted bg-paper border border-rule",
       )}
     >
       {children}

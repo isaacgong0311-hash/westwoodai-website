@@ -41,38 +41,42 @@ export default async function HomePage() {
     <div>
       <Hero />
 
-      <section className="px-4 sm:px-6 pb-14">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative z-10 -mt-8 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           <MeetingInfo />
         </div>
       </section>
 
       <StartHere />
 
-      <section className="px-4 sm:px-6 pb-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-1">
+      <section className="bg-[#edf2ff] px-4 py-20 sm:px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14">
+          <div>
+            <p className="mb-3 text-xs font-black uppercase tracking-[.2em] text-accent">Show up & get involved</p>
+            <h2 className="mb-6 max-w-md text-4xl font-black leading-[.98] tracking-[-.055em] text-ink sm:text-5xl">See you <span className="font-serif font-normal italic text-accent-warm">after school.</span></h2>
             <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} checkinUrl={config.checkinUrl} />
             {rest.length > 0 && (
-              <div className="mt-8">
-                <p className="text-xs uppercase tracking-wider text-ink-muted mb-1">Also coming up</p>
+              <div className="mt-8 rounded-3xl bg-white p-5">
+                <p className="text-xs font-black uppercase tracking-wider text-accent mb-1">Also coming up</p>
                 <AgendaList events={rest} groupByMonth={false} />
               </div>
             )}
           </div>
 
-          <div className="lg:col-span-2">
-            <SectionHeader title="Officers, 2026–27" count={`${members.length} people`} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-              {members.map((m, i) => (
+          <div>
+            <SectionHeader title="Meet your officers." count="2026–27 team" />
+            <p className="mb-6 max-w-xl text-sm leading-relaxed text-ink-muted">Students keep this club moving. Say hello at a meeting, ask a question, or bring an idea to the team.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {members.map((m) => (
                 <div
                   key={m.id}
-                  className={`flex items-center justify-between py-3 border-b border-rule last:border-b-0 ${
-                    i < members.length - 2 ? "sm:border-b" : "sm:border-b-0"
-                  }`}
+                  className="flex items-center gap-3 rounded-2xl border border-rule bg-white p-4 shadow-[0_8px_20px_rgba(17,26,51,.04)]"
                 >
-                  <span className="text-sm text-ink">{m.name}</span>
-                  <span className="text-xs text-ink-muted">{m.role}</span>
+                  <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-soft text-xs font-black text-accent">{m.name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-bold text-ink">{m.name}</span>
+                    <span className="block text-xs text-ink-muted">{m.role}</span>
+                  </span>
                 </div>
               ))}
             </div>
@@ -82,28 +86,21 @@ export default async function HomePage() {
 
       <GuestSpeakers />
 
-      <section className="px-4 sm:px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-paper px-4 py-20 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="mb-3 text-xs font-black uppercase tracking-[.2em] text-accent">Built by students, year after year</p>
           <SectionHeader title="Club history" count={`${HISTORY.length} years running`} />
-          <div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {HISTORY.map((h, i) => (
               <div
                 key={h.year}
-                className="flex items-center justify-between py-3 border-b border-rule last:border-b-0"
+                className={`min-h-28 rounded-2xl border p-5 ${i === 0 ? "border-accent bg-blue-soft" : "border-rule bg-white"}`}
               >
-                <span className={`text-sm ${i === 0 ? "text-accent" : "text-ink-muted"}`}>
+                <span className={`text-xs font-black uppercase tracking-wider ${i === 0 ? "text-accent" : "text-ink-muted"}`}>
                   {h.year}
                 </span>
-                <div className="flex items-center gap-2">
-                  {i === 0 && (
-                    <span className="text-xs text-accent border border-accent px-1.5 py-0.5">
-                      current
-                    </span>
-                  )}
-                  <span className={`text-sm ${i === 0 ? "text-ink" : "text-ink-muted"}`}>
-                    {h.president}
-                  </span>
-                </div>
+                <p className="mt-4 text-sm font-bold leading-snug text-ink">{h.president}</p>
+                {i === 0 && <span className="mt-2 inline-block text-xs font-semibold text-accent">Current team</span>}
               </div>
             ))}
           </div>

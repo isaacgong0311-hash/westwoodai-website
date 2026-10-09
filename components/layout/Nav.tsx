@@ -15,30 +15,30 @@ export default function Nav({ links }: { links: SiteLink[] }) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[76px] flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
           <Image
             src="/logo.png"
             alt="Westwood AI Club"
-            width={30}
-            height={30}
-            className="rounded-full"
+            width={40}
+            height={40}
+            className="rounded-full bg-night p-0.5"
           />
-          <span className="text-sm font-medium text-ink">Westwood AI Club</span>
+          <span className="text-sm font-black leading-tight tracking-tight text-ink">WESTWOOD <span className="block text-xs font-bold tracking-[.16em] text-accent">AI CLUB</span></span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 rounded-full border border-rule bg-white/70 p-1.5 shadow-sm">
           {links.map(({ href, label }) => {
             const active = isActive(href);
             return (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm pb-0.5 ${
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   active
-                    ? "text-accent border-b border-accent"
-                    : "text-ink hover:text-accent"
+                    ? "bg-blue-soft text-accent"
+                    : "text-ink-muted hover:bg-paper hover:text-ink"
                 }`}
               >
                 {label}
@@ -48,16 +48,16 @@ export default function Nav({ links }: { links: SiteLink[] }) {
         </nav>
 
         <a
-          href="https://discord.gg/7QctqCABR"
+          href="https://forms.gle/m1a5LrzEBHhacpbg6"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex text-sm text-ink-muted hover:text-ink"
+          className="hidden md:inline-flex min-h-10 items-center rounded-full bg-accent px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-night"
         >
-          Discord ↗
+          Join the club ↗
         </a>
 
         <details className="md:hidden group">
-          <summary className="list-none cursor-pointer p-2 text-sm text-ink flex items-center gap-2 [&::-webkit-details-marker]:hidden">
+          <summary className="list-none cursor-pointer rounded-full border border-rule bg-white px-4 py-2.5 text-sm font-bold text-ink flex items-center gap-2 [&::-webkit-details-marker]:hidden">
             <span aria-hidden="true" className="flex w-4 flex-col gap-1">
               <span className="h-px bg-current" />
               <span className="h-px bg-current" />
@@ -65,26 +65,29 @@ export default function Nav({ links }: { links: SiteLink[] }) {
             </span>
             Menu
           </summary>
-          <nav aria-label="Mobile navigation" className="absolute left-0 right-0 top-full border-b border-rule bg-paper px-4 py-3 flex flex-col gap-1 shadow-sm">
+          <nav aria-label="Mobile navigation" className="absolute left-0 right-0 top-full border-b border-rule bg-paper px-4 py-4 flex flex-col gap-1 shadow-xl">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm px-3 py-2 ${
-                  isActive(href) ? "text-accent" : "text-ink"
+                onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+                className={`rounded-xl text-sm font-semibold px-3 py-3 ${
+                  isActive(href) ? "bg-blue-soft text-accent" : "text-ink"
                 }`}
               >
                 {label}
               </Link>
             ))}
             <a
-              href="https://discord.gg/7QctqCABR"
+              href="https://forms.gle/m1a5LrzEBHhacpbg6"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm px-3 py-2 text-ink-muted"
+              onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+              className="rounded-xl bg-accent px-3 py-3 text-sm font-bold text-white"
             >
-              Discord ↗
+              Join the club ↗
             </a>
+            <a href="https://discord.gg/7QctqCABR" target="_blank" rel="noopener noreferrer" onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} className="rounded-xl px-3 py-3 text-sm font-semibold text-ink-muted">Discord ↗</a>
           </nav>
         </details>
       </div>
