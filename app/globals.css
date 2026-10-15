@@ -9,7 +9,9 @@
  *   ink        on paper        16.44:1
  *   ink-muted  on paper         5.24:1
  *   ink-muted  on paper-raised  4.85:1
- *   accent     on paper         4.84:1
+ *   accent     on paper         6.25:1
+ *   accent     on paper-raised  5.79:1
+ *   paper      on accent        6.25:1 (primary button hover)
  * `rule` is intentionally low-contrast (1.27:1) — it's a decorative content
  * divider, not a UI component boundary, so WCAG 1.4.11 doesn't apply to it.
  * Anything interactive (buttons, inputs, focus rings) uses ink-muted or ink,
@@ -21,7 +23,7 @@
   --color-ink: #1a1a18;
   --color-ink-muted: #6b6862;
   --color-rule: #e3ddd2;
-  --color-accent: #a85826;
+  --color-accent: #8f4a1f;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), Georgia, serif;
@@ -29,6 +31,14 @@
 
 * {
   box-sizing: border-box;
+}
+
+/*
+ * The header is sticky (~4rem tall). Without this, keyboard focus and
+ * #anchor jumps can land underneath it (WCAG 2.4.11 Focus Not Obscured).
+ */
+html {
+  scroll-padding-top: 5rem;
 }
 
 /*
@@ -41,6 +51,9 @@
  */
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
   *,
   *::before,
   *::after {
@@ -50,11 +63,23 @@
   }
 }
 
+/* Windows High Contrast / forced colors: keep the focus ring visible. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid Highlight;
+  }
+}
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+}
+
+/* Skip link target receives programmatic focus; don't draw a ring on the whole page. */
+main:focus {
+  outline: none;
 }
 
 /* Visible focus for every interactive element — the previous theme had none. */
