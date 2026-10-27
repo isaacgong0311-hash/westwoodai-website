@@ -47,9 +47,9 @@ export default function HomePage() {
 
           <div className="lg:col-span-2">
             <SectionHeader title="Officers, 2026–27" count={`${members.length} people`} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
               {members.map((m, i) => (
-                <div
+                <li
                   key={m.id}
                   className={`flex items-center justify-between py-3 border-b border-rule last:border-b-0 ${
                     i < members.length - 2 ? "sm:border-b" : "sm:border-b-0"
@@ -57,9 +57,9 @@ export default function HomePage() {
                 >
                   <span className="text-sm text-ink">{m.name}</span>
                   <span className="text-xs text-ink-muted">{m.role}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -69,9 +69,9 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-5xl mx-auto">
           <SectionHeader title="Club history" count={`${HISTORY.length} years running`} />
-          <div>
+          <ul>
             {HISTORY.map((h, i) => (
-              <div
+              <li
                 key={h.year}
                 className="flex items-center justify-between py-3 border-b border-rule last:border-b-0"
               >
@@ -81,16 +81,16 @@ export default function HomePage() {
                 <div className="flex items-center gap-2">
                   {i === 0 && (
                     <span className="text-xs text-accent border border-accent px-1.5 py-0.5">
-                      current
+                      current<span className="sr-only"> year</span>
                     </span>
                   )}
                   <span className={`text-sm ${i === 0 ? "text-ink" : "text-ink-muted"}`}>
                     {h.president}
                   </span>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </div>
