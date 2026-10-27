@@ -6,7 +6,7 @@ import { siteLinks } from "@/lib/content";
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/warriorai/" },
   { label: "Discord", href: "https://discord.gg/7QctqCABR" },
-  { label: "Lesson archive", href: "https://sites.google.com/view/westwoodaiclub/more/previous-slides" },
+  { label: "GitHub", href: "https://github.com/westwoodai" },
   { label: "Email", href: "mailto:wwhs.aiexploration@gmail.com" },
 ];
 

@@ -9,6 +9,7 @@ import { getUpcomingEvents } from "@/lib/calendar";
 import configData from "@/data/config.json";
 import membersData from "@/data/members.json";
 import type { SiteConfig, Member } from "@/lib/types";
+import { clubHistory } from "@/lib/content";
 
 const config = configData as SiteConfig;
 const members = membersData as Member[];
@@ -19,17 +20,7 @@ const members = membersData as Member[];
 // calendar fetch cache in lib/calendar.ts) so both stay current.
 export const revalidate = 900;
 
-// Club history — pulled from Google Sites officer page
-const HISTORY = [
-  { year: "2026–27", president: "Reett Aulakh & Aanya Pathak" },
-  { year: "2025–26", president: "Victor Lehr" },
-  { year: "2024–25", president: "Indivara Kolluru" },
-  { year: "2023–24", president: "Raghav Aggarwal" },
-  { year: "2022–23", president: "Evan Lai" },
-  { year: "2021–22", president: "Shoumik Roychowdhury" },
-  { year: "2020–21", president: "Aarya Agarwal" },
-  { year: "2019–20", president: "Aarya Agarwal" },
-];
+const HISTORY = clubHistory();
 
 export default async function HomePage() {
   const upcoming = await getUpcomingEvents();
@@ -99,7 +90,7 @@ export default async function HomePage() {
                 <span className={`text-xs font-black uppercase tracking-wider ${i === 0 ? "text-accent" : "text-ink-muted"}`}>
                   {h.year}
                 </span>
-                <p className="mt-4 text-sm font-bold leading-snug text-ink">{h.president}</p>
+                <p className="mt-4 text-sm font-bold leading-snug text-ink">{h.presidents}</p>
                 {i === 0 && <span className="mt-2 inline-block text-xs font-semibold text-accent">Current team</span>}
               </div>
             ))}

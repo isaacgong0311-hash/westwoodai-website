@@ -103,6 +103,58 @@ export interface PromptEntry {
   submittedAt: string;
 }
 
+/** How a linked file opens — shown as a small label so nobody is surprised by a download. */
+export type FileFormat = "slides" | "pptx" | "pdf" | "notebook" | "data";
+
+export interface Lesson {
+  /** The meeting number, for years that numbered their meetings. */
+  number?: number;
+  title: string;
+  url: string;
+  format: FileFormat;
+  date?: string;
+}
+
+export interface LessonYear {
+  /** School year, e.g. "2026–27". The first entry in lessons.json is the current year. */
+  year: string;
+  lessons: Lesson[];
+  /** Colab notebooks and datasets used that year. */
+  code: Lesson[];
+}
+
+export interface Talk {
+  id: string;
+  date: string;
+  speaker: string;
+  role: string;
+  org: string;
+  /** Short topic for the homepage card. */
+  topic: string;
+  /** The talk's full title, as it appears on the slides. */
+  title: string;
+  slides?: { url: string; format: FileFormat };
+}
+
+export interface OutreachEvent {
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  files?: { label: string; url: string; format: FileFormat }[];
+}
+
+export interface OfficerTeam {
+  year: string;
+  officers: { role: string; name: string }[];
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+  link?: { label: string; href: string };
+}
+
 export interface SiteConfig {
   // Fallbacks for when the calendar has nothing scheduled (or an event has
   // no location). Actual dates live in Google Calendar, not here.

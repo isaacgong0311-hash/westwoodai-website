@@ -1,0 +1,101 @@
+{
+  "talks": [
+    {
+      "id": "bryan-mishkin-2026",
+      "date": "2026-03-09",
+      "speaker": "Bryan Mishkin",
+      "role": "CTO",
+      "org": "MIT Sloan Management",
+      "topic": "AI as a Partner",
+      "title": "AI: Power, Responsibility & the Future",
+      "slides": { "url": "https://drive.google.com/file/d/1kDRTi5YZ8hWH-gwt-9BBWj5xRjOCJ6nF/view", "format": "pptx" }
+    },
+    {
+      "id": "dean-teffer-2026",
+      "date": "2026-02-25",
+      "speaker": "Dr. Dean Teffer",
+      "role": "VP of AI",
+      "org": "Arctic Wolf",
+      "topic": "AI in Cybersecurity",
+      "title": "AI in Cybersecurity — From Rules to Reasoning Agents",
+      "slides": { "url": "https://docs.google.com/presentation/d/12gGgMhy6syjYoS3k0XVAvkidyTcnW0K3h1z6F3gXOC4/edit", "format": "slides" }
+    },
+    {
+      "id": "keith-moore-2025",
+      "date": "2025-12-03",
+      "speaker": "Keith Moore",
+      "role": "CEO",
+      "org": "AutoScheduler.AI",
+      "topic": "Life, Supply Chain & AI",
+      "title": "Life, Supply Chain, and AI",
+      "slides": { "url": "https://docs.google.com/presentation/d/1Wtes9XRymPCC_HHZXS_7hUn8DrMCIj4oJC91AVii840/edit", "format": "slides" }
+    },
+    {
+      "id": "myra-dsouza-2025",
+      "date": "2025-09-16",
+      "speaker": "Myra D'Souza",
+      "role": "Co-founder & CEO",
+      "org": "Autyn",
+      "topic": "AI in Mortgage Processing",
+      "title": "AI Today — Power, Pitfalls & Possibilities",
+      "slides": { "url": "https://docs.google.com/presentation/d/1nF5J1MgaMgeXY0r58FSad737yYEiGSZtHiNFW_g8PUw/edit", "format": "slides" }
+    },
+    {
+      "id": "cj-paul-2025",
+      "date": "2025-03-27",
+      "speaker": "Dr. C. J. Paul",
+      "role": "Global CTO Office",
+      "org": "Kyndryl / IBM",
+      "topic": "Real-time AI at Scale",
+      "title": "Real-Time AI at IBM and Kyndryl",
+      "slides": { "url": "https://docs.google.com/presentation/d/1A_VmBuUHdF6bDGOXB0rEBEDhIRyIZNRNDSyd1GQIAvk/edit", "format": "slides" }
+    },
+    {
+      "id": "anshul-moondra-2025",
+      "date": "2025-02-20",
+      "speaker": "Anshul Moondra",
+      "role": "ML Engineer",
+      "org": "Independent",
+      "topic": "ML in Baseball Analytics",
+      "title": "Machine Learning in Baseball Analytics",
+      "slides": { "url": "https://docs.google.com/presentation/d/1-bKFH31YaZGVN_xIclyZLqxYIDDXgYCaFo_1ZFVDpZs/edit", "format": "slides" }
+    },
+    {
+      "id": "sarah-griffin-2023",
+      "date": "2023-02-10",
+      "speaker": "Sarah Griffin",
+      "role": "SWE",
+      "org": "Dell",
+      "topic": "The Future of AI",
+      "title": "The Future of AI",
+      "slides": { "url": "https://docs.google.com/presentation/d/18zWC5a0hU_ew4fS3hFlmVmXUXycxmF6P-BmRPJZ1ayU/edit", "format": "slides" }
+    }
+  ],
+  "outreach": [
+    {
+      "id": "spicewood-steam-day-2024",
+      "date": "2024-03-08",
+      "title": "Spicewood STEAM Day",
+      "description": "Club members presented an introduction to AI for elementary school students.",
+      "files": [
+        { "label": "AI presentation for Patsy Sommer and Spicewood", "url": "https://docs.google.com/presentation/d/1Me17woPoQSfEqBajkKQaWg3OG-ZXjsLPBmHBxNQW_6c/edit", "format": "slides" }
+      ]
+    },
+    {
+      "id": "patsy-sommer-code-jam-2020",
+      "date": "2020-03-07",
+      "title": "Patsy Sommer Elementary Code Jam",
+      "description": "The club hosted a booth at the Code Jam.",
+      "files": [
+        { "label": "Middle school introduction to AI", "url": "https://drive.google.com/file/d/1g8v5IZfr8H3mf-TWhOKYwTECxGGvT4g2/view", "format": "pptx" },
+        { "label": "Middle school presentation 2", "url": "https://docs.google.com/presentation/d/18ttb11Zkn3bhtKzKWupsGgFWyohjQKS8t9_bS95CL1g/edit", "format": "slides" }
+      ]
+    },
+    {
+      "id": "herstory-makers-2019",
+      "date": "2019-12-14",
+      "title": "HERStory Makers",
+      "description": "The club hosted a booth at HERStory Makers."
+    }
+  ]
+}

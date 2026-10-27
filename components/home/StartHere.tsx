@@ -16,13 +16,13 @@ export default function StartHere() {
           <p className="max-w-md text-base leading-relaxed text-ink-muted">Come as you are. We learn the ideas behind AI, test them together, and hear how people use them in the real world.</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
-          <a href="https://sites.google.com/view/westwoodaiclub/more/previous-slides" target="_blank" rel="noopener noreferrer" className={`${card} bg-blue-soft`}>
+          <Link href="/lessons" className={`${card} bg-blue-soft`}>
             <span aria-hidden="true" className="absolute -right-12 -top-14 size-44 rounded-full border-[20px] border-accent/10" />
             <span className="relative mb-10 inline-flex size-11 items-center justify-center rounded-2xl bg-accent text-sm font-black text-white rotate-[-8deg]">01</span>
             <h3 className="relative text-2xl font-black tracking-tight text-ink">Learn something new.</h3>
             <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-muted">Start with the basics or follow a deeper idea through the club&apos;s past lessons and code notebooks.</p>
-            <span className="relative mt-7 text-sm font-bold text-accent group-hover:underline">Explore the archive ↗</span>
-          </a>
+            <span className="relative mt-7 text-sm font-bold text-accent group-hover:underline">Explore the lessons →</span>
+          </Link>
           <a href="https://discord.gg/7QctqCABR" target="_blank" rel="noopener noreferrer" className={`${card} bg-peach-soft`}>
             <span aria-hidden="true" className="absolute -right-10 bottom-1 size-40 rotate-12 rounded-[2rem] border-[18px] border-accent-warm/10" />
             <span className="relative mb-10 inline-flex size-11 items-center justify-center rounded-2xl bg-accent-warm text-sm font-black text-white rotate-[7deg]">02</span>
@@ -30,7 +30,7 @@ export default function StartHere() {
             <p className="relative mt-3 flex-1 text-sm leading-relaxed text-ink-muted">Ask questions, test ideas, and find other curious people in the club community.</p>
             <span className="relative mt-7 text-sm font-bold text-accent-warm group-hover:underline">Join the conversation ↗</span>
           </a>
-          <Link href="/#speakers" className={`${card} bg-lilac-soft`}>
+          <Link href="/events" className={`${card} bg-lilac-soft`}>
             <span aria-hidden="true" className="absolute -right-8 -top-12 size-40 rounded-full border-[18px] border-[#60479a]/10" />
             <span className="relative mb-10 inline-flex size-11 items-center justify-center rounded-2xl bg-[#60479a] text-sm font-black text-white rotate-[-6deg]">03</span>
             <h3 className="relative text-2xl font-black tracking-tight text-ink">Meet the makers.</h3>

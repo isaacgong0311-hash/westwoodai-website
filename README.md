@@ -25,7 +25,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Pages with no content yet (empty `[]`, or `"current": null`) stay reachable but are left out of the nav, footer, and sitemap. They appear automatically once you add the first entry.
 
-Only publish verified club information in these files. In particular, don't add a student project, competition entry, officer news note, or prompt result until the member or officer has supplied it. The homepage links to the club's [public presentation and code archive](https://sites.google.com/view/westwoodaiclub/more/previous-slides) so visitors have real learning material while those sections are empty. The club's [existing site](https://sites.google.com/view/westwoodaiclub/home) and [FAQ](https://sites.google.com/view/westwoodaiclub/more/faq) are the sources for membership and beginner information.
+Only publish verified club information in these files. In particular, don't add a student project, competition entry, officer news note, or prompt result until the member or officer has supplied it.
+
+The Lessons, Events, About, and FAQ pages were moved over from the club's [old Google Site](https://sites.google.com/view/westwoodaiclub/home) in October 2026. The Google Site's Member Attendance page was deliberately not copied (it lists students by name).
 
 The calendar and leaderboard need the club's Google credentials described below. Without them, the calendar shows a schedule pending message and the leaderboard shows the officer roster as a zero-point preview; neither state represents live events or standings.
 
@@ -110,6 +112,30 @@ A check-in counts once per person per day, and only on days that have a club eve
 `data/members.json` is still used for the officer list on the homepage.
 
 ---
+
+### Lessons — `data/lessons.json`
+
+After each meeting, add its slides to the **first** year in `"years"` (the current school year). At the start of a new school year, add a new year object at the top — the Lessons page shows the first one as "This school year" and the rest as the archive.
+
+```json
+{
+  "number": 3,                       ← optional; leave out for unnumbered talks
+  "title": "Machine learning basics",
+  "url": "https://docs.google.com/presentation/d/.../edit",
+  "format": "slides",                ← slides | pptx | pdf | notebook | data
+  "date": "2026-10-12"               ← optional
+}
+```
+
+Colab notebooks and datasets go in that year's `"code"` list in the same shape. Make sure each file is shared as "Anyone with the link can view". `"resourcesDoc"` is the officers' AI tools & resources Google Doc.
+
+### Special events — `data/special-events.json`
+
+`"talks"` (newest first) feeds both the Events page and the homepage speaker cards: `id`, `date`, `speaker`, `role`, `org`, `topic` (short, for the homepage), `title` (the talk's full title), and optional `slides: { url, format }`. `"outreach"` lists booths and presentations for younger students: `id`, `date`, `title`, `description`, optional `files: [{ label, url, format }]`.
+
+### About & FAQ — `data/officers.json`, `data/faq.json`
+
+The current officer team is `data/members.json`. When a new team takes over, move the outgoing team into `officers.json` → `"pastTeams"` (newest first) as `{ "year": "2026–27", "officers": [{ "role", "name" }] }`; the homepage club history is built from it. FAQ entries are `{ "question", "answer", "link"?: { "label", "href" } }`.
 
 ### Projects — `data/projects.json`
 
