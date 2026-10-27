@@ -32,7 +32,6 @@ export const metadata: Metadata = {
     title: "Westwood AI Club",
     description: "Westwood High School's student-run AI club in Austin, TX.",
     siteName: "Westwood AI Club",
-    images: ["/logo.png"],
   },
 };
 

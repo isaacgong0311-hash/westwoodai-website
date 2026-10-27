@@ -123,6 +123,17 @@ export interface LessonYear {
   code: Lesson[];
 }
 
+/** One stop on the Lessons page's "Start here" path for new members. */
+export interface PathStep {
+  title: string;
+  blurb: string;
+  lesson: string;
+  format: FileFormat;
+  /** A /playground lab that pairs with the lesson. */
+  lab?: string;
+  notebook?: string;
+}
+
 export interface Talk {
   id: string;
   date: string;

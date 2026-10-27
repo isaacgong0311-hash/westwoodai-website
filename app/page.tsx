@@ -3,6 +3,7 @@ import MeetingInfo from "@/components/home/MeetingInfo";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
 import StartHere from "@/components/home/StartHere";
+import PlaygroundTeaser from "@/components/home/PlaygroundTeaser";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AgendaList from "@/components/calendar/AgendaList";
 import { getUpcomingEvents } from "@/lib/calendar";
@@ -39,6 +40,8 @@ export default async function HomePage() {
       </section>
 
       <StartHere />
+
+      <PlaygroundTeaser />
 
       <section className="bg-[#edf2ff] px-4 py-20 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14">

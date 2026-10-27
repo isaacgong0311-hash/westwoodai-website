@@ -15,6 +15,7 @@ import type {
   Competition,
   FaqItem,
   LessonYear,
+  PathStep,
   Member,
   NewsItem,
   OfficerTeam,
@@ -31,6 +32,7 @@ export const news = newsData as NewsItem[];
 export const promptChallenge = (promptData.current as PromptChallenge | null) ?? null;
 export const lessonYears = lessonsData.years as LessonYear[];
 export const resourcesDoc = lessonsData.resourcesDoc;
+export const learningPath = lessonsData.path as PathStep[];
 export const talks = specialEventsData.talks as Talk[];
 export const outreach = specialEventsData.outreach as OutreachEvent[];
 export const faq = faqData as FaqItem[];
@@ -59,6 +61,7 @@ export function siteLinks(): SiteLink[] {
     { href: "/", label: "Home", primary: true, show: true },
     { href: "/calendar", label: "Calendar", primary: true, show: true },
     { href: "/lessons", label: "Lessons", primary: true, show: true },
+    { href: "/playground", label: "Playground", primary: true, show: true },
     { href: "/events", label: "Events", primary: true, show: true },
     { href: "/projects", label: "Projects", primary: true, show: projects.length > 0 },
     { href: "/competitions", label: "Competitions", primary: true, show: competitions.length > 0 },

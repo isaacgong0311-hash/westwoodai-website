@@ -129,6 +129,12 @@ After each meeting, add its slides to the **first** year in `"years"` (the curre
 
 Colab notebooks and datasets go in that year's `"code"` list in the same shape. Make sure each file is shared as "Anyone with the link can view". `"resourcesDoc"` is the officers' AI tools & resources Google Doc.
 
+`"path"` is the "Start here" learning path at the top of the Lessons page: `{ "title", "blurb", "lesson" (slides URL), "format", "lab"? (a `/playground#…` link), "notebook"? }`, in the order a new member should go through them. The archive's topic filters are worked out from lesson titles by keyword (`lib/topics.ts`) — add a word there if a new lesson lands in no topic.
+
+### Playground
+
+`/playground` has three in-browser labs (gradient descent, k-means, a small neural network). They run entirely client-side with no libraries; the math is in `lib/ml.ts` and each lab is a component in `components/playground/`. Nothing a visitor does there is sent anywhere.
+
 ### Special events — `data/special-events.json`
 
 `"talks"` (newest first) feeds both the Events page and the homepage speaker cards: `id`, `date`, `speaker`, `role`, `org`, `topic` (short, for the homepage), `title` (the talk's full title), and optional `slides: { url, format }`. `"outreach"` lists booths and presentations for younger students: `id`, `date`, `title`, `description`, optional `files: [{ label, url, format }]`.

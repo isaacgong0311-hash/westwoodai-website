@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionHeader from "@/components/ui/SectionHeader";
 import configData from "@/data/config.json";
-import { lessonYears, members, pastTeams, sponsor } from "@/lib/content";
+import { lessonYears, members, pastTeams, sponsor, talks } from "@/lib/content";
 import type { SiteConfig } from "@/lib/types";
 
 const config = configData as SiteConfig;
@@ -37,6 +37,11 @@ export default function AboutPage() {
           eyebrow="Westwood High School · Austin, TX"
           title="About the club"
           description="We give students an in-depth education in artificial intelligence and machine learning. No coding experience and no membership fee — everyone is welcome, any time of year."
+          stats={[
+            { value: String(pastTeams.length + 1), label: "Years running" },
+            { value: String(lessonYears.reduce((n, y) => n + y.lessons.length, 0)), label: "Lessons taught" },
+            { value: String(talks.length), label: "Guest speakers" },
+          ]}
         />
 
         <div className="mb-16 grid gap-4 md:grid-cols-[1.1fr_.9fr]">
@@ -65,9 +70,14 @@ export default function AboutPage() {
           <SectionHeader title="Officers" count={`${lessonYears[0].year} team`} />
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {members.map((m) => (
-              <li key={m.id} className="rounded-2xl border border-rule bg-white p-4">
-                <span className="block text-sm font-bold text-ink">{m.name}</span>
-                <span className="block text-xs text-ink-muted">{m.role}</span>
+              <li key={m.id} className="flex items-center gap-3 rounded-2xl border border-rule bg-white p-4 shadow-[0_8px_20px_rgba(17,26,51,.04)]">
+                <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-soft text-xs font-black text-accent">
+                  {m.name.split(" ").map((part) => part[0]).join("").slice(0, 2)}
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-bold text-ink">{m.name}</span>
+                  <span className="block text-xs text-ink-muted">{m.role}</span>
+                </span>
               </li>
             ))}
           </ul>

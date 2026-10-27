@@ -28,7 +28,7 @@ export default function Nav({ links }: { links: SiteLink[] }) {
           <span className="text-sm font-black leading-tight tracking-tight text-ink">WESTWOOD <span className="block text-xs font-bold tracking-[.16em] text-accent">AI CLUB</span></span>
         </Link>
 
-        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 rounded-full border border-rule bg-white/70 p-1.5 shadow-sm">
+        <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 rounded-full border border-rule bg-white/70 p-1.5 shadow-sm">
           {links.map(({ href, label }) => {
             const active = isActive(href);
             return (
@@ -51,12 +51,12 @@ export default function Nav({ links }: { links: SiteLink[] }) {
           href="https://forms.gle/m1a5LrzEBHhacpbg6"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex min-h-10 items-center rounded-full bg-accent px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-night"
+          className="hidden lg:inline-flex min-h-10 items-center rounded-full bg-accent px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-night"
         >
           Join the club ↗
         </a>
 
-        <details className="md:hidden group">
+        <details className="lg:hidden group">
           <summary className="list-none cursor-pointer rounded-full border border-rule bg-white px-4 py-2.5 text-sm font-bold text-ink flex items-center gap-2 [&::-webkit-details-marker]:hidden">
             <span aria-hidden="true" className="flex w-4 flex-col gap-1">
               <span className="h-px bg-current" />
