@@ -6,13 +6,13 @@ interface TagProps {
   tone?: "muted" | "accent";
 }
 
-/** Small bordered label for status, difficulty, "hot", etc. Text is always ink-muted or accent, never rule. */
+/** Small label for status, difficulty, "hot", etc. */
 export default function Tag({ children, tone = "muted" }: TagProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full text-xs font-semibold px-3 py-1 whitespace-nowrap",
-        tone === "accent" ? "text-accent bg-blue-soft" : "text-ink-muted bg-paper border border-rule",
+        "inline-flex items-center whitespace-nowrap rounded px-2 py-0.5 text-xs font-medium",
+        tone === "accent" ? "bg-blue-soft text-accent" : "border border-rule bg-white text-ink-muted",
       )}
     >
       {children}

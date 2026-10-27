@@ -10,7 +10,7 @@ import type { SiteConfig } from "@/lib/types";
 const config = configData as SiteConfig;
 
 export const metadata = {
-  title: "Leaderboard — Westwood AI Club",
+  title: "Leaderboard",
 };
 
 // Standings come from the check-in sheet; regenerate every 15 minutes.

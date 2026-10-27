@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
-/* Westwood's blue/rust logo anchors a warmer student-club palette. */
+/* Westwood's blue/rust logo, used with restraint: ink text on paper, blue
+   for links and actions, rust only for small accents. */
 @theme {
   --color-paper: #f8f6ef;
   --color-paper-raised: #ffffff;
   --color-ink: #111a33;
   --color-ink-muted: #536179;
-  --color-rule: #d9dfeb;
+  --color-rule: #dfe3ea;
   --color-accent: #2458b8;
   --color-accent-warm: #a84d25;
   --color-night: #111a33;
-  --color-blue-soft: #e7eeff;
-  --color-peach-soft: #ffe9d9;
+  --color-blue-soft: #e9eef9;
+  --color-peach-soft: #fbece2;
   --color-lilac-soft: #eeeaff;
 
   --color-event-meeting: #a84d25;
@@ -22,7 +23,7 @@
   --color-event-deadline: #a33a2a;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -32,10 +33,15 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -43,30 +49,13 @@ body {
   outline-color: #f0ad82;
 }
 
-.poster-grid {
+/* Faint graph-paper texture for the few places that get one. */
+.graph-paper {
   background-image:
-    linear-gradient(rgba(255,255,255,.065) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.065) 1px, transparent 1px);
-  background-size: 34px 34px;
+    linear-gradient(rgba(17,26,51,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,26,51,.045) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
-
-.club-dots {
-  background-image: radial-gradient(rgba(36,88,184,.22) 1.25px, transparent 1.25px);
-  background-size: 18px 18px;
-}
-
-.club-orbit {
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 50%;
-}
-
-@keyframes hover-float {
-  0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
-  50% { transform: translateY(-7px) rotate(var(--tilt, 0deg)); }
-}
-
-.float-slow { animation: hover-float 6s ease-in-out infinite; }
-.float-slow-delayed { animation: hover-float 7s ease-in-out -2s infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

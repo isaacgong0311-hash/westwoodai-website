@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 import { formatShortDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Projects — Westwood AI Club",
+  title: "Projects",
 };
 
 const STATUS_LABELS = { active: "In progress", completed: "Completed", demo: "Demo" } as const;
@@ -70,12 +70,12 @@ export default async function ProjectsPage({
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {shown.map((p) => (
-                <article key={p.id} className="flex flex-col rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)]">
+                <article key={p.id} className="flex flex-col rounded-lg border border-rule bg-white p-6">
                   <div className="flex items-center justify-between gap-3 mb-3">
-                    <p className="text-xs uppercase tracking-wider text-ink-muted">{p.category}</p>
+                    <p className="font-mono text-xs text-ink-muted">{p.category}</p>
                     <Tag tone={p.status === "active" ? "accent" : "muted"}>{STATUS_LABELS[p.status]}</Tag>
                   </div>
-                  <h2 className="text-2xl font-black tracking-tight text-ink leading-tight mb-1">{p.title}</h2>
+                  <h2 className="text-2xl font-semibold tracking-tight text-ink leading-tight mb-1">{p.title}</h2>
                   <p className="text-sm text-ink-muted mb-3">
                     {p.author} &middot; {formatShortDate(p.date)}
                   </p>

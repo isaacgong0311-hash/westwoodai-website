@@ -1,13 +1,13 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Westwood AI Club — learn AI, build ideas, find your people";
+export const alt = "Westwood AI Club";
 export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function Image() {
   return renderOgImage({
-    eyebrow: "Student-run · No experience needed",
-    title: "Learn AI. Build ideas. Find your people.",
-    subtitle: "Weekly meetings, guest speakers, and hands-on projects at Westwood High School.",
+    eyebrow: "Westwood High School, Austin TX",
+    title: "Westwood AI Club",
+    subtitle: "A student-run club for learning how machine learning works. Meeting slides, guest talks, and a playground.",
   });
 }

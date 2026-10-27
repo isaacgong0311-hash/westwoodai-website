@@ -9,7 +9,7 @@ import { POINTS } from "@/lib/points";
 import { daysUntil, formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Prompt of the Week — Westwood AI Club",
+  title: "Prompt of the Week",
 };
 
 // The deadline countdown is computed at render time.
@@ -37,7 +37,7 @@ export default function PromptPage() {
           />
         ) : (
           <>
-            <article className="mb-12 rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)] sm:p-8">
+            <article className="mb-12 rounded-lg border border-rule bg-white p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <Tag tone={closed ? "muted" : "accent"}>
                   {closed
@@ -50,7 +50,7 @@ export default function PromptPage() {
                 </Tag>
                 <Tag>{challenge.difficulty[0].toUpperCase() + challenge.difficulty.slice(1)}</Tag>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-ink leading-tight mb-2">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-ink leading-tight mb-2">
                 {challenge.title}
               </h2>
               <p className="text-sm text-ink-muted mb-6">
@@ -59,7 +59,7 @@ export default function PromptPage() {
               <p className="text-base leading-relaxed text-ink mb-6 whitespace-pre-line">{challenge.description}</p>
               {challenge.context && (
                 <Panel raised className="p-5 mb-8">
-                  <p className="text-xs uppercase tracking-wider text-ink-muted mb-2">The setup</p>
+                  <p className="font-mono text-xs text-ink-muted mb-2">The setup</p>
                   <p className="text-sm leading-relaxed text-ink whitespace-pre-line">{challenge.context}</p>
                 </Panel>
               )}
@@ -75,13 +75,13 @@ export default function PromptPage() {
 
             {entries.length > 0 && (
               <section>
-                <h2 className="text-xs uppercase tracking-wider text-ink-muted border-b border-rule pb-3">
+                <h2 className="font-mono text-xs text-ink-muted border-b border-rule pb-3">
                   {closed ? "Results" : "Top entries so far"}
                 </h2>
                 <ol className="divide-y divide-rule">
                   {entries.map((entry, i) => (
                     <li key={entry.id} className="py-5 flex gap-4">
-                      <span className="font-serif text-2xl text-ink-muted w-6 shrink-0">{i + 1}</span>
+                      <span className="text-2xl text-ink-muted w-6 shrink-0">{i + 1}</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm leading-relaxed text-ink whitespace-pre-line">{entry.content}</p>
                         <p className="text-xs text-ink-muted mt-2">

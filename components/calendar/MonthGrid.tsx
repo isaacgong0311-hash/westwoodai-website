@@ -32,7 +32,7 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         >
           &larr;&nbsp;{formatMonth(prev, { year: false })}
         </Link>
-        <h2 id="month-heading" className="text-2xl font-black tracking-tight text-ink">
+        <h2 id="month-heading" className="text-2xl font-semibold tracking-tight text-ink">
           {formatMonth(month)}
         </h2>
         <Link
@@ -44,7 +44,7 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-7 text-xs font-black uppercase tracking-wider text-accent mb-2">
+      <div className="font-mono grid grid-cols-7 text-xs font-semibold text-accent mb-2">
         {WEEKDAYS.map((d) => (
           <div key={d} className="px-2">
             {d}
@@ -52,7 +52,7 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         ))}
       </div>
 
-      <div className="grid grid-cols-7 overflow-hidden rounded-2xl border-t border-l border-rule shadow-[0_12px_30px_rgba(17,26,51,.05)]">
+      <div className="grid grid-cols-7 overflow-hidden rounded-lg border-t border-l border-rule">
         {monthWeeks(month).flat().map((day, i) => {
           const dayEvents = day ? byDay.get(day) ?? [] : [];
           const isToday = day === today;

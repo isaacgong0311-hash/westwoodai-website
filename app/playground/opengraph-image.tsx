@@ -1,13 +1,13 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Westwood AI Club machine learning playground";
+export const alt = "Westwood AI Club playground";
 export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function Image() {
   return renderOgImage({
     eyebrow: "Playground",
-    title: "Train a model in your browser.",
-    subtitle: "Fit a line, find clusters, and train a neural network — no code required.",
+    title: "Machine learning you can poke at",
+    subtitle: "Fit a line, cluster points, and train a neural network in your browser.",
   });
 }

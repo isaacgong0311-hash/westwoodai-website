@@ -6,7 +6,7 @@ import { news } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "News — Westwood AI Club",
+  title: "News",
 };
 
 export default function NewsPage() {
@@ -30,14 +30,14 @@ export default function NewsPage() {
         ) : (
           <div className="space-y-4">
             {sorted.map((item) => (
-              <article key={item.id} className="rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)] sm:p-8">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-ink-muted mb-2">
+              <article key={item.id} className="rounded-lg border border-rule bg-white p-6 sm:p-8">
+                <div className="font-mono flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted mb-2">
                   <span>{formatShortDate(item.date)}</span>
                   <span>&middot;</span>
                   <span>{item.category}</span>
                   {item.hot && <Tag tone="accent">Hot</Tag>}
                 </div>
-                <h2 className="text-2xl font-black tracking-tight text-ink leading-tight mb-1">
+                <h2 className="text-2xl font-semibold tracking-tight text-ink leading-tight mb-1">
                   <a
                     href={item.sourceUrl}
                     target="_blank"
@@ -50,7 +50,7 @@ export default function NewsPage() {
                 <p className="text-sm text-ink-muted mb-4">{item.source} ↗</p>
                 <p className="text-sm leading-relaxed text-ink mb-5">{item.summary}</p>
                 <blockquote className="border-l-2 border-accent pl-4">
-                  <p className="font-serif italic text-lg leading-snug text-ink">{item.officerTake}</p>
+                  <p className="text-lg leading-snug text-ink">{item.officerTake}</p>
                   <footer className="text-xs text-ink-muted mt-2">&mdash; {item.officer}</footer>
                 </blockquote>
               </article>

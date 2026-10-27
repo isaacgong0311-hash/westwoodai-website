@@ -8,7 +8,7 @@ import type { Competition } from "@/lib/types";
 import { daysUntil, formatShortDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Competitions — Westwood AI Club",
+  title: "Competitions",
 };
 
 // "N days left" is computed at render time; regenerate hourly so it doesn't freeze at build time.
@@ -60,13 +60,13 @@ export default function CompetitionsPage() {
         ) : (
           <div className="space-y-4">
             {sorted.map((c) => (
-              <article key={c.id} className={`rounded-3xl border border-rule bg-white p-6 shadow-[0_14px_34px_rgba(17,26,51,.05)] ${c.status === "closed" ? "opacity-70" : ""}`}>
+              <article key={c.id} className={`rounded-lg border border-rule bg-white p-6 ${c.status === "closed" ? "opacity-70" : ""}`}>
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <Tag tone={c.status === "open" ? "accent" : "muted"}>{STATUS[c.status].label}</Tag>
                   <Tag>{c.difficulty[0].toUpperCase() + c.difficulty.slice(1)}</Tag>
                   <Tag>{c.type === "internal" ? "Club-run" : "External"}</Tag>
                 </div>
-                <h2 className="text-2xl font-black tracking-tight text-ink leading-tight">{c.name}</h2>
+                <h2 className="text-2xl font-semibold tracking-tight text-ink leading-tight">{c.name}</h2>
                 <p className="text-sm text-ink-muted mt-0.5 mb-3">
                   {c.organizer}
                   {c.prize && <> &middot; Prize: {c.prize}</>}

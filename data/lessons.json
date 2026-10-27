@@ -3,41 +3,41 @@
   "path": [
     {
       "title": "What is AI, anyway?",
-      "blurb": "The big picture: what machine learning is, where it shows up, and what the club does.",
+      "blurb": "What machine learning is, where you already run into it, and what the club does during the year.",
       "lesson": "https://docs.google.com/presentation/d/17E1WwieROENtLo8IGYthEQ31W9u4ewDwG9eUvwH3lgU/edit",
       "format": "slides"
     },
     {
       "title": "Fit your first model",
-      "blurb": "Linear regression and loss — how a model measures being wrong and gets less wrong.",
+      "blurb": "Linear regression and loss: how a model measures how wrong it is, and how it gets less wrong.",
       "lesson": "https://docs.google.com/presentation/d/1G9meieo6iKGHZqAtNtaPquoLum-NuIcOV1ENqOuBqds/edit",
       "format": "slides",
       "lab": "/playground#fit-a-line"
     },
     {
       "title": "Learning with and without labels",
-      "blurb": "Supervised vs. unsupervised learning, and the four types of machine learning.",
+      "blurb": "Supervised and unsupervised learning, and the four main types of machine learning.",
       "lesson": "https://docs.google.com/presentation/d/1xWcM6ZXOh2i64uvgB8PsUa-D2G2H5NDhLAjtyGCAIQs/edit",
       "format": "slides",
       "lab": "/playground#find-clusters"
     },
     {
       "title": "Neural networks",
-      "blurb": "Perceptrons, layers, and why stacking simple units can learn curved boundaries.",
+      "blurb": "Perceptrons and layers, and why stacking simple units lets a model learn curved boundaries.",
       "lesson": "https://docs.google.com/presentation/d/1fXGUOWl1_HWeLS-78y3Wmck6N5wCEIrplcVZyqu3qr0/edit",
       "format": "slides",
       "lab": "/playground#train-a-network"
     },
     {
       "title": "Teach a computer to see",
-      "blurb": "Convolutional networks for images — then train one on Fashion MNIST in Colab.",
+      "blurb": "Convolutional networks for images. Afterward, train one on Fashion MNIST in the Colab notebook.",
       "lesson": "https://docs.google.com/presentation/d/1H3nrajP1bruopVkVo5DJwBk7XgvYfSjYz3EtmVse9N4/edit",
       "format": "slides",
       "notebook": "https://colab.research.google.com/drive/1jcl8miOgEjuJt6U585rZiJH1aIYJjLiP?usp=sharing"
     },
     {
       "title": "How chatbots read",
-      "blurb": "Tokens, attention, and the transformer architecture behind today's language models.",
+      "blurb": "Tokens, attention, and the transformer architecture that language models are built on.",
       "lesson": "https://docs.google.com/presentation/d/1t5WgU2_m9CTIY6mfysemrI7ENBNbOCQcAhgJXT8q7oA/edit",
       "format": "slides"
     }

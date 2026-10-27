@@ -2,7 +2,10 @@
   {
     "question": "Is there an official registry I have to fill out to become a member?",
     "answer": "No. Fill out the interest form and you'll be added to the mailing list and counted as a member of the club.",
-    "link": { "label": "Fill out the interest form", "href": "https://forms.gle/m1a5LrzEBHhacpbg6" }
+    "link": {
+      "label": "Interest form",
+      "href": "https://forms.gle/m1a5LrzEBHhacpbg6"
+    }
   },
   {
     "question": "Do I need previous experience in computer science or AI to join?",
@@ -14,12 +17,15 @@
   },
   {
     "question": "Why do we use Python?",
-    "answer": "Python is easy to learn (it's taught in the principles of computer science classes at Westwood), and almost every library we use is written for it. It's the most common language for AI and machine learning, used by university researchers and developers at Google alike."
+    "answer": "It's easy to pick up (Westwood's intro computer science classes teach it), and almost every machine learning library we use is written for it. University researchers and engineers at Google use it for the same reason."
   },
   {
     "question": "Do I need to be good at Python already?",
     "answer": "No. We teach all the Python you need for machine learning. If you'd like to review or get a head start, Codecademy has free beginner lessons.",
-    "link": { "label": "Learn Python 3 on Codecademy", "href": "https://www.codecademy.com/learn/learn-python-3" }
+    "link": {
+      "label": "Learn Python 3 on Codecademy",
+      "href": "https://www.codecademy.com/learn/learn-python-3"
+    }
   },
   {
     "question": "What is the student project?",
@@ -28,11 +34,17 @@
   {
     "question": "Where can we have discussions?",
     "answer": "There's a discussion thread in the club's Schoology group for questions, comments, and interesting tools or resources. The Discord server is open for chat too.",
-    "link": { "label": "Join the Discord", "href": "https://discord.gg/7QctqCABR" }
+    "link": {
+      "label": "Join the Discord",
+      "href": "https://discord.gg/7QctqCABR"
+    }
   },
   {
     "question": "I have a question that isn't listed here.",
-    "answer": "Email the officers. We're happy to help.",
-    "link": { "label": "wwhs.aiexploration@gmail.com", "href": "mailto:wwhs.aiexploration@gmail.com" }
+    "answer": "Email the officers and someone will get back to you.",
+    "link": {
+      "label": "wwhs.aiexploration@gmail.com",
+      "href": "mailto:wwhs.aiexploration@gmail.com"
+    }
   }
 ]

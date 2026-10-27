@@ -10,42 +10,39 @@ interface LabFrameProps {
   description: ReactNode;
   plot: ReactNode;
   controls: ReactNode;
-  /** Shown as chips and announced politely to screen readers as it changes. */
+  /** Shown as a small readout and announced politely to screen readers as it changes. */
   stats: { label: string; value: string; tone?: "warn" }[];
   lesson: { label: string; href: string };
 }
 
 /**
- * Shared shell for a playground lab: copy on top, plot + controls side by
+ * Shared shell for a playground lab: copy on top, plot and controls side by
  * side. Everything here is static markup, so with JavaScript off a visitor
  * still gets the explanation and the starting picture.
  */
 export default function LabFrame({ id, index, kicker, title, description, plot, controls, stats, lesson }: LabFrameProps) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-28 overflow-hidden rounded-[2rem] border border-rule bg-white shadow-[0_24px_60px_rgba(17,26,51,.07)]">
-      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:gap-10">
-        <div className="min-w-0">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="inline-flex size-10 rotate-[-6deg] items-center justify-center rounded-2xl bg-accent text-sm font-black text-white">{index}</span>
-            <p className="text-xs font-black uppercase tracking-[.2em] text-accent">{kicker}</p>
-          </div>
-          <h2 id={`${id}-title`} className="mb-3 text-3xl font-black tracking-[-.045em] text-ink sm:text-4xl">{title}</h2>
-          <div className="mb-6 max-w-2xl text-sm leading-relaxed text-ink-muted">{description}</div>
-          {plot}
-        </div>
+    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 border-t-2 border-ink pt-6">
+      <p className="font-mono text-xs text-ink-muted">
+        {index} · {kicker}
+      </p>
+      <h2 id={`${id}-title`} className="mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{title}</h2>
+      <div className="mt-3 max-w-3xl text-[15px] leading-relaxed text-ink-muted">{description}</div>
 
-        <div className="flex min-w-0 flex-col gap-5 lg:pt-16">
-          <dl aria-live="polite" className="grid grid-cols-2 gap-2">
+      <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-10">
+        <div className="min-w-0">{plot}</div>
+        <div className="flex min-w-0 flex-col gap-6">
+          <dl aria-live="polite" className="grid grid-cols-2 border-l border-t border-rule">
             {stats.map((s) => (
-              <div key={s.label} className={cn("rounded-2xl px-4 py-3", s.tone === "warn" ? "bg-peach-soft" : "bg-paper")}>
-                <dt className="text-[11px] font-bold uppercase tracking-[.16em] text-ink-muted">{s.label}</dt>
-                <dd className={cn("mt-1 font-mono text-lg font-bold tabular-nums", s.tone === "warn" ? "text-accent-warm" : "text-ink")}>{s.value}</dd>
+              <div key={s.label} className="border-b border-r border-rule bg-white px-3 py-2.5">
+                <dt className="text-xs text-ink-muted">{s.label}</dt>
+                <dd className={cn("mt-0.5 font-mono text-[15px] tabular-nums", s.tone === "warn" ? "text-accent-warm" : "text-ink")}>{s.value}</dd>
               </div>
             ))}
           </dl>
           {controls}
-          <Link href={lesson.href} className="mt-auto rounded-2xl border border-dashed border-accent/40 bg-blue-soft/50 px-4 py-3 text-sm font-semibold text-accent hover:border-accent hover:bg-blue-soft">
-            {lesson.label} →
+          <Link href={lesson.href} className="text-sm text-accent hover:underline">
+            {lesson.label}
           </Link>
         </div>
       </div>
@@ -56,8 +53,8 @@ export default function LabFrame({ id, index, kicker, title, description, plot, 
 export function ControlGroup({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div role="group" aria-label={label}>
-      <p className="mb-2 text-[11px] font-bold uppercase tracking-[.16em] text-ink-muted">{label}</p>
-      <div className="flex flex-wrap gap-2">{children}</div>
+      <p className="mb-2 text-xs text-ink-muted">{label}</p>
+      <div className="flex flex-wrap gap-1.5">{children}</div>
     </div>
   );
 }
@@ -78,12 +75,12 @@ export function LabButton({ onClick, children, variant = "plain", pressed, disab
       aria-pressed={pressed}
       disabled={disabled}
       className={cn(
-        "min-h-10 rounded-full px-4 text-sm font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-40",
+        "h-9 rounded-md px-3 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40",
         variant === "primary"
-          ? "bg-accent text-white shadow-[0_4px_0_#173d83] hover:bg-night"
+          ? "bg-ink font-medium text-white hover:bg-accent"
           : pressed
-            ? "bg-night text-white"
-            : "border border-rule bg-white text-ink hover:border-accent hover:text-accent",
+            ? "border border-ink bg-ink text-white"
+            : "border border-rule bg-white text-ink hover:border-ink",
       )}
     >
       {children}
@@ -99,10 +96,10 @@ export function Sparkline({ values, label }: { values: number[]; label: string }
     .map((v, i) => `${i === 0 ? "M" : "L"}${(i / Math.max(finite.length - 1, 1)) * 100},${30 - (v / max) * 28}`)
     .join(" ");
   return (
-    <figure className="rounded-2xl bg-paper px-4 py-3">
-      <figcaption className="mb-1 text-[11px] font-bold uppercase tracking-[.16em] text-ink-muted">{label}</figcaption>
-      <svg viewBox="0 0 100 32" preserveAspectRatio="none" className="h-12 w-full" aria-hidden="true">
-        {finite.length > 1 && <path d={d} fill="none" stroke="var(--color-accent-warm)" strokeWidth="1.6" vectorEffect="non-scaling-stroke" />}
+    <figure>
+      <figcaption className="mb-1 text-xs text-ink-muted">{label}</figcaption>
+      <svg viewBox="0 0 100 32" preserveAspectRatio="none" className="h-12 w-full border-b border-l border-rule" aria-hidden="true">
+        {finite.length > 1 && <path d={d} fill="none" stroke="var(--color-accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />}
       </svg>
     </figure>
   );

@@ -23,10 +23,10 @@ function eventLocation(event: ClubEvent): string | null {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = await getEvent(decodeURIComponent((await params).id));
-  if (!event) return { title: "Event not found — Westwood AI Club" };
+  if (!event) return { title: "Event not found" };
   const where = eventLocation(event);
   return {
-    title: `${event.title} — Westwood AI Club`,
+    title: `${event.title}`,
     description: [formatEventWhen(event), where].filter(Boolean).join(" · "),
   };
 }
@@ -70,11 +70,11 @@ export default async function EventPage({ params }: Props) {
           &larr; Calendar
         </Link>
 
-        <p className="flex items-center gap-2 text-xs uppercase tracking-wider text-ink-muted mt-8 mb-2">
+        <p className="font-mono flex items-center gap-2 text-xs text-ink-muted mt-8 mb-2">
           <TypeDot event={event} className="size-2" />
           {EVENT_TYPES[event.type].label}
         </p>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-ink mb-8">
+        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-ink mb-8">
           {event.title}
         </h1>
 

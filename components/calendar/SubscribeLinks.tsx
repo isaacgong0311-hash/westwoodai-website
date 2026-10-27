@@ -5,7 +5,7 @@ interface SubscribeLinksProps {
 /** "Subscribe once, stay synced" — both links add the whole club calendar, not a copy. */
 export default function SubscribeLinks({ links }: SubscribeLinksProps) {
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-rule bg-blue-soft p-5 mb-10">
+    <div className="flex flex-wrap items-center gap-3 rounded-lg border border-rule bg-blue-soft p-5 mb-10">
       <p className="mr-auto text-sm font-bold text-ink">Get every event on your phone</p>
       <a
         href={links.google}

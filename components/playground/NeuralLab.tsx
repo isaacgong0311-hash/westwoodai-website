@@ -27,7 +27,7 @@ const GRID = 48;
 const STEPS_PER_MS = 6 / 16;
 const MAX_STEPS_PER_TICK = 240;
 
-// Class 1 is blue circles, class 0 is rust squares — shape as well as color.
+// Class 1 is blue circles, class 0 is rust squares, so shape carries the class as well as color.
 const BLUE = [36, 88, 184];
 const RUST = [168, 77, 37];
 
@@ -44,10 +44,10 @@ function drawBoundary(canvas: HTMLCanvasElement, net: Network) {
       const strength = Math.abs(p - 0.5) * 2; // 0 at the boundary, 1 when sure
       const alpha = 0.12 + strength * 0.38;
       const i = (row * GRID + col) * 4;
-      // Blend the tint over the paper color (#f8f6ef).
-      image.data[i] = Math.round(248 + (tint[0] - 248) * alpha);
-      image.data[i + 1] = Math.round(246 + (tint[1] - 246) * alpha);
-      image.data[i + 2] = Math.round(239 + (tint[2] - 239) * alpha);
+      // Blend the tint over white.
+      image.data[i] = Math.round(255 + (tint[0] - 255) * alpha);
+      image.data[i + 1] = Math.round(255 + (tint[1] - 255) * alpha);
+      image.data[i + 2] = Math.round(255 + (tint[2] - 255) * alpha);
       image.data[i + 3] = 255;
     }
   }
@@ -61,9 +61,9 @@ function NetworkDiagram({ net }: { net: Network }) {
   const width = (w: number) => Math.min(3.2, 0.3 + Math.abs(w) * 0.7);
   const color = (w: number) => (w >= 0 ? "var(--color-accent)" : "var(--color-accent-warm)");
   return (
-    <figure className="rounded-2xl bg-paper px-4 py-3">
-      <figcaption className="mb-1 text-[11px] font-bold uppercase tracking-[.16em] text-ink-muted">
-        The network · 2 inputs → {H} hidden → 1 output
+    <figure>
+      <figcaption className="mb-1 text-xs text-ink-muted">
+        The network: 2 inputs, {H} hidden neurons, 1 output
       </figcaption>
       <svg viewBox="0 0 100 100" className="h-36 w-full" aria-hidden="true">
         {net.w1.map((w, j) =>
@@ -127,11 +127,11 @@ export default function NeuralLab() {
         <p>
           A real neural network, trained by backpropagation right here in your browser. The background shows what it currently believes:
           blue where it predicts circles, rust where it predicts squares, pale where it isn&apos;t sure. A straight line can&apos;t separate
-          the circle or XOR data — watch the hidden neurons bend the boundary. Tap the plot to add a point.
+          the circle or XOR data, so watch how the hidden neurons bend the boundary. Tap the plot to add a point.
         </p>
       }
       plot={
-        <div className="relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-3xl border border-rule bg-paper">
+        <div className="relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-md border border-rule bg-white">
           <canvas ref={canvasRef} width={GRID} height={GRID} className="absolute inset-0 size-full [image-rendering:auto]" aria-hidden="true" />
           <svg
             viewBox="0 0 100 100"

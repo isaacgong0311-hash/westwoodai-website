@@ -77,7 +77,7 @@ export default function RegressionLab() {
         </p>
       }
       plot={
-        <div className="club-dots relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-3xl border border-rule bg-paper">
+        <div className="graph-paper relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-md border border-rule bg-white">
           <svg
             viewBox="0 0 100 100"
             className="absolute inset-0 size-full cursor-crosshair touch-none"
@@ -98,9 +98,9 @@ export default function RegressionLab() {
       }
       stats={[
         { label: "Step", value: String(step) },
-        { label: "Error (MSE)", value: diverged ? "∞ — diverged" : loss.toFixed(4), tone: diverged ? "warn" : undefined },
-        { label: "Slope m", value: drawable ? line.m.toFixed(2) : "—" },
-        { label: "Intercept b", value: drawable ? line.b.toFixed(2) : "—" },
+        { label: "Error (MSE)", value: diverged ? "diverged" : loss.toFixed(4), tone: diverged ? "warn" : undefined },
+        { label: "Slope m", value: drawable ? line.m.toFixed(2) : "n/a" },
+        { label: "Intercept b", value: drawable ? line.b.toFixed(2) : "n/a" },
       ]}
       controls={
         <>
@@ -130,7 +130,7 @@ export default function RegressionLab() {
               New data
             </LabButton>
           </ControlGroup>
-          {diverged && <p className="text-sm font-semibold text-accent-warm">The steps were so big the line overshot further every time. That&apos;s divergence — try a smaller rate.</p>}
+          {diverged && <p className="text-sm text-accent-warm">Each step was so big that the line overshot by more every time. That&apos;s called divergence. Try a smaller rate.</p>}
           <Sparkline values={history} label="Error over time" />
         </>
       }

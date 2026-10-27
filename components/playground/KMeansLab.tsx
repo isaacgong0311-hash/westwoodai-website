@@ -64,7 +64,7 @@ export default function KMeansLab() {
         </p>
       }
       plot={
-        <div className="club-dots relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-3xl border border-rule bg-paper">
+        <div className="graph-paper relative aspect-square w-full max-w-[34rem] overflow-hidden rounded-md border border-rule bg-white">
           <svg
             viewBox="0 0 100 100"
             className="absolute inset-0 size-full cursor-crosshair touch-none"
@@ -96,7 +96,7 @@ export default function KMeansLab() {
         { label: "Round", value: String(round) },
         { label: "Next step", value: nextAction },
         { label: "Clusters (k)", value: String(k) },
-        { label: "Spread", value: spread === null ? "—" : spread.toFixed(3) },
+        { label: "Spread", value: spread === null ? "n/a" : spread.toFixed(3) },
       ]}
       controls={
         <>
@@ -133,7 +133,7 @@ export default function KMeansLab() {
             <LabButton onClick={() => restart()}>Restart from random centers</LabButton>
           </ControlGroup>
           <p className="text-sm leading-relaxed text-ink-muted">
-            Diamonds are centers. Run it twice on the same data — different starting centers can land on different answers.
+            Diamonds are the centers. Run it twice on the same data and you may get different groups, because the starting centers are random.
           </p>
         </>
       }

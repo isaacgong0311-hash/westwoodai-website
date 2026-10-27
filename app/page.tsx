@@ -1,19 +1,17 @@
+import Link from "next/link";
 import Hero from "@/components/home/Hero";
-import MeetingInfo from "@/components/home/MeetingInfo";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
 import StartHere from "@/components/home/StartHere";
-import PlaygroundTeaser from "@/components/home/PlaygroundTeaser";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AgendaList from "@/components/calendar/AgendaList";
+import FileLink from "@/components/ui/FileLink";
 import { getUpcomingEvents } from "@/lib/calendar";
 import configData from "@/data/config.json";
-import membersData from "@/data/members.json";
-import type { SiteConfig, Member } from "@/lib/types";
-import { clubHistory } from "@/lib/content";
+import type { SiteConfig } from "@/lib/types";
+import { clubHistory, lessonYears, members } from "@/lib/content";
 
 const config = configData as SiteConfig;
-const members = membersData as Member[];
 
 // The homepage is statically prerendered, but the next meeting comes from
 // Google Calendar and NextMeetingCard's "in N days" badge is computed from
@@ -22,6 +20,8 @@ const members = membersData as Member[];
 export const revalidate = 900;
 
 const HISTORY = clubHistory();
+const thisYear = lessonYears[0];
+const latestLessons = [...thisYear.lessons].reverse().slice(0, 4);
 
 export default async function HomePage() {
   const upcoming = await getUpcomingEvents();
@@ -33,71 +33,63 @@ export default async function HomePage() {
     <div>
       <Hero />
 
-      <section className="relative z-10 -mt-8 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <MeetingInfo />
-        </div>
-      </section>
-
-      <StartHere />
-
-      <PlaygroundTeaser />
-
-      <section className="bg-[#edf2ff] px-4 py-20 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14">
-          <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[.2em] text-accent">Show up & get involved</p>
-            <h2 className="mb-6 max-w-md text-4xl font-black leading-[.98] tracking-[-.055em] text-ink sm:text-5xl">See you <span className="font-serif font-normal italic text-accent-warm">after school.</span></h2>
-            <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} checkinUrl={config.checkinUrl} />
-            {rest.length > 0 && (
-              <div className="mt-8 rounded-3xl bg-white p-5">
-                <p className="text-xs font-black uppercase tracking-wider text-accent mb-1">Also coming up</p>
-                <AgendaList events={rest} groupByMonth={false} />
-              </div>
-            )}
-          </div>
-
-          <div>
-            <SectionHeader title="Meet your officers." count="2026–27 team" />
-            <p className="mb-6 max-w-xl text-sm leading-relaxed text-ink-muted">Students keep this club moving. Say hello at a meeting, ask a question, or bring an idea to the team.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {members.map((m) => (
-                <div
-                  key={m.id}
-                  className="flex items-center gap-3 rounded-2xl border border-rule bg-white p-4 shadow-[0_8px_20px_rgba(17,26,51,.04)]"
-                >
-                  <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-soft text-xs font-black text-accent">{m.name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm font-bold text-ink">{m.name}</span>
-                    <span className="block text-xs text-ink-muted">{m.role}</span>
-                  </span>
-                </div>
-              ))}
+      <section className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[.8fr_1.2fr]">
+        <div>
+          <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} checkinUrl={config.checkinUrl} />
+          {rest.length > 0 && (
+            <div className="mt-6">
+              <p className="mb-1 font-mono text-xs text-ink-muted">Also coming up</p>
+              <AgendaList events={rest} groupByMonth={false} />
             </div>
-          </div>
+          )}
+        </div>
+        <div>
+          <SectionHeader title={`This year's meetings`} count={thisYear.year} />
+          <ol className="border-t border-rule">
+            {latestLessons.map((l) => (
+              <li key={l.url} className="flex items-baseline gap-4 border-b border-rule py-4">
+                <span className="w-8 shrink-0 font-mono text-xs text-ink-muted">{l.number ? `#${l.number}` : ""}</span>
+                <FileLink href={l.url} format={l.format}>{l.title}</FileLink>
+              </li>
+            ))}
+          </ol>
+          <Link href="/lessons" className="mt-4 inline-block text-sm text-accent hover:underline">
+            All {lessonYears.reduce((n, y) => n + y.lessons.length, 0)} lessons since 2019
+          </Link>
         </div>
       </section>
 
-      <GuestSpeakers />
+      <div className="border-y border-rule bg-white">
+        <StartHere />
+      </div>
 
-      <section className="bg-paper px-4 py-20 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="mb-3 text-xs font-black uppercase tracking-[.2em] text-accent">Built by students, year after year</p>
-          <SectionHeader title="Club history" count={`${HISTORY.length} years running`} />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {HISTORY.map((h, i) => (
-              <div
-                key={h.year}
-                className={`min-h-28 rounded-2xl border p-5 ${i === 0 ? "border-accent bg-blue-soft" : "border-rule bg-white"}`}
-              >
-                <span className={`text-xs font-black uppercase tracking-wider ${i === 0 ? "text-accent" : "text-ink-muted"}`}>
-                  {h.year}
-                </span>
-                <p className="mt-4 text-sm font-bold leading-snug text-ink">{h.presidents}</p>
-                {i === 0 && <span className="mt-2 inline-block text-xs font-semibold text-accent">Current team</span>}
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <GuestSpeakers />
+      </div>
+
+      <section className="mx-auto grid max-w-6xl gap-12 px-4 pb-8 sm:px-6 lg:grid-cols-2">
+        <div>
+          <SectionHeader title="Officers" count={`${thisYear.year} team`} />
+          <dl className="border-t border-rule">
+            {members.map((m) => (
+              <div key={m.id} className="flex items-baseline justify-between gap-4 border-b border-rule py-3 text-sm">
+                <dt className="text-ink-muted">{m.role}</dt>
+                <dd className="font-medium text-ink">{m.name}</dd>
               </div>
             ))}
-          </div>
+          </dl>
+          <Link href="/about" className="mt-4 inline-block text-sm text-accent hover:underline">Past officers and how to reach us</Link>
+        </div>
+        <div>
+          <SectionHeader title="Presidents by year" count={`${HISTORY.length} years`} />
+          <dl className="border-t border-rule">
+            {HISTORY.map((h) => (
+              <div key={h.year} className="flex items-baseline justify-between gap-4 border-b border-rule py-3 text-sm">
+                <dt className="font-mono text-xs text-ink-muted">{h.year}</dt>
+                <dd className="text-right text-ink">{h.presidents}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
     </div>

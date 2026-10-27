@@ -23,19 +23,19 @@ export default function AgendaList({ events, muted = false, groupByMonth = true 
         return (
           <li key={event.id}>
             {showMonth && (
-              <p className={cn("text-xs uppercase tracking-wider text-ink-muted pb-2", i === 0 ? "pt-2" : "pt-6")}>
+              <p className={cn("font-mono text-xs text-ink-muted pb-2", i === 0 ? "pt-2" : "pt-6")}>
                 {formatMonth(month)}
               </p>
             )}
             <Link href={eventHref(event)} className="group flex items-start gap-4 rounded-xl px-2 py-4 hover:bg-blue-soft/60">
               <div className="w-12 shrink-0 text-center">
-                <p className="text-xs uppercase tracking-wider text-ink-muted">{weekday}</p>
-                <p className={cn("text-3xl font-black leading-none mt-1 tabular-nums", muted ? "text-ink-muted" : "text-ink")}>
+                <p className="font-mono text-xs text-ink-muted">{weekday}</p>
+                <p className={cn("text-3xl font-semibold leading-none mt-1 tabular-nums", muted ? "text-ink-muted" : "text-ink")}>
                   {day}
                 </p>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="flex items-center gap-2 text-xs uppercase tracking-wider text-ink-muted mb-1">
+                <p className="font-mono flex items-center gap-2 text-xs text-ink-muted mb-1">
                   <TypeDot event={event} />
                   {EVENT_TYPES[event.type].label}
                 </p>

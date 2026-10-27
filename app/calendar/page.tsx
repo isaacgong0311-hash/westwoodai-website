@@ -14,7 +14,7 @@ import { dateKey } from "@/lib/utils";
 const config = configData as SiteConfig;
 
 export const metadata: Metadata = {
-  title: "Calendar — Westwood AI Club",
+  title: "Calendar",
   description: "Westwood AI Club meetings, guest speakers, and deadlines when announced.",
 };
 
@@ -49,7 +49,7 @@ export default async function CalendarPage({
         {events.length === 0 ? (
           <EmptyState
             title="No dates listed yet"
-            description={config.nextMeeting.note ?? "Officers haven't posted this season's events yet — check back soon."}
+            description={config.nextMeeting.note ?? "Officers haven't posted this season's events yet. Check back soon."}
             cta={{ label: "Join the mailing list", href: "https://forms.gle/m1a5LrzEBHhacpbg6", external: true }}
           />
         ) : (

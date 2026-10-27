@@ -1,13 +1,13 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Westwood AI Club guest speakers and outreach";
+export const alt = "Westwood AI Club events";
 export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function Image() {
   return renderOgImage({
-    eyebrow: "Special events",
-    title: "People who came to share.",
-    subtitle: "Engineers, founders, and researchers on how they use AI.",
+    eyebrow: "Events",
+    title: "Guest speakers and outreach",
+    subtitle: "People who work with AI, talking to Westwood students about their jobs.",
   });
 }

@@ -17,9 +17,9 @@ interface FileLinkProps {
 }
 
 /**
- * An outbound link to a Drive/Slides/Colab file. The format chip is part of
- * the link text, so screen readers hear "Decision Trees, Slides" rather than
- * a bare title, and nobody is surprised when a PowerPoint downloads.
+ * An outbound link to a Drive/Slides/Colab file. The format is part of the
+ * link text, so screen readers hear "Decision Trees, Slides" rather than a
+ * bare title, and nobody is surprised when a PowerPoint downloads.
  */
 export default function FileLink({ href, format, children, className = "" }: FileLinkProps) {
   return (
@@ -27,14 +27,13 @@ export default function FileLink({ href, format, children, className = "" }: Fil
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("group inline-flex items-baseline gap-2 font-semibold text-ink hover:text-accent", className)}
+      className={cn("group inline-flex items-baseline gap-2 text-ink", className)}
     >
-      <span className="underline decoration-rule underline-offset-4 group-hover:decoration-accent">{children}</span>
-      <span className="sr-only">, </span>
-      <span className="shrink-0 rounded-full bg-blue-soft px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-accent">
-        {FORMAT_LABEL[format]}
+      <span className="font-medium underline decoration-rule decoration-1 underline-offset-[5px] group-hover:text-accent group-hover:decoration-accent">
+        {children}
       </span>
-      <span aria-hidden="true" className="text-ink-muted group-hover:text-accent">↗</span>
+      <span className="sr-only">, </span>
+      <span className="shrink-0 font-mono text-[11px] text-ink-muted">{FORMAT_LABEL[format]}</span>
     </a>
   );
 }
