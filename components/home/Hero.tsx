@@ -1,54 +1,33 @@
-import Image from "next/image";
 import Button from "@/components/ui/Button";
+import HeroArt from "@/components/home/HeroArt";
 
-interface HeroProps {
-  founded: number;
-}
-
-export default function Hero({ founded }: HeroProps) {
+export default function Hero() {
   return (
-    <section className="px-4 sm:px-6 pt-16 pb-12 animate-fade-in">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-start gap-6 mb-7">
-          <Image
-            src="/logo.png"
-            alt="Westwood AI Club logo"
-            width={76}
-            height={76}
-            priority
-            className="rounded-full flex-shrink-0"
-          />
-          <div>
-            <p className="text-xs uppercase tracking-wider text-ink-muted mb-2">
-              Westwood High School &middot; Austin, TX
-            </p>
-            <h1 className="font-serif text-5xl sm:text-6xl font-normal tracking-tight text-ink leading-[1.02]">
-              Westwood AI Club
-            </h1>
-          </div>
-        </div>
-
-        <div className="border-t border-rule pt-6 flex flex-col sm:flex-row gap-8 sm:gap-16">
-          <p className="text-sm text-ink-muted whitespace-nowrap">
-            Room E1307 &middot; Est. {founded}
+    <section className="border-b border-rule">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
+        <div>
+          <p className="mb-5 font-mono text-xs text-ink-muted">Westwood High School, Austin TX · since 2019</p>
+          <h1 className="text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl">Westwood AI Club</h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
+            We&apos;re a student-run club that learns how machine learning actually works, from linear regression to transformers. Guest
+            speakers from industry visit a few times a year. You don&apos;t need to know how to code, and there&apos;s no fee.
           </p>
-          <div className="max-w-xl">
-            <p className="text-base leading-relaxed text-ink mb-7">
-              A student-run club for anyone curious about how AI actually
-              works &mdash; no experience required. We meet every other week
-              to build things, hear from people who work in the field, and
-              enter the occasional competition.
-            </p>
-            <div className="flex flex-wrap items-center gap-6">
-              <Button href="https://forms.gle/m1a5LrzEBHhacpbg6" external variant="primary">
-                Fill out the interest form
-              </Button>
-              <Button href="https://discord.gg/7QctqCABR" external variant="secondary">
-                Discord ↗
-              </Button>
+          <dl className="mt-8 grid max-w-md grid-cols-2 gap-y-4 border-y border-rule py-5 text-sm">
+            <div>
+              <dt className="font-mono text-xs text-ink-muted">When</dt>
+              <dd className="mt-1 text-ink">Mon or Wed, 4:30 PM</dd>
             </div>
+            <div>
+              <dt className="font-mono text-xs text-ink-muted">Where</dt>
+              <dd className="mt-1 text-ink">Room E1307, Mr. Kluge</dd>
+            </div>
+          </dl>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="https://forms.gle/m1a5LrzEBHhacpbg6" external>Join the mailing list</Button>
+            <Button href="/calendar" variant="secondary">See the calendar</Button>
           </div>
         </div>
+        <HeroArt />
       </div>
     </section>
   );

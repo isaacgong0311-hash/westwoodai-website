@@ -3,50 +3,42 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import type { SiteLink } from "@/lib/content";
+import { cn } from "@/lib/cn";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/#speakers", label: "Speakers" },
-  { href: "/leaderboard", label: "Leaderboard" },
-];
+const JOIN_URL = "https://forms.gle/m1a5LrzEBHhacpbg6";
 
-export default function Nav() {
+export default function Nav({ links }: { links: SiteLink[] }) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
-    if (href === "/leaderboard") return pathname.startsWith("/leaderboard");
-    return false;
+    if (href.includes("#")) return false;
+    return pathname.startsWith(href);
   }
 
+  const closeMenu = (event: React.MouseEvent<HTMLAnchorElement>) => event.currentTarget.closest("details")?.removeAttribute("open");
+
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <Image
-            src="/logo.png"
-            alt="Westwood AI Club"
-            width={30}
-            height={30}
-            className="rounded-full"
-          />
-          <span className="text-sm font-medium text-ink">Westwood AI Club</span>
+    <header className="sticky top-0 z-50 border-b border-rule bg-paper/90 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5">
+          <Image src="/logo.png" alt="" width={32} height={32} className="rounded-full bg-night" />
+          <span className="text-[15px] font-semibold tracking-tight text-ink">Westwood AI Club</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-6 lg:flex">
           {links.map(({ href, label }) => {
             const active = isActive(href);
             return (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm pb-0.5 ${
-                  active
-                    ? "text-accent border-b border-accent"
-                    : "text-ink hover:text-accent"
-                }`}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "text-sm transition-colors",
+                  active ? "font-medium text-ink underline decoration-accent decoration-2 underline-offset-[22px]" : "text-ink-muted hover:text-ink",
+                )}
               >
                 {label}
               </Link>
@@ -54,62 +46,37 @@ export default function Nav() {
           })}
         </nav>
 
-        <a
-          href="https://discord.gg/7QctqCABR"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex text-sm text-ink-muted hover:text-ink"
-        >
-          Discord ↗
+        <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className="hidden h-9 items-center rounded-md bg-ink px-3.5 text-sm font-medium text-white transition-colors hover:bg-accent lg:inline-flex">
+          Join the club
         </a>
 
-        <button
-          className="md:hidden p-2 text-ink"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          <div className="w-5 flex flex-col gap-1.5">
-            <span
-              className={`block h-px bg-current transition-transform origin-center duration-200 ${open ? "rotate-45 translate-y-[5px]" : ""}`}
-            />
-            <span
-              className={`block h-px bg-current transition-opacity duration-200 ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-px bg-current transition-transform origin-center duration-200 ${open ? "-rotate-45 -translate-y-[5px]" : ""}`}
-            />
-          </div>
-        </button>
-      </div>
-
-      {open && (
-        <div id="mobile-nav" className="md:hidden border-t border-rule">
-          <nav className="px-4 py-3 flex flex-col gap-1">
+        <details className="group lg:hidden">
+          <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md border border-rule bg-white px-3 py-2 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
+            <span aria-hidden="true" className="flex w-4 flex-col gap-1">
+              <span className="h-px bg-current" />
+              <span className="h-px bg-current" />
+              <span className="h-px bg-current" />
+            </span>
+            Menu
+          </summary>
+          <nav aria-label="Mobile navigation" className="absolute left-0 right-0 top-full flex flex-col border-b border-rule bg-paper px-4 py-3 shadow-sm">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
-                className={`text-sm px-3 py-2 ${
-                  isActive(href) ? "text-accent" : "text-ink"
-                }`}
+                onClick={closeMenu}
+                aria-current={isActive(href) ? "page" : undefined}
+                className={cn("border-b border-rule py-3 text-[15px] last:border-b-0", isActive(href) ? "font-medium text-accent" : "text-ink")}
               >
                 {label}
               </Link>
             ))}
-            <a
-              href="https://discord.gg/7QctqCABR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm px-3 py-2 text-ink-muted"
-            >
-              Discord ↗
+            <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="mt-3 rounded-md bg-ink px-3 py-3 text-center text-sm font-medium text-white">
+              Join the club
             </a>
           </nav>
-        </div>
-      )}
+        </details>
+      </div>
     </header>
   );
 }

@@ -12,13 +12,13 @@ interface EmptyStateProps {
 
 export default function EmptyState({ title, description, cta }: EmptyStateProps) {
   return (
-    <div className="border border-dashed border-rule px-6 py-16 text-center">
-      <div className="mx-auto max-w-md flex flex-col items-center gap-3">
-        <h3 className="text-base text-ink">{title}</h3>
+    <div className="rounded-lg border border-dashed border-rule bg-white px-6 py-12 text-center">
+      <div className="mx-auto flex max-w-md flex-col items-center gap-3">
+        <h2 className="text-lg font-semibold text-ink">{title}</h2>
         <p className="text-sm leading-relaxed text-ink-muted">{description}</p>
         {cta && (
-          <Button href={cta.href} external={cta.external} variant="secondary" className="mt-2">
-            {cta.label} {cta.external && "↗"}
+          <Button href={cta.href} external={cta.external} className="mt-3">
+            {cta.label}
           </Button>
         )}
       </div>

@@ -1,28 +1,20 @@
-const breakdown = [
-  { category: "Meeting attendance", points: 30, note: "per meeting" },
-  { category: "Project submission", points: 150, note: "per project" },
-  { category: "Project demo", points: 75, note: "at a showcase" },
-  { category: "Competition entry", points: 100, note: "per competition" },
-  { category: "Competition placement", points: 250, note: "top 3 finish" },
-  { category: "Prompt entry", points: 50, note: "per submission" },
-  { category: "Prompt winner", points: 100, note: "most upvotes" },
-  { category: "Lesson delivery", points: 100, note: "presenting" },
-];
+import { POINTS_BREAKDOWN } from "@/lib/points";
+
 
 export default function PointsBreakdown() {
   return (
-    <div>
-      <h2 className="text-xs uppercase tracking-wider text-ink-muted border-b border-rule pb-3 mb-2">
+    <div className="rounded-lg border border-rule bg-white p-5 sm:p-6">
+      <h2 className="text-lg font-semibold tracking-tight text-ink border-b border-rule pb-4 mb-2">
         How points work
       </h2>
       <div className="divide-y divide-rule">
-        {breakdown.map(({ category, points, note }) => (
+        {POINTS_BREAKDOWN.map(({ category, points, note }) => (
           <div key={category} className="py-3 flex items-center justify-between gap-3">
             <div>
               <p className="text-sm text-ink">{category}</p>
               <p className="text-xs text-ink-muted">{note}</p>
             </div>
-            <span className="text-sm text-ink-muted tabular-nums">+{points}</span>
+            <span className="rounded-full bg-peach-soft px-3 py-1 text-xs font-semibold text-accent-warm tabular-nums">+{points}</span>
           </div>
         ))}
       </div>

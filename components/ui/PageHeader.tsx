@@ -3,28 +3,29 @@ interface PageHeaderProps {
   title: string;
   description?: string;
   centered?: boolean;
+  /** Plain facts shown under the description, e.g. "72 lessons". */
+  stats?: { value: string; label: string }[];
 }
 
-/**
- * The eyebrow + h1 + lede block every page opens with. Replaces seven
- * copies of the same three-part markup (leaderboard, projects, prompt,
- * competitions, meetings, news, 404) that had quietly drifted apart —
- * different max-widths, some wrapped in a fade-in and some not.
- */
-export default function PageHeader({ eyebrow, title, description, centered = false }: PageHeaderProps) {
+/** The label + h1 + lede block every page opens with. */
+export default function PageHeader({ eyebrow, title, description, centered = false, stats }: PageHeaderProps) {
   return (
-    <div className={`mb-10 ${centered ? "text-center" : ""}`}>
-      <p className="text-xs uppercase tracking-wider text-ink-muted mb-2">
-        {eyebrow}
-      </p>
-      <h1 className="font-serif text-4xl sm:text-5xl font-normal tracking-tight text-ink mb-4">
-        {title}
-      </h1>
+    <header className={`mb-12 border-b border-rule pb-10 ${centered ? "text-center" : ""}`}>
+      <p className="mb-4 font-mono text-xs text-ink-muted">{eyebrow}</p>
+      <h1 className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{title}</h1>
       {description && (
-        <p className={`text-base leading-relaxed text-ink ${centered ? "mx-auto" : ""} max-w-xl`}>
-          {description}
-        </p>
+        <p className={`mt-4 max-w-2xl text-lg leading-relaxed text-ink-muted ${centered ? "mx-auto" : ""}`}>{description}</p>
       )}
-    </div>
+      {stats && stats.length > 0 && (
+        <dl className={`mt-8 flex flex-wrap gap-x-12 gap-y-4 ${centered ? "justify-center" : ""}`}>
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col-reverse">
+              <dt className="text-sm text-ink-muted">{s.label}</dt>
+              <dd className="text-3xl font-semibold tabular-nums tracking-tight text-ink">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </header>
   );
 }

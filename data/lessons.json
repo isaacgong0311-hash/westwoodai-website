@@ -1,0 +1,648 @@
+{
+  "resourcesDoc": "https://docs.google.com/document/d/13KknH1p1VRqNiPmmYCN5eicoBd6kMWRiIr5DwW9wS-k/edit",
+  "path": [
+    {
+      "title": "What is AI, anyway?",
+      "blurb": "What machine learning is, where you already run into it, and what the club does during the year.",
+      "lesson": "https://docs.google.com/presentation/d/17E1WwieROENtLo8IGYthEQ31W9u4ewDwG9eUvwH3lgU/edit",
+      "format": "slides"
+    },
+    {
+      "title": "Fit your first model",
+      "blurb": "Linear regression and loss: how a model measures how wrong it is, and how it gets less wrong.",
+      "lesson": "https://docs.google.com/presentation/d/1G9meieo6iKGHZqAtNtaPquoLum-NuIcOV1ENqOuBqds/edit",
+      "format": "slides",
+      "lab": "/playground#fit-a-line"
+    },
+    {
+      "title": "Learning with and without labels",
+      "blurb": "Supervised and unsupervised learning, and the four main types of machine learning.",
+      "lesson": "https://docs.google.com/presentation/d/1xWcM6ZXOh2i64uvgB8PsUa-D2G2H5NDhLAjtyGCAIQs/edit",
+      "format": "slides",
+      "lab": "/playground#find-clusters"
+    },
+    {
+      "title": "Neural networks",
+      "blurb": "Perceptrons and layers, and why stacking simple units lets a model learn curved boundaries.",
+      "lesson": "https://docs.google.com/presentation/d/1fXGUOWl1_HWeLS-78y3Wmck6N5wCEIrplcVZyqu3qr0/edit",
+      "format": "slides",
+      "lab": "/playground#train-a-network"
+    },
+    {
+      "title": "Teach a computer to see",
+      "blurb": "Convolutional networks for images. Afterward, train one on Fashion MNIST in the Colab notebook.",
+      "lesson": "https://docs.google.com/presentation/d/1H3nrajP1bruopVkVo5DJwBk7XgvYfSjYz3EtmVse9N4/edit",
+      "format": "slides",
+      "notebook": "https://colab.research.google.com/drive/1jcl8miOgEjuJt6U585rZiJH1aIYJjLiP?usp=sharing"
+    },
+    {
+      "title": "How chatbots read",
+      "blurb": "Tokens, attention, and the transformer architecture that language models are built on.",
+      "lesson": "https://docs.google.com/presentation/d/1t5WgU2_m9CTIY6mfysemrI7ENBNbOCQcAhgJXT8q7oA/edit",
+      "format": "slides"
+    }
+  ],
+  "years": [
+    {
+      "year": "2026–27",
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Club introduction and AI basics",
+          "url": "https://docs.google.com/presentation/d/17E1WwieROENtLo8IGYthEQ31W9u4ewDwG9eUvwH3lgU/edit",
+          "format": "slides"
+        },
+        {
+          "number": 2,
+          "title": "Neural networks, regression, and Python practice",
+          "url": "https://docs.google.com/presentation/d/1zm6YTYlfFSm7rvjbONRD9vetTwjA_FCWvkrnOgF0QqY/edit",
+          "format": "slides",
+          "date": "2026-09-28"
+        },
+        {
+          "number": 3,
+          "title": "Machine learning basics and the four types of machine learning",
+          "url": "https://docs.google.com/presentation/d/1xWcM6ZXOh2i64uvgB8PsUa-D2G2H5NDhLAjtyGCAIQs/edit",
+          "format": "slides"
+        }
+      ],
+      "code": []
+    },
+    {
+      "year": "2025–26",
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Club introduction and AI basics",
+          "url": "https://drive.google.com/file/d/1RmkMjQgdB4DLRL0u7C9tggvZ2ivQYPo5GZ3XVFdoTyQ/view",
+          "format": "slides"
+        },
+        {
+          "number": 2,
+          "title": "Neural networks and regression",
+          "url": "https://docs.google.com/presentation/d/1oH8b0AU7BQio1-fN4-cx5P69Z3aaj2PAkPi7TTHf0S4/edit",
+          "format": "slides"
+        },
+        {
+          "number": 3,
+          "title": "Linear regression and loss",
+          "url": "https://docs.google.com/presentation/d/1G9meieo6iKGHZqAtNtaPquoLum-NuIcOV1ENqOuBqds/edit",
+          "format": "slides"
+        },
+        {
+          "number": 4,
+          "title": "Support vector machines for classification",
+          "url": "https://docs.google.com/presentation/d/1mqmfepxUZ0EzGqEL4vq0XuZBGYAScoEiJtdAaDQUh7Y/edit",
+          "format": "slides"
+        },
+        {
+          "number": 5,
+          "title": "Model evaluation metrics and data quality",
+          "url": "https://docs.google.com/presentation/d/1-RimU80cmLwUiXzgjTR8SRotdrtJGvP0DaTn5TUUmFY/edit",
+          "format": "slides"
+        },
+        {
+          "number": 6,
+          "title": "Computer vision and image processing",
+          "url": "https://docs.google.com/presentation/d/1H3nrajP1bruopVkVo5DJwBk7XgvYfSjYz3EtmVse9N4/edit",
+          "format": "slides"
+        },
+        {
+          "number": 7,
+          "title": "Convolutional neural networks and competitions",
+          "url": "https://docs.google.com/presentation/d/17N-AwEUNBydLHDXH747LsugFoqcgXhmLeVpk0zYTC9o/edit",
+          "format": "slides"
+        },
+        {
+          "number": 8,
+          "title": "Student AI projects and competitions",
+          "url": "https://docs.google.com/presentation/d/1krr-KrerY8SBPlHEn-C74m4WMvXtT7L0GaEoPbhqT5U/edit",
+          "format": "slides"
+        },
+        {
+          "number": 9,
+          "title": "Transformers and tokenization",
+          "url": "https://docs.google.com/presentation/d/1t5WgU2_m9CTIY6mfysemrI7ENBNbOCQcAhgJXT8q7oA/edit",
+          "format": "slides"
+        },
+        {
+          "number": 10,
+          "title": "Transformers and the Wharton competition",
+          "url": "https://docs.google.com/presentation/d/1WzoIPysuVbw-JB9GPRIrIILOZ0MtDT-7MMbM0oAUyD8/edit",
+          "format": "slides"
+        },
+        {
+          "number": 11,
+          "title": "Wharton data science challenge",
+          "url": "https://docs.google.com/presentation/d/1U6ntHMGg1kCVDN6olrjJzBJAYrd-fEH_tG54SvOnSEc/edit",
+          "format": "slides"
+        },
+        {
+          "number": 12,
+          "title": "Hockey data analysis for the Wharton competition",
+          "url": "https://docs.google.com/presentation/d/118FVKlcxavF5Af1XsRQ5qQbe4qDaFgV2jyUlzAlqDho/edit",
+          "format": "slides"
+        },
+        {
+          "number": 13,
+          "title": "Hockey power rankings for the Wharton competition",
+          "url": "https://docs.google.com/presentation/d/1296_922DbCrmNGje-qGgJtYgsRnaSsCz_r6zOM5cLYI/edit",
+          "format": "slides"
+        },
+        {
+          "number": 14,
+          "title": "AI as a Partner and student competitions",
+          "url": "https://docs.google.com/presentation/d/1CFaY8X-NSbf1UkTP0Tyl41_z6aINJZKRwuYCu7MwD0s/edit",
+          "format": "slides"
+        },
+        {
+          "number": 16,
+          "title": "Student projects and Youth AI Festival",
+          "url": "https://docs.google.com/presentation/d/1a7brEjp3yIKm2Z9qvoIUOGGLV69n0UnGmotxZ06AQq4/edit",
+          "format": "slides"
+        },
+        {
+          "number": 17,
+          "title": "Officer elections and project submissions",
+          "url": "https://docs.google.com/presentation/d/13oVowx0v4jq0BVojcz1rPOW3Kol4UwSjBQSgfq1fbd4/edit",
+          "format": "slides"
+        },
+        {
+          "number": 18,
+          "title": "Officer election voting",
+          "url": "https://docs.google.com/presentation/d/1iTwTlyiOpbNeJrLUwxaar_3h6MK6qSZGg_zLSu4XF6o/edit",
+          "format": "slides"
+        },
+        {
+          "number": 19,
+          "title": "Officer interviews and project presentations",
+          "url": "https://docs.google.com/presentation/d/1C8SuYv-dukK84Tmd7enVdPSsSXH1YXeBkJaPIyr4Eug/edit",
+          "format": "slides"
+        }
+      ],
+      "code": []
+    },
+    {
+      "year": "2024–25",
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Club introduction and AI basics",
+          "url": "https://docs.google.com/presentation/d/1eKOxCbCtKOxi_Tm-4EZPz3EY2AObu8oK6jzxSnCBN6U/edit",
+          "format": "slides",
+          "date": "2024-09-27"
+        },
+        {
+          "number": 2,
+          "title": "Regression and classification",
+          "url": "https://docs.google.com/presentation/d/1EMeqGNWbaUa-K0KO_r8SQFDjCSEsM7BxrgCqLhVVxfY/edit",
+          "format": "slides",
+          "date": "2024-10-11"
+        },
+        {
+          "number": 3,
+          "title": "Neural networks and perceptrons",
+          "url": "https://docs.google.com/presentation/d/1fXGUOWl1_HWeLS-78y3Wmck6N5wCEIrplcVZyqu3qr0/edit",
+          "format": "slides",
+          "date": "2024-10-25"
+        },
+        {
+          "number": 4,
+          "title": "Neural networks and convolutional networks",
+          "url": "https://docs.google.com/presentation/d/1Xb8fgqPiH7bQeyxEO4vzQzrAEpsGfiSZi3CnDP80bjw/edit",
+          "format": "slides",
+          "date": "2024-11-15"
+        },
+        {
+          "number": 5,
+          "title": "Python review and nearest-neighbors project",
+          "url": "https://docs.google.com/presentation/d/1CelrMJy32_ayMWiXHyZ5EvMK2eoiMTO4SUGxUcSEbAM/edit",
+          "format": "slides",
+          "date": "2024-12-06"
+        },
+        {
+          "number": 6,
+          "title": "Pandas with Jupyter Notebook",
+          "url": "https://docs.google.com/presentation/d/1mXRAFnQYRbyAQeUxKT5TLrkJZSEd-dDgbeYO2ORzlrQ/edit",
+          "format": "slides",
+          "date": "2025-01-17"
+        },
+        {
+          "number": 7,
+          "title": "Computer vision and feature abstraction",
+          "url": "https://docs.google.com/presentation/d/1aFOj38TRFpFmJuHNMVfB0P18leHK-6PuAtOP8Jo_DEo/edit",
+          "format": "slides",
+          "date": "2025-02-07"
+        },
+        {
+          "number": 8,
+          "title": "Building student AI projects",
+          "url": "https://docs.google.com/presentation/d/1g-JTxh1r7ivm3y9qx7iub12TnElD47DdiJ-VVtC8r2w/edit",
+          "format": "slides",
+          "date": "2025-02-14"
+        },
+        {
+          "number": 9,
+          "title": "Student project presentations",
+          "url": "https://docs.google.com/presentation/d/1AZAP7bx6ZryZb07KvgzSyZy84Xewtel1HJTHnObTu0s/edit",
+          "format": "slides",
+          "date": "2025-03-14"
+        },
+        {
+          "number": 10,
+          "title": "Officer elections",
+          "url": "https://docs.google.com/presentation/d/16eOqHgmzAApYlwTLfLUFI41kysH9HzWYz1lS5BrUdug/edit",
+          "format": "slides",
+          "date": "2025-03-28"
+        }
+      ],
+      "code": []
+    },
+    {
+      "year": "2023–24",
+      "lessons": [
+        {
+          "number": 1,
+          "title": "Club introduction and AI basics",
+          "url": "https://docs.google.com/presentation/d/1NmTPA6BOJyUnPkFnT5cYbPBS5YQBF1aNsYncZEJ9Rho/edit",
+          "format": "slides"
+        },
+        {
+          "number": 2,
+          "title": "Regression and classification",
+          "url": "https://docs.google.com/presentation/d/1_6MTHWlzxV9PVdNUYYipEnV-iVTmafb_hw4K1cocjgo/edit",
+          "format": "slides"
+        },
+        {
+          "number": 3,
+          "title": "Training a machine learning model",
+          "url": "https://docs.google.com/presentation/d/1mo5lK6C2JmoRYOAKJa6HkQExcmMT3lLwCDtYVqrTTgk/edit",
+          "format": "slides"
+        },
+        {
+          "number": 4,
+          "title": "Neural networks",
+          "url": "https://drive.google.com/file/d/1Y9ob_Ebz_OqdxuVCRsIgk-3X8JMCHNpu/view",
+          "format": "slides"
+        },
+        {
+          "number": 5,
+          "title": "Student project introduction",
+          "url": "https://docs.google.com/presentation/d/1qzJxDHfMTKwIDQ5CUxNoUhrXJ-FEaurjS8Mp0VSCCoc/edit",
+          "format": "slides"
+        },
+        {
+          "number": 6,
+          "title": "Feature extraction and neural networks",
+          "url": "https://docs.google.com/presentation/d/1P_JXj_7KbyH6xhoDnMvuTQVv8Yucj9B8YDhAShRVtAw/edit",
+          "format": "slides"
+        },
+        {
+          "number": 7,
+          "title": "Computer vision and image classification",
+          "url": "https://docs.google.com/presentation/d/1GwPuqbTbNyIhogHfJZGhqrxznzQp1v3v1EiZB_APwXA/edit",
+          "format": "slides"
+        },
+        {
+          "number": 8,
+          "title": "Student projects and officer elections",
+          "url": "https://docs.google.com/presentation/d/1TDxJwdUN3sQqMTTl9Y0x0tyPCnhGvBXm_zHHSUN1ab4/edit",
+          "format": "slides"
+        },
+        {
+          "number": 9,
+          "title": "Student presentations and reinforcement learning",
+          "url": "https://docs.google.com/presentation/d/1dmLVNjqbssA_Mjvhn1gYKdRhldn9GdAsp3VN28XWX8s/edit",
+          "format": "slides"
+        }
+      ],
+      "code": []
+    },
+    {
+      "year": "2022–23",
+      "lessons": [
+        {
+          "title": "Club introduction",
+          "url": "https://docs.google.com/presentation/d/1_O2qZTC5EI04cH-1BTvAjn-niFsNeSBurgt6gabgBnQ/edit",
+          "format": "slides",
+          "date": "2022-09-15"
+        },
+        {
+          "title": "Decision Trees",
+          "url": "https://docs.google.com/presentation/d/1rvebn1Mpnp_vBzro4dZRq_wIjWhiPNaVsX6opBcunn4/edit",
+          "format": "slides",
+          "date": "2022-10-07"
+        },
+        {
+          "title": "Random Forest",
+          "url": "https://docs.google.com/presentation/d/11LjU9YJb95uAFGuSTa0X8JTt5jvFjh4zrO4I6yRYkIA/edit",
+          "format": "slides",
+          "date": "2022-11-04"
+        },
+        {
+          "title": "Linear Regression",
+          "url": "https://docs.google.com/presentation/d/1yIxS5QpqT0kB6ZKu6twGj4eSBQycpC4z9HDgNfjIxrc/edit",
+          "format": "slides",
+          "date": "2022-11-11"
+        },
+        {
+          "title": "Machine Learning Workflow",
+          "url": "https://docs.google.com/presentation/d/1QAWZgy8asEINQ2JIx7JwyXzPiPkfYx8psVtaKNSDuUA/edit",
+          "format": "slides",
+          "date": "2022-12-02"
+        },
+        {
+          "title": "Introduction to Neural Networks",
+          "url": "https://docs.google.com/presentation/d/1HFzDyRVpqvczZkHHOb4nRNWqQU4lmH-rEXi7ONQLXok/edit",
+          "format": "slides",
+          "date": "2023-01-19"
+        }
+      ],
+      "code": [
+        {
+          "title": "Housing Prices",
+          "url": "https://colab.research.google.com/drive/1BZyO9dEkPr-wtUQEe-brPfBoH-rG5vYb?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Housing prices training data (training_data_housing_prices.csv)",
+          "url": "https://drive.google.com/file/d/1VOgXaaFBwgpULGwlst7pfIoj4ll2KXxT/view?usp=sharing",
+          "format": "data"
+        },
+        {
+          "title": "Titanic",
+          "url": "https://colab.research.google.com/drive/1TMNN2D-BlubGdUIGQHRkT4RQTd8_A6oS#scrollTo=FAyO_llTOaLY",
+          "format": "notebook"
+        },
+        {
+          "title": "Titanic training data (train.csv)",
+          "url": "https://drive.google.com/file/d/1u8BjXH7cichwxIo56gYveh8lkjk2KWXi/view?usp=sharing",
+          "format": "data"
+        },
+        {
+          "title": "Titanic test data (test.csv)",
+          "url": "https://drive.google.com/file/d/1R-C-thyyhphFlTd2HJBI9s0QE1-zbsFz/view?usp=sharing",
+          "format": "data"
+        }
+      ]
+    },
+    {
+      "year": "2021–22",
+      "lessons": [
+        {
+          "title": "Neural Networks, lesson 1",
+          "url": "https://docs.google.com/presentation/d/1HlW1x3V0ZZMgOX3y0_6LMsI9NPQCO-rkSH97-8n9KaY/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Machine Learning Workflow",
+          "url": "https://docs.google.com/presentation/d/10VbhgaZOFMzcQFNoetwpw8HRfsumZvxplEva-m9hwVA/edit",
+          "format": "slides"
+        },
+        {
+          "title": "The Alignment Problem",
+          "url": "https://docs.google.com/presentation/d/1WLms8aMmRu13pda05iyMMPiNIBzGnHjQPNKrLdxbkJQ/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Regression",
+          "url": "https://drive.google.com/file/d/1ppn7xznToTlCYoyvbxz_-HHDbZa7OMwy/view",
+          "format": "pdf",
+          "date": "2021-09-16"
+        },
+        {
+          "title": "Neural Networks",
+          "url": "https://drive.google.com/file/d/1S1ra_nF7QV1GIPW_uq9ZAyHWrhm49ouz/view",
+          "format": "pdf",
+          "date": "2021-09-24"
+        },
+        {
+          "title": "Neural Networks, part 2",
+          "url": "https://drive.google.com/file/d/1OEHepHQnnKWDnVKgrrPL8MIJDTfIXMD_/view",
+          "format": "pdf"
+        }
+      ],
+      "code": [
+        {
+          "title": "Convolutional Neural Network",
+          "url": "https://colab.research.google.com/drive/1IrOltFMh2ynn074MNLRUslHOEip1NtmL?usp=sharing",
+          "format": "notebook"
+        }
+      ]
+    },
+    {
+      "year": "2020–21",
+      "lessons": [
+        {
+          "title": "Introduction to Machine Learning",
+          "url": "https://drive.google.com/file/d/10o5Wzn0LB7EhuJ5IY6GRa13Ddvi_zoZg/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Training and Loss",
+          "url": "https://drive.google.com/file/d/10nOQIezfQS35YNVERoncaH20D6K0LaMt/view",
+          "format": "pptx"
+        },
+        {
+          "title": "AI and Finance",
+          "url": "https://drive.google.com/file/d/1d7UNwxWZ6BEFf4Oczih99qTrAwbFtHBj/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Gradient Descent",
+          "url": "https://drive.google.com/file/d/1blO104ouXfwyURbHzIVAF7_3kwPR_hvy/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Neural Networks and Other Machine Learning Concepts",
+          "url": "https://drive.google.com/file/d/1yNNFEFSOn-spaGsOqDLvWQo9m9K8u9rv/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Chatbots",
+          "url": "https://docs.google.com/presentation/d/16aQ-QS3DHdMqsnV19TaiszLrfW1Qn0F29SfqSe_0wL0/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Second Semester Review",
+          "url": "https://drive.google.com/file/d/1Vm4zXRDzAGeeSscdOImCbt_O2WXQh1L5/view",
+          "format": "pptx"
+        },
+        {
+          "title": "AI and Social Media",
+          "url": "https://docs.google.com/presentation/d/1X40IdSGcbseNjcSZAv8qSZ8AU5bRxsnJ88FAFL_rx-k/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Computer Vision and Medicine",
+          "url": "https://docs.google.com/presentation/d/1mFhGCcWaMMICNaJLDlBDaqHhsJTqZSSYjvzyV2BVAxk/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Natural Language Processing",
+          "url": "https://docs.google.com/presentation/d/1zcs8FeW5fr7h-GqA9Wkcc3V-A0xUX5E-KFGgk76RZxM/edit",
+          "format": "slides"
+        }
+      ],
+      "code": [
+        {
+          "title": "Google Colab Tutorial",
+          "url": "https://colab.research.google.com/drive/15hM6lMTCd-_EUaW7b9gE_S7pKBCSw2pm?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Advanced Colab Tutorial",
+          "url": "https://colab.research.google.com/drive/1ddBf7fuATxqmpNpSXYzol0k6lj2su2Lu?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "House Prices Linear Regression",
+          "url": "https://colab.research.google.com/drive/1qeTaEDdlRnH55XPx5Yzln9aro3-6x4Os?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "House Prices Data CSV",
+          "url": "https://drive.google.com/file/d/1-5SxsKIc46zEZKuxTXKqnmV13yrC2vBL/view?usp=sharing",
+          "format": "data"
+        },
+        {
+          "title": "Neural Network For Stock Price Prediction",
+          "url": "https://colab.research.google.com/drive/1905NyOEXBhoBhDDKJonkVlNFxhJhK0Qb?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Financial Data CSV",
+          "url": "https://drive.google.com/file/d/1bd-J0tYfUytjVeoqID9D-vY3wBDhVN59/view?usp=sharing",
+          "format": "data"
+        },
+        {
+          "title": "Neural Network From Scratch",
+          "url": "https://colab.research.google.com/drive/1o36w-dt1wWwPZTwmi8uD-7Qf0SdsO6bL?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Fashion MNIST CNN",
+          "url": "https://colab.research.google.com/drive/1jcl8miOgEjuJt6U585rZiJH1aIYJjLiP?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Fashion MNIST Answer Key",
+          "url": "https://colab.research.google.com/drive/1K3juZyueTBJddOPGcqm2_VjeERM94a_l?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "CIFAR-10 CNN",
+          "url": "https://colab.research.google.com/drive/1ZnpQU2HdvSAi5qcZFJJkJattbDoZGqC5?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "AI Club Project Section 1",
+          "url": "https://colab.research.google.com/drive/170KgUezyE7uQUdhuV41LFTlzViUMS_Ng?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "AI Club Project CSV",
+          "url": "https://drive.google.com/file/d/1TBKe9UcSQyE-1io6hjM5YgRqxAv7FE9g/view?usp=sharing",
+          "format": "data"
+        }
+      ]
+    },
+    {
+      "year": "2019–20",
+      "lessons": [
+        {
+          "title": "First AI Club information meeting",
+          "url": "https://docs.google.com/presentation/d/1H3CxhF8p44DPwVkdBM7rs-hO_W4lz9vORrh5wqyf_Ls/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Welcome to AI Club",
+          "url": "https://drive.google.com/file/d/14uNNtjvhXB6H5wGCOO0VwvU5GCAjy988/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Machine Learning Terminology",
+          "url": "https://docs.google.com/presentation/d/1RY8Van2v-64FgoKBnvydK1Q0pOPF9fgfsPr77jB5y7E/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Linear Regression",
+          "url": "https://drive.google.com/file/d/1tHHEkzFp2VV1vI_p4J7k7w_VaXUGAED6/view",
+          "format": "pptx"
+        },
+        {
+          "title": "AI Ethics",
+          "url": "https://docs.google.com/presentation/d/1oFmik0yqZp9emdlUfWn-S1e6cURV_y9mzFzcnbPI4-U/edit",
+          "format": "slides"
+        },
+        {
+          "title": "AI Ethics 2.0",
+          "url": "https://docs.google.com/presentation/d/1BaQgYQAx1H8r5A4lyfEqmM_FtgiaG3f0x9b5CxgVXzo/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Gradient Descent explanation",
+          "url": "https://drive.google.com/file/d/13HoKyZMWL1LNxH7P2bdJnW6PsvUeUMZB/view",
+          "format": "pptx"
+        },
+        {
+          "title": "Convolutional Neural Networks",
+          "url": "https://drive.google.com/file/d/1Bp_xhl7BzdiOlG8gKu72ujRSTw3_6S7w/view",
+          "format": "pptx"
+        },
+        {
+          "title": "LSTMs and Recurrent Neural Networks",
+          "url": "https://docs.google.com/presentation/d/1mhVEOX4YnkBRf95P7sbuXNMvx22v59d4DvDeBfUwzgg/edit",
+          "format": "slides"
+        },
+        {
+          "title": "Reinforcement Learning",
+          "url": "https://docs.google.com/presentation/d/1PohjJV3fcCtB20Z1KxL77hQq_Si8BM93W2oN3UU_Uag/edit",
+          "format": "slides"
+        }
+      ],
+      "code": [
+        {
+          "title": "Linear Regression Tutorial",
+          "url": "https://colab.research.google.com/drive/1aSb2TwKxaeCsqWUZH2toFyvMcs9gotDz",
+          "format": "notebook"
+        },
+        {
+          "title": "Machine Learning Concepts Tutorial: overfitting, underfitting, cross validation, polynomial regression",
+          "url": "https://colab.research.google.com/drive/1USoINVp_6SrEmzAOsXvY_lK1XeFVdXAS",
+          "format": "notebook"
+        },
+        {
+          "title": "Convolutional Neural Network Tutorial",
+          "url": "https://colab.research.google.com/drive/1IrOltFMh2ynn074MNLRUslHOEip1NtmL",
+          "format": "notebook"
+        },
+        {
+          "title": "Vanilla Neural Network",
+          "url": "https://colab.research.google.com/drive/1F7l-YFdpAJ_jw4Hn4maTEb674lRrlYYj?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Decision Trees",
+          "url": "https://colab.research.google.com/drive/1TMNN2D-BlubGdUIGQHRkT4RQTd8_A6oS?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Natural Language Processing Demonstration",
+          "url": "https://colab.research.google.com/drive/1mZNBEWgrJuQDc2j4cyQ8YNuaKkDjaFHF?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Template AI Club Project, part 1",
+          "url": "https://colab.research.google.com/drive/1aaNWzQdaURQKZheJovdogEU3-V115cHg?usp=sharing",
+          "format": "notebook"
+        },
+        {
+          "title": "Template Text Generation",
+          "url": "https://colab.research.google.com/drive/1jdW8gIXIUZAzsNGK0cELk8tvlVwR3zYQ?usp=sharing",
+          "format": "notebook"
+        }
+      ]
+    }
+  ]
+}

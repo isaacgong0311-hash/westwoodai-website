@@ -1,17 +1,19 @@
 import type { MetadataRoute } from "next";
+import { siteLinks } from "@/lib/content";
 import { SITE_URL as BASE_URL } from "@/lib/site";
 
-// Only the routes actually linked from the nav/footer — the empty pages
-// (projects, prompt, competitions, meetings, news) stay live so no old
-// link 404s, but there's no reason to ask search engines to index pages
-// that currently say "nothing here yet."
-const routes = ["", "/leaderboard"];
+// Same list as the nav/footer: sections with nothing in them yet stay live
+// (so no old link 404s) but aren't submitted for indexing.
+const routes = siteLinks()
+  .map((l) => l.href)
+  .filter((href) => !href.includes("#"))
+  .map((href) => (href === "/" ? "" : href));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
+    changeFrequency: route === "/leaderboard" ? "monthly" : "weekly",
     priority: route === "" ? 1 : 0.6,
   }));
 }

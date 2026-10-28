@@ -9,17 +9,13 @@ interface ButtonProps {
   className?: string;
 }
 
-const base = "inline-block text-sm px-5 py-2.5 transition-colors";
+const base = "inline-flex h-10 items-center justify-center gap-1.5 rounded-md px-4 text-sm font-medium transition-colors";
 const variants = {
-  primary: "bg-ink text-paper hover:bg-accent",
-  secondary: "text-ink-muted hover:text-ink underline decoration-rule underline-offset-4 hover:decoration-ink",
+  primary: "bg-ink text-white hover:bg-accent",
+  secondary: "border border-rule bg-white text-ink hover:border-ink",
 };
 
-/**
- * The primary/secondary CTA. Replaces four hand-rolled, slightly-different
- * copies (Hero's two buttons, the 404 page's two buttons) that had drifted
- * to different hover-scale magic numbers.
- */
+/** The primary/secondary call-to-action link, styled as a button. */
 export default function Button({ href, children, variant = "primary", external = false, className = "" }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${className}`;
 
