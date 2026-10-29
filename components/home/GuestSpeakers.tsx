@@ -20,7 +20,7 @@ export default function GuestSpeakers() {
           </li>
         ))}
       </ol>
-      <Link href="/events" className="mt-4 inline-block text-sm text-accent hover:underline">All talks and their slides</Link>
+      <Link href="/events" className="mt-4 inline-block text-sm link">All talks and their slides</Link>
     </section>
   );
 }

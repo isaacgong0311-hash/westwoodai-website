@@ -41,7 +41,7 @@ export default function LabFrame({ id, index, kicker, title, description, plot, 
             ))}
           </dl>
           {controls}
-          <Link href={lesson.href} className="text-sm text-accent hover:underline">
+          <Link href={lesson.href} className="text-sm link">
             {lesson.label}
           </Link>
         </div>

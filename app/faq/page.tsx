@@ -29,7 +29,7 @@ export default function FaqPage() {
                     <a
                       href={item.link.href}
                       {...(item.link.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
-                      className="text-accent hover:underline"
+                      className="link"
                     >
                       {item.link.label}
                     </a>
@@ -42,9 +42,9 @@ export default function FaqPage() {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-sm leading-relaxed text-ink-muted">
             To join, fill out the{" "}
-            <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">interest form</a>{" "}
-            and come to the next meeting on the <Link href="/calendar" className="text-accent hover:underline">calendar</Link>. If you want a feel
-            for what we cover first, try the <Link href="/playground" className="text-accent hover:underline">playground</Link>.
+            <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="link">interest form</a>{" "}
+            and come to the next meeting on the <Link href="/calendar" className="link">calendar</Link>. If you want a feel
+            for what we cover first, try the <Link href="/playground" className="link">playground</Link>.
           </p>
         </aside>
       </div>

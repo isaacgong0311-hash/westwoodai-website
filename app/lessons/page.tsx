@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Slides from every Westwood AI Club meeting since 2019, plus the Colab notebooks and datasets we coded along with.",
 };
 
-const linkClass = "text-accent hover:underline";
+const linkClass = "link";
 
 export default function LessonsPage() {
   const [current, ...past] = lessonYears;

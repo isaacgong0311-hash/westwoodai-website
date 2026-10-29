@@ -49,11 +49,11 @@ export default function NextMeetingCard({ event, defaults, checkinUrl }: NextMee
           </a>
         )}
         {!event && (
-          <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+          <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="link">
             Get meeting emails
           </a>
         )}
-        <Link href="/calendar" className="text-accent hover:underline">
+        <Link href="/calendar" className="link">
           Full calendar
         </Link>
       </div>

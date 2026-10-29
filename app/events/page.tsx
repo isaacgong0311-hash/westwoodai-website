@@ -5,6 +5,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { outreach, talks } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
+import JsonLd from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -16,6 +17,21 @@ export default function EventsPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": talks.map((t) => ({
+            "@type": "EducationEvent",
+            name: t.title,
+            startDate: t.date,
+            eventStatus: "https://schema.org/EventScheduled",
+            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+            location: { "@type": "Place", name: "Westwood High School", address: "Austin, TX" },
+            performer: { "@type": "Person", name: t.speaker, jobTitle: t.role, worksFor: { "@type": "Organization", name: t.org } },
+            organizer: { "@type": "Organization", name: "Westwood AI Club" },
+          })),
+        }}
+      />
       <PageHeader
         eyebrow="Events"
         title="Guest speakers and outreach"
@@ -49,8 +65,8 @@ export default function EventsPage() {
         </ol>
         <p className="mt-6 text-sm leading-relaxed text-ink-muted">
           If you know someone who works with AI and would talk to students, email{" "}
-          <a href="mailto:wwhs.aiexploration@gmail.com" className="text-accent hover:underline">wwhs.aiexploration@gmail.com</a>. Upcoming
-          speakers are posted on the <Link href="/calendar" className="text-accent hover:underline">calendar</Link>.
+          <a href="mailto:wwhs.aiexploration@gmail.com" className="link">wwhs.aiexploration@gmail.com</a>. Upcoming
+          speakers are posted on the <Link href="/calendar" className="link">calendar</Link>.
         </p>
       </section>
 

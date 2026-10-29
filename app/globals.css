@@ -49,6 +49,19 @@ h1, h2, h3 {
   outline-color: #f0ad82;
 }
 
+/* Text links are underlined, not just colored, so they stand out from the
+   sentence around them for colorblind readers (WCAG 1.4.1). */
+@utility link {
+  color: var(--color-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  text-underline-offset: 4px;
+  &:hover {
+    text-decoration-color: var(--color-accent);
+  }
+}
+
 /* Faint graph-paper texture for the few places that get one. */
 .graph-paper {
   background-image:

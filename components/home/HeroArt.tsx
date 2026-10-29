@@ -101,7 +101,7 @@ export default function HeroArt() {
         <span>
           A 6-neuron network, trained when this page was built. {Math.round(accuracy * 100)}% correct.
         </span>
-        <Link href="/playground#train-a-network" className="text-accent hover:underline">
+        <Link href="/playground#train-a-network" className="link">
           Train your own
         </Link>
       </figcaption>

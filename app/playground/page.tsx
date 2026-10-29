@@ -27,7 +27,7 @@ export default function PlaygroundPage() {
 
       <nav aria-label="Labs" className="-mt-4 mb-14 flex flex-wrap gap-x-8 gap-y-2 text-sm">
         {LABS.map((lab) => (
-          <a key={lab.href} href={lab.href} className="text-accent hover:underline">
+          <a key={lab.href} href={lab.href} className="link">
             {lab.label} <span className="text-ink-muted">({lab.note})</span>
           </a>
         ))}
@@ -49,7 +49,7 @@ export default function PlaygroundPage() {
         <h2 className="font-semibold text-ink">Want to see the code?</h2>
         <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ink-muted">
           Each lab is a few dozen lines of TypeScript with no libraries. If you&apos;d rather work in Python, the{" "}
-          <Link href="/lessons" className="text-accent hover:underline">lessons archive</Link> has Colab notebooks from past meetings covering
+          <Link href="/lessons" className="link">lessons archive</Link> has Colab notebooks from past meetings covering
           linear regression, clustering, and neural networks built from scratch.
         </p>
       </aside>

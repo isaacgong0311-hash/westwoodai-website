@@ -49,7 +49,7 @@ export default function AboutPage() {
           <ul className="border-t border-rule">
             {CHANNELS.map((c) => (
               <li key={c.label} className="border-b border-rule py-3">
-                <a href={c.href} {...(c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })} className="text-sm font-medium text-accent hover:underline">
+                <a href={c.href} {...(c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })} className="text-sm font-medium link">
                   {c.label}
                 </a>
                 <p className="text-sm text-ink-muted">{c.detail}</p>

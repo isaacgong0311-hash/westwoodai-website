@@ -9,7 +9,9 @@ import FileLink from "@/components/ui/FileLink";
 import { getUpcomingEvents } from "@/lib/calendar";
 import configData from "@/data/config.json";
 import type { SiteConfig } from "@/lib/types";
+import JsonLd from "@/components/ui/JsonLd";
 import { clubHistory, lessonYears, members } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 const config = configData as SiteConfig;
 
@@ -31,6 +33,20 @@ export default async function HomePage() {
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Westwood AI Club",
+          url: SITE_URL,
+          logo: `${SITE_URL}/logo.png`,
+          email: "wwhs.aiexploration@gmail.com",
+          description: "A student-run club at Westwood High School in Austin, Texas, that teaches machine learning to students of any experience level.",
+          foundingDate: "2019",
+          parentOrganization: { "@type": "HighSchool", name: "Westwood High School", address: { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" } },
+          sameAs: ["https://www.instagram.com/warriorai/", "https://github.com/westwoodai"],
+        }}
+      />
       <Hero />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[.8fr_1.2fr]">
@@ -53,7 +69,7 @@ export default async function HomePage() {
               </li>
             ))}
           </ol>
-          <Link href="/lessons" className="mt-4 inline-block text-sm text-accent hover:underline">
+          <Link href="/lessons" className="mt-4 inline-block text-sm link">
             All {lessonYears.reduce((n, y) => n + y.lessons.length, 0)} lessons since 2019
           </Link>
         </div>
@@ -78,7 +94,7 @@ export default async function HomePage() {
               </div>
             ))}
           </dl>
-          <Link href="/about" className="mt-4 inline-block text-sm text-accent hover:underline">Past officers and how to reach us</Link>
+          <Link href="/about" className="mt-4 inline-block text-sm link">Past officers and how to reach us</Link>
         </div>
         <div>
           <SectionHeader title="Presidents by year" count={`${HISTORY.length} years`} />

@@ -203,9 +203,12 @@ export default function NeuralLab() {
               <LabButton key={r} pressed={rate === r} onClick={() => setRate(r)}>{r}</LabButton>
             ))}
           </ControlGroup>
-          <ControlGroup label="Tapping adds">
+          <ControlGroup label="New points are">
             <LabButton pressed={brush === 1} onClick={() => setBrush(1)}>● Circles</LabButton>
             <LabButton pressed={brush === 0} onClick={() => setBrush(0)}>■ Squares</LabButton>
+            <LabButton onClick={() => setPoints([...points, { x: Math.random() * 1.8 - 0.9, y: Math.random() * 1.8 - 0.9, label: brush }])}>
+              Add one at random
+            </LabButton>
           </ControlGroup>
           <NetworkDiagram net={net} />
           <Sparkline values={history} label="Loss over time" />

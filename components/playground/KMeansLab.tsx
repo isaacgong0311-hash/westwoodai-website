@@ -7,13 +7,15 @@ import { assign, blobPoints, inertia, moveCenters, pickCenters, seededRandom, ty
 
 const COLORS = ["#2458b8", "#a84d25", "#306d53", "#7052a4", "#82600e", "#a33a2a"];
 const START_K = 3;
+// Seed whose starting centers are spread out, so the first picture shows three distinct diamonds.
+const START_SEED = 3;
 
 type Phase = "assign" | "update" | "done";
 
 export default function KMeansLab() {
   const [points, setPoints] = useState<Point[]>(() => blobPoints(7));
   const [k, setK] = useState(START_K);
-  const [centers, setCenters] = useState<Point[]>(() => pickCenters(blobPoints(7), START_K, seededRandom(11)));
+  const [centers, setCenters] = useState<Point[]>(() => pickCenters(blobPoints(7), START_K, seededRandom(START_SEED)));
   const [assignment, setAssignment] = useState<number[] | null>(null);
   const [phase, setPhase] = useState<Phase>("assign");
   const [round, setRound] = useState(0);
@@ -131,6 +133,14 @@ export default function KMeansLab() {
               New data
             </LabButton>
             <LabButton onClick={() => restart()}>Restart from random centers</LabButton>
+            <LabButton
+              onClick={() => {
+                setPoints([...points, { x: 0.05 + Math.random() * 0.9, y: 0.05 + Math.random() * 0.9 }]);
+                if (assignment) setPhase("assign");
+              }}
+            >
+              Add a random point
+            </LabButton>
           </ControlGroup>
           <p className="text-sm leading-relaxed text-ink-muted">
             Diamonds are the centers. Run it twice on the same data and you may get different groups, because the starting centers are random.
