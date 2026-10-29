@@ -47,7 +47,7 @@ export default function NewsPage() {
                     {item.title}
                   </a>
                 </h2>
-                <p className="text-sm text-ink-muted mb-4">{item.source} ↗</p>
+                <p className="text-sm text-ink-muted mb-4">{item.source}</p>
                 <p className="text-sm leading-relaxed text-ink mb-5">{item.summary}</p>
                 <blockquote className="border-l-2 border-accent pl-4">
                   <p className="text-lg leading-snug text-ink">{item.officerTake}</p>

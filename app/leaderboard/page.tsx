@@ -30,7 +30,7 @@ export default async function LeaderboardPage() {
         />
 
         {!live && (
-          <Panel raised className="px-5 py-4 mb-8 !bg-blue-soft">
+          <Panel raised className="px-5 py-4 mb-8">
             <p className="text-sm leading-relaxed text-ink">
               Live scoring is not connected yet. The names below are the officer roster, shown with zero points as a preview of the board.
             </p>
@@ -39,7 +39,7 @@ export default async function LeaderboardPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
-            <LeaderboardTable members={members} />
+            <LeaderboardTable members={members} preview={!live} />
           </div>
           <div>
             <PointsBreakdown />
@@ -56,7 +56,7 @@ export default async function LeaderboardPage() {
                       rel="noopener noreferrer"
                       className="text-accent hover:text-ink"
                     >
-                      check-in form ↗
+                      check-in form
                     </a>
                     )
                   </>

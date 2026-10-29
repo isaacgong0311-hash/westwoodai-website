@@ -66,7 +66,7 @@ export default function PromptPage() {
               {!closed && (
                 <div className="flex flex-wrap items-center gap-6">
                   <Button href="https://discord.gg/7QctqCABR" external variant="primary">
-                    Submit in #prompt-of-the-week ↗
+                    Submit in #prompt-of-the-week
                   </Button>
                   <p className="text-sm text-ink-muted">Entries earn {POINTS.promptEntry} points; the top-voted one earns {POINTS.promptWinner}.</p>
                 </div>

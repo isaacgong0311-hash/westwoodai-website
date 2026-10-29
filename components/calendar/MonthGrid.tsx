@@ -28,7 +28,7 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         <Link
           href={`/calendar?month=${prev}`}
           scroll={false}
-          className="rounded-full border border-rule bg-white px-4 py-2 text-sm font-bold text-accent hover:border-accent"
+          className="rounded-md border border-rule bg-white px-3 py-1.5 text-sm text-ink hover:border-ink"
         >
           &larr;&nbsp;{formatMonth(prev, { year: false })}
         </Link>
@@ -38,13 +38,13 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
         <Link
           href={`/calendar?month=${next}`}
           scroll={false}
-          className="rounded-full border border-rule bg-white px-4 py-2 text-sm font-bold text-accent hover:border-accent"
+          className="rounded-md border border-rule bg-white px-3 py-1.5 text-sm text-ink hover:border-ink"
         >
           {formatMonth(next, { year: false })}&nbsp;&rarr;
         </Link>
       </div>
 
-      <div className="font-mono grid grid-cols-7 text-xs font-semibold text-accent mb-2">
+      <div className="font-mono grid grid-cols-7 text-xs text-ink-muted mb-2">
         {WEEKDAYS.map((d) => (
           <div key={d} className="px-2">
             {d}
@@ -61,14 +61,14 @@ export default function MonthGrid({ month, today, events }: MonthGridProps) {
               key={day ?? `pad-${i}`}
               className={cn(
                 "min-h-28 border-r border-b border-rule p-1.5 flex flex-col gap-1",
-                day ? "bg-white" : "bg-blue-soft/40",
+                day ? "bg-white" : "bg-paper",
               )}
             >
               {day && (
                 <span
                   className={cn(
-                    "rounded-lg text-xs font-bold tabular-nums px-2 py-1 self-start",
-                    isToday ? "bg-accent text-white" : day < today ? "text-ink-muted" : "text-ink",
+                    "rounded font-mono text-xs tabular-nums px-1.5 py-0.5 self-start",
+                    isToday ? "bg-ink text-white" : day < today ? "text-ink-muted" : "text-ink",
                   )}
                 >
                   {isToday && <span className="sr-only">Today, </span>}

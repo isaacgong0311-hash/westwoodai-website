@@ -14,7 +14,7 @@ export default function PointsBreakdown() {
               <p className="text-sm text-ink">{category}</p>
               <p className="text-xs text-ink-muted">{note}</p>
             </div>
-            <span className="rounded-full bg-peach-soft px-3 py-1 text-xs font-semibold text-accent-warm tabular-nums">+{points}</span>
+            <span className="font-mono text-sm text-ink tabular-nums">+{points}</span>
           </div>
         ))}
       </div>

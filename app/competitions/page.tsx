@@ -80,7 +80,7 @@ export default function CompetitionsPage() {
                     </Link>
                     {c.link && (
                       <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-ink">
-                        Details ↗
+                        Details
                       </a>
                     )}
                   </div>

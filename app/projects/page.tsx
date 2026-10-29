@@ -89,7 +89,7 @@ export default async function ProjectsPage({
                         rel="noopener noreferrer"
                         className="text-sm text-accent hover:text-ink"
                       >
-                        View project ↗
+                        View project
                       </a>
                     )}
                   </div>

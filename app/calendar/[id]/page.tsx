@@ -64,7 +64,7 @@ export default async function EventPage({ params }: Props) {
   const where = eventLocation(event);
 
   return (
-    <div className="px-4 sm:px-6 py-16">
+    <div className="px-4 sm:px-6 py-14">
       <article className="max-w-3xl mx-auto">
         <Link href="/calendar" className="text-sm text-ink-muted hover:text-ink">
           &larr; Calendar
@@ -104,7 +104,7 @@ export default async function EventPage({ params }: Props) {
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center gap-3">
           {!past && (
             <Button href={googleAddLink(event)} external variant="primary">
               Add to my calendar
@@ -112,17 +112,17 @@ export default async function EventPage({ params }: Props) {
           )}
           {event.slidesUrl && (
             <Button href={event.slidesUrl} external variant={past ? "primary" : "secondary"}>
-              Slides ↗
+              Slides
             </Button>
           )}
           {event.related && (
             <Button href={event.related.href} variant="secondary">
-              {event.related.label}&nbsp;&rarr;
+              {event.related.label}
             </Button>
           )}
           {event.htmlLink && (
             <Button href={event.htmlLink} external variant="secondary">
-              Open in Google Calendar ↗
+              Open in Google Calendar
             </Button>
           )}
         </div>

@@ -41,7 +41,7 @@ export default async function CalendarPage({
         <PageHeader
           eyebrow={`${config.nextMeeting.time} · Room ${config.nextMeeting.room}`}
           title="Calendar"
-            description="Find confirmed meetings, guest speakers, workshops, and competition deadlines here."
+            description="Meetings, guest speakers, workshops, and competition deadlines, posted as officers confirm them."
         />
 
         {subscribe && <SubscribeLinks links={subscribe} />}
