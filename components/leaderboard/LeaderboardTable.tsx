@@ -39,18 +39,19 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
         </Panel>
       )}
 
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 text-sm">
-        <span className="text-ink-muted mr-1">Sort by:</span>
+      <div role="group" aria-labelledby="sort-label" className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 text-sm">
+        <span id="sort-label" className="text-ink-muted mr-1">Sort by:</span>
         {cols.map(({ key, label }, i) => (
           <span key={key} className="flex items-center gap-2">
-            {i > 0 && <span className="text-ink-muted">&middot;</span>}
+            {i > 0 && <span aria-hidden="true" className="text-ink-muted">&middot;</span>}
             <button
+              type="button"
               onClick={() => setSortBy(key)}
               aria-pressed={sortBy === key}
               className={
                 sortBy === key
-                  ? "text-accent font-medium border-b border-accent"
-                  : "text-ink-muted hover:text-ink"
+                  ? "min-h-11 px-2 text-accent font-medium underline underline-offset-4 decoration-2"
+                  : "min-h-11 px-2 text-ink-muted hover:text-ink"
               }
             >
               {label}
@@ -59,9 +60,17 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
         ))}
       </div>
 
+      {/* Announces the new order to screen readers when a sort button is pressed. */}
+      <p className="sr-only" role="status">
+        Sorted by {cols.find((c) => c.key === sortBy)?.label.toLowerCase()}, highest first.
+      </p>
+
       {/* Desktop */}
       <div className="hidden md:block">
         <table className="w-full border-collapse">
+          <caption className="sr-only">
+            Member leaderboard for the 2026&ndash;27 season, sorted by {sortBy}
+          </caption>
           <thead>
             <tr>
               <th scope="col" className="text-left text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3 w-8">
@@ -70,16 +79,16 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
               <th scope="col" className="text-left text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
                 Member
               </th>
-              <th scope="col" aria-sort={sortBy === "attendance" ? "descending" : "none"} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
+              <th scope="col" aria-sort={sortBy === "attendance" ? "descending" : undefined} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
                 Attendance
               </th>
-              <th scope="col" aria-sort={sortBy === "projects" ? "descending" : "none"} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
+              <th scope="col" aria-sort={sortBy === "projects" ? "descending" : undefined} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
                 Projects
               </th>
-              <th scope="col" aria-sort={sortBy === "competitions" ? "descending" : "none"} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
+              <th scope="col" aria-sort={sortBy === "competitions" ? "descending" : undefined} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
                 Competitions
               </th>
-              <th scope="col" aria-sort={sortBy === "points" ? "descending" : "none"} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
+              <th scope="col" aria-sort={sortBy === "points" ? "descending" : undefined} className="text-right text-xs uppercase tracking-wider text-ink-muted font-medium border-b border-rule pb-3">
                 Points
               </th>
             </tr>
@@ -103,21 +112,21 @@ export default function LeaderboardTable({ members }: LeaderboardTableProps) {
       </div>
 
       {/* Mobile */}
-      <div className="md:hidden divide-y divide-rule">
+      <ol className="md:hidden divide-y divide-rule">
         {sorted.map((member, i) => (
-          <div key={member.id} className="py-3 flex items-center gap-3">
+          <li key={member.id} className="py-3 flex items-center gap-3">
             <span className="text-sm text-ink-muted tabular-nums w-5 flex-shrink-0">{i + 1}</span>
             <div className="flex-1 min-w-0">
               <p className="text-sm text-ink">{member.name}</p>
               <p className="text-xs text-ink-muted">{member.role}</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-ink tabular-nums">{member.points}</p>
-              <p className="text-xs text-ink-muted">pts</p>
+              <p className="text-sm text-ink tabular-nums">{member[sortBy]}</p>
+              <p className="text-xs text-ink-muted">{sortBy === "points" ? "pts" : sortBy}</p>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }

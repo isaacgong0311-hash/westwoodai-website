@@ -13,7 +13,7 @@ export default function NextMeetingCard({ config }: NextMeetingCardProps) {
   return (
     <Panel raised className="p-5">
       <div className="flex items-center justify-between mb-4">
-        <p className="text-xs uppercase tracking-wider text-ink-muted">Up next</p>
+        <h2 className="text-xs uppercase tracking-wider text-ink-muted">Up next</h2>
         {hasMeeting && days !== null && days >= 0 && (
           <span className="text-xs text-accent">
             {days === 0 ? "Today" : days === 1 ? "Tomorrow" : `in ${days} days`}
@@ -25,7 +25,7 @@ export default function NextMeetingCard({ config }: NextMeetingCardProps) {
         <div className="space-y-2">
           <p className="text-base text-ink leading-snug">{config.topic ?? "Topic TBD"}</p>
           <p className="text-sm text-ink-muted">
-            {formatDate(config.date!)} &middot; {config.time}
+            <time dateTime={config.date!}>{formatDate(config.date!)}</time> &middot; {config.time}
           </p>
           <p className="text-sm text-ink-muted">
             Room {config.room} &middot; {config.teacher}

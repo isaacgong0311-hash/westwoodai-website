@@ -62,9 +62,9 @@ export default function GuestSpeakers() {
           title="Guest speakers"
           count={`${SPEAKERS.length} since ${earliestYear}`}
         />
-        <div>
+        <ul>
           {SPEAKERS.map((s) => (
-            <div key={s.name} className="flex gap-6 py-4 border-b border-rule last:border-b-0 items-baseline">
+            <li key={s.name} className="flex gap-6 py-4 border-b border-rule last:border-b-0 items-baseline">
               <span className="w-12 flex-shrink-0 text-sm text-ink-muted">{s.year}</span>
               <div>
                 <h3 className="text-base text-ink">{s.name}</h3>
@@ -75,9 +75,9 @@ export default function GuestSpeakers() {
                   &ldquo;{s.topic}&rdquo;
                 </p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

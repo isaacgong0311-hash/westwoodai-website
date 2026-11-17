@@ -12,7 +12,7 @@ export default function Hero({ founded }: HeroProps) {
         <div className="flex items-start gap-6 mb-7">
           <Image
             src="/logo.png"
-            alt="Westwood AI Club logo"
+            alt="Westwood AI Club logo: a blue and orange swirl around the letters WW AI"
             width={76}
             height={76}
             priority
@@ -29,7 +29,7 @@ export default function Hero({ founded }: HeroProps) {
         </div>
 
         <div className="border-t border-rule pt-6 flex flex-col sm:flex-row gap-8 sm:gap-16">
-          <p className="text-sm text-ink-muted whitespace-nowrap">
+          <p className="text-sm text-ink-muted">
             Room E1307 &middot; Est. {founded}
           </p>
           <div className="max-w-xl">
@@ -41,10 +41,10 @@ export default function Hero({ founded }: HeroProps) {
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <Button href="https://forms.gle/m1a5LrzEBHhacpbg6" external variant="primary">
-                Fill out the interest form
+                Fill out the club interest form
               </Button>
               <Button href="https://discord.gg/7QctqCABR" external variant="secondary">
-                Discord ↗
+                Join our Discord
               </Button>
             </div>
           </div>

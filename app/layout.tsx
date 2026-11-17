@@ -20,7 +20,10 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Westwood AI Club",
+  title: {
+    default: "Westwood AI Club",
+    template: "%s",
+  },
   description:
     "Westwood High School's student-run AI club. Meetings, guest speakers, and projects in Austin, TX.",
   icons: {
@@ -48,12 +51,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <a
           href="#main"
-          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:px-4 focus-visible:py-2 focus-visible:bg-ink focus-visible:text-paper focus-visible:rounded"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-3 focus:bg-ink focus:text-paper focus:rounded"
         >
           Skip to content
         </a>
         <Nav />
-        <main id="main" className="flex-1 relative z-10">
+        <main id="main" tabIndex={-1} className="flex-1 relative z-10">
           {children}
         </main>
         <Footer />

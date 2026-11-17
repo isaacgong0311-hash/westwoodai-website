@@ -9,7 +9,7 @@ interface ButtonProps {
   className?: string;
 }
 
-const base = "inline-block text-sm px-5 py-2.5 transition-colors";
+const base = "inline-flex items-center min-h-11 text-sm px-5 py-2.5 transition-colors";
 const variants = {
   primary: "bg-ink text-paper hover:bg-accent",
   secondary: "text-ink-muted hover:text-ink underline decoration-rule underline-offset-4 hover:decoration-ink",
@@ -27,6 +27,8 @@ export default function Button({ href, children, variant = "primary", external =
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
         {children}
+        <span aria-hidden="true">&nbsp;↗</span>
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     );
   }

@@ -42,7 +42,7 @@ export default function MeetingsPage() {
               <h3 className="text-lg text-ink mb-1">{upcoming.topic}</h3>
               <p className="text-sm text-ink-muted">{upcoming.presenter}</p>
               <p className="text-sm text-ink-muted mt-1">
-                {upcoming.date ? formatDate(upcoming.date) : "Date TBD"}
+                {upcoming.date ? <time dateTime={upcoming.date}>{formatDate(upcoming.date)}</time> : "Date TBD"}
               </p>
               {upcoming.notes && (
                 <p className="text-sm leading-relaxed text-ink mt-3">{upcoming.notes}</p>
@@ -59,9 +59,9 @@ export default function MeetingsPage() {
               description="Once the year starts, every meeting will be listed here with the topic, presenter, and slides."
             />
           ) : (
-            <div className="divide-y divide-rule">
+            <ul className="divide-y divide-rule">
               {past.map((m) => (
-                <div key={m.id} className="py-4 flex items-start justify-between gap-4">
+                <li key={m.id} className="py-4 flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
                     <p className="text-xs uppercase tracking-wider text-accent mb-1">
                       {typeLabels[m.type]}
@@ -71,22 +71,24 @@ export default function MeetingsPage() {
                   </div>
                   <div className="text-right shrink-0">
                     <p className="text-sm text-ink-muted">
-                      {m.date ? formatDate(m.date) : "TBD"}
+                      {m.date ? <time dateTime={m.date}>{formatDate(m.date)}</time> : "TBD"}
                     </p>
                     {m.slidesUrl && (
                       <a
                         href={m.slidesUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-ink-muted hover:text-ink"
+                        className="text-sm text-ink-muted hover:text-ink underline underline-offset-4 inline-block py-1"
                       >
-                        Slides ↗
+                        Slides<span className="sr-only"> for {m.topic}</span>
+                        <span aria-hidden="true"> ↗</span>
+                        <span className="sr-only"> (opens in a new tab)</span>
                       </a>
                     )}
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </div>

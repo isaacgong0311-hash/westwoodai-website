@@ -14,7 +14,7 @@ export default function NotFound() {
         <div className="flex flex-wrap justify-center gap-6">
           <Button href="/" variant="primary">Back home</Button>
           <Button href="https://discord.gg/7QctqCABR" external variant="secondary">
-            Discord ↗
+            Join our Discord
           </Button>
         </div>
       </div>
