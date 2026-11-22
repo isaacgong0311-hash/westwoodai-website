@@ -6,6 +6,8 @@ import Tag from "@/components/ui/Tag";
 import { projects } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { formatShortDate } from "@/lib/utils";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -41,7 +43,7 @@ export default async function ProjectsPage({
             description="Member projects will appear here once their creators share them with the club. Working on something? Send it to the officers in Discord."
             cta={{
               label: "Open Discord",
-              href: "https://discord.gg/7QctqCABR",
+              href: LINKS.discord,
               external: true,
             }}
           />
@@ -90,6 +92,7 @@ export default async function ProjectsPage({
                         className="text-sm text-accent hover:text-ink"
                       >
                         View project
+                        <NewTabNote />
                       </a>
                     )}
                   </div>

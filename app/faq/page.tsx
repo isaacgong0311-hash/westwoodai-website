@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import { faq } from "@/lib/content";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -42,7 +44,7 @@ export default function FaqPage() {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-sm leading-relaxed text-ink-muted">
             To join, fill out the{" "}
-            <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="link">interest form</a>{" "}
+            <a href={LINKS.interestForm} target="_blank" rel="noopener noreferrer" className="link">interest form<NewTabNote /></a>{" "}
             and come to the next meeting on the <Link href="/calendar" className="link">calendar</Link>. If you want a feel
             for what we cover first, try the <Link href="/playground" className="link">playground</Link>.
           </p>

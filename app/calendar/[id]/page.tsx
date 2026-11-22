@@ -8,6 +8,7 @@ import configData from "@/data/config.json";
 import { getEvent } from "@/lib/calendar";
 import { EVENT_TYPES, formatEventWhen, googleAddLink, isPast } from "@/lib/events";
 import type { ClubEvent, SiteConfig } from "@/lib/types";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 const config = configData as SiteConfig;
 
@@ -47,6 +48,7 @@ function Linkified({ text }: { text: string }) {
             className="text-accent underline underline-offset-4 decoration-rule hover:decoration-accent break-all"
           >
             {part}
+            <NewTabNote />
           </a>
         ) : (
           part

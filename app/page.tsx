@@ -11,7 +11,7 @@ import configData from "@/data/config.json";
 import type { SiteConfig } from "@/lib/types";
 import JsonLd from "@/components/ui/JsonLd";
 import { clubHistory, lessonYears, members } from "@/lib/content";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, LINKS } from "@/lib/site";
 
 const config = configData as SiteConfig;
 
@@ -44,7 +44,7 @@ export default async function HomePage() {
           description: "A student-run club at Westwood High School in Austin, Texas, that teaches machine learning to students of any experience level.",
           foundingDate: "2019",
           parentOrganization: { "@type": "HighSchool", name: "Westwood High School", address: { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" } },
-          sameAs: ["https://www.instagram.com/warriorai/", "https://github.com/westwoodai"],
+          sameAs: [LINKS.instagram, LINKS.github],
         }}
       />
       <Hero />

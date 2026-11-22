@@ -6,6 +6,7 @@ import Tag from "@/components/ui/Tag";
 import { competitions, memberName } from "@/lib/content";
 import type { Competition } from "@/lib/types";
 import { daysUntil, formatShortDate } from "@/lib/utils";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const metadata: Metadata = {
   title: "Competitions",
@@ -81,6 +82,7 @@ export default function CompetitionsPage() {
                     {c.link && (
                       <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-ink">
                         Details
+                        <NewTabNote />
                       </a>
                     )}
                   </div>

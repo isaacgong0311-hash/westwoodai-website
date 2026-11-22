@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 interface ButtonProps {
   href: string;
@@ -23,6 +24,7 @@ export default function Button({ href, children, variant = "primary", external =
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
         {children}
+        <NewTabNote />
       </a>
     );
   }

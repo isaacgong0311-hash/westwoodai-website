@@ -4,6 +4,8 @@ import PageHeader from "@/components/ui/PageHeader";
 import Tag from "@/components/ui/Tag";
 import { news } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const metadata: Metadata = {
   title: "News",
@@ -25,7 +27,7 @@ export default function NewsPage() {
           <EmptyState
             title="Nothing posted yet"
             description="There are no officer-written news notes yet. Check back for stories the club chooses to discuss."
-            cta={{ label: "Follow club updates", href: "https://www.instagram.com/warriorai/", external: true }}
+            cta={{ label: "Follow club updates", href: LINKS.instagram, external: true }}
           />
         ) : (
           <div className="space-y-4">
@@ -45,6 +47,7 @@ export default function NewsPage() {
                     className="hover:text-accent"
                   >
                     {item.title}
+                    <NewTabNote />
                   </a>
                 </h2>
                 <p className="text-sm text-ink-muted mb-4">{item.source}</p>

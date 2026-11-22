@@ -7,6 +7,7 @@ import Tag from "@/components/ui/Tag";
 import { promptChallenge as challenge } from "@/lib/content";
 import { POINTS } from "@/lib/points";
 import { daysUntil, formatDate } from "@/lib/utils";
+import { LINKS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Prompt of the Week",
@@ -33,7 +34,7 @@ export default function PromptPage() {
           <EmptyState
             title="Nothing posted yet"
             description="No prompt challenge is active right now. Join the club Discord to hear when the next one is posted."
-            cta={{ label: "Join the Discord", href: "https://discord.gg/7QctqCABR", external: true }}
+            cta={{ label: "Join the Discord", href: LINKS.discord, external: true }}
           />
         ) : (
           <>
@@ -65,7 +66,7 @@ export default function PromptPage() {
               )}
               {!closed && (
                 <div className="flex flex-wrap items-center gap-6">
-                  <Button href="https://discord.gg/7QctqCABR" external variant="primary">
+                  <Button href={LINKS.discord} external variant="primary">
                     Submit in #prompt-of-the-week
                   </Button>
                   <p className="text-sm text-ink-muted">Entries earn {POINTS.promptEntry} points; the top-voted one earns {POINTS.promptWinner}.</p>

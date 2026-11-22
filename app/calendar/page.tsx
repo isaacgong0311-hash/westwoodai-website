@@ -10,6 +10,7 @@ import { getAllEvents, getSubscribeLinks } from "@/lib/calendar";
 import { isPast } from "@/lib/events";
 import type { SiteConfig } from "@/lib/types";
 import { dateKey } from "@/lib/utils";
+import { LINKS } from "@/lib/site";
 
 const config = configData as SiteConfig;
 
@@ -50,7 +51,7 @@ export default async function CalendarPage({
           <EmptyState
             title="No dates listed yet"
             description={config.nextMeeting.note ?? "Officers haven't posted this season's events yet. Check back soon."}
-            cta={{ label: "Join the mailing list", href: "https://forms.gle/m1a5LrzEBHhacpbg6", external: true }}
+            cta={{ label: "Join the mailing list", href: LINKS.interestForm, external: true }}
           />
         ) : (
           <>

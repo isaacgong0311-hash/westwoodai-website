@@ -3,6 +3,8 @@ import type { ClubEvent, SiteConfig } from "@/lib/types";
 import { EVENT_TYPES, eventStartKey, formatEventTime, formatEventWhen } from "@/lib/events";
 import { daysUntil, formatDate } from "@/lib/utils";
 import { eventHref } from "@/components/calendar/EventChip";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 interface NextMeetingCardProps {
   event: ClubEvent | null;
@@ -46,11 +48,13 @@ export default function NextMeetingCard({ event, defaults, checkinUrl }: NextMee
         {days === 0 && checkinUrl && (
           <a href={checkinUrl} target="_blank" rel="noopener noreferrer" className="rounded-md bg-ink px-3 py-1.5 font-medium text-white hover:bg-accent">
             Check in
+            <NewTabNote />
           </a>
         )}
         {!event && (
-          <a href="https://forms.gle/m1a5LrzEBHhacpbg6" target="_blank" rel="noopener noreferrer" className="link">
+          <a href={LINKS.interestForm} target="_blank" rel="noopener noreferrer" className="link">
             Get meeting emails
+            <NewTabNote />
           </a>
         )}
         <Link href="/calendar" className="link">

@@ -64,6 +64,18 @@
           "title": "Machine learning basics and the four types of machine learning",
           "url": "https://docs.google.com/presentation/d/1xWcM6ZXOh2i64uvgB8PsUa-D2G2H5NDhLAjtyGCAIQs/edit",
           "format": "slides"
+        },
+        {
+          "number": 4,
+          "title": "Machine learning, part 2",
+          "url": "https://docs.google.com/presentation/d/1bz5XtUawWQ7uYcN3OytXM6suGjgcovMSZL-uT5G6Uck/edit",
+          "format": "slides"
+        },
+        {
+          "number": 5,
+          "title": "Computer vision, Teachable Machine, and student projects",
+          "url": "https://docs.google.com/presentation/d/1bbzLh6tOPWKiHHvmNVX5fWogB405BuGgqZNo7ZhlXys/edit",
+          "format": "slides"
         }
       ],
       "code": []
