@@ -3,7 +3,8 @@ import Link from "next/link";
 import FileLink from "@/components/ui/FileLink";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { outreach, talks } from "@/lib/content";
+import PhotoGrid from "@/components/ui/PhotoGrid";
+import { outreach, speakerLine, talkPhotos, talks } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
 import JsonLd from "@/components/ui/JsonLd";
 
@@ -27,7 +28,7 @@ export default function EventsPage() {
             eventStatus: "https://schema.org/EventScheduled",
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             location: { "@type": "Place", name: "Westwood High School", address: "Austin, TX" },
-            performer: { "@type": "Person", name: t.speaker, jobTitle: t.role, worksFor: { "@type": "Organization", name: t.org } },
+            performer: { "@type": "Person", name: t.speaker, jobTitle: t.role, ...(t.org && { worksFor: { "@type": "Organization", name: t.org } }) },
             organizer: { "@type": "Organization", name: "Westwood AI Club" },
           })),
         }}
@@ -51,13 +52,18 @@ export default function EventsPage() {
               <time dateTime={t.date} className="font-mono text-xs leading-6 text-ink-muted">{formatShortDate(t.date)}</time>
               <div>
                 <h3 className="text-lg font-semibold leading-snug tracking-tight text-ink">{t.title}</h3>
-                <p className="mt-1 text-sm text-ink-muted">
-                  {t.speaker}, {t.role} at {t.org}
-                </p>
+                <p className="mt-1 text-sm text-ink-muted">{speakerLine(t)}</p>
                 {t.slides && (
                   <p className="mt-3 text-sm">
                     <FileLink href={t.slides.url} format={t.slides.format}>Slides from the talk</FileLink>
                   </p>
+                )}
+                {talkPhotos(t).length > 0 && (
+                  <PhotoGrid
+                    photos={talkPhotos(t)}
+                    className="mt-5 sm:grid-cols-3 lg:grid-cols-4"
+                    sizes="(min-width: 1024px) 200px, (min-width: 640px) 30vw, 50vw"
+                  />
                 )}
               </div>
             </li>

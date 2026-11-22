@@ -38,9 +38,9 @@ export default function LessonArchive({ years }: { years: LessonYear[] }) {
       <div className="mb-10">
         <div className="mb-5 flex flex-wrap items-baseline justify-between gap-4">
           <h2 id="archive" className="text-2xl font-semibold tracking-tight text-ink">Past years</h2>
-          <nav aria-label="Jump to a school year" className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs">
+          <nav aria-label="Jump to a school year" className="flex flex-wrap gap-x-1 font-mono text-xs">
             {years.map((y) => (
-              <a key={y.year} href={`#${yearId(y.year)}`} className="text-ink-muted hover:text-accent">
+              <a key={y.year} href={`#${yearId(y.year)}`} className="inline-flex min-h-6 items-center px-1.5 text-ink-muted hover:text-accent">
                 {y.year}
               </a>
             ))}

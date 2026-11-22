@@ -2,6 +2,7 @@
   "talks": [
     {
       "id": "bryan-mishkin-2026",
+      "photos": "mishkin",
       "date": "2026-03-09",
       "speaker": "Bryan Mishkin",
       "role": "CTO",
@@ -12,6 +13,7 @@
     },
     {
       "id": "dean-teffer-2026",
+      "photos": "teffer",
       "date": "2026-02-25",
       "speaker": "Dr. Dean Teffer",
       "role": "VP of AI",
@@ -22,6 +24,7 @@
     },
     {
       "id": "keith-moore-2025",
+      "photos": "moore",
       "date": "2025-12-03",
       "speaker": "Keith Moore",
       "role": "CEO",
@@ -32,6 +35,7 @@
     },
     {
       "id": "myra-dsouza-2025",
+      "photos": "dsouza",
       "date": "2025-09-16",
       "speaker": "Myra D'Souza",
       "role": "Co-founder & CEO",
@@ -42,6 +46,7 @@
     },
     {
       "id": "cj-paul-2025",
+      "photos": "paul",
       "date": "2025-03-27",
       "speaker": "Dr. C. J. Paul",
       "role": "Global CTO Office",
@@ -52,10 +57,11 @@
     },
     {
       "id": "anshul-moondra-2025",
+      "photos": "moondra",
       "date": "2025-02-20",
       "speaker": "Anshul Moondra",
       "role": "ML Engineer",
-      "org": "Independent",
+      "org": "",
       "topic": "ML in Baseball Analytics",
       "title": "Machine Learning in Baseball Analytics",
       "slides": { "url": "https://docs.google.com/presentation/d/1-bKFH31YaZGVN_xIclyZLqxYIDDXgYCaFo_1ZFVDpZs/edit", "format": "slides" }

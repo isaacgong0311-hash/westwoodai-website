@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { talks } from "@/lib/content";
+import { speakerLine, talks } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
 
 const recent = talks.slice(0, 5);
@@ -15,7 +15,7 @@ export default function GuestSpeakers() {
             <time dateTime={t.date} className="font-mono text-xs leading-6 text-ink-muted">{formatShortDate(t.date)}</time>
             <div>
               <p className="font-medium text-ink">{t.title}</p>
-              <p className="text-sm text-ink-muted">{t.speaker}, {t.role} at {t.org}</p>
+              <p className="text-sm text-ink-muted">{speakerLine(t)}</p>
             </div>
           </li>
         ))}

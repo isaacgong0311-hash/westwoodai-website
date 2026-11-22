@@ -1,0 +1,192 @@
+{
+  "club": [
+    {
+      "src": "/photos/club-1.jpg",
+      "width": 1080,
+      "height": 810,
+      "alt": "Students sit in a lecture hall for an AI Club presentation."
+    },
+    {
+      "src": "/photos/club-2.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Two students explain AI agents beside a presentation screen."
+    },
+    {
+      "src": "/photos/club-3.jpg",
+      "width": 1080,
+      "height": 810,
+      "alt": "A student presents to club members working at classroom computers."
+    },
+    {
+      "src": "/photos/club-4.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Club members gather around tables during a classroom meeting."
+    },
+    {
+      "src": "/photos/club-5.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": "A presenter explains diagrams on a screen during an AI Club lesson."
+    },
+    {
+      "src": "/photos/club-6.jpg",
+      "width": 626,
+      "height": 467,
+      "alt": "A student presents slides to club members in a classroom."
+    },
+    {
+      "src": "/photos/club-7.jpg",
+      "width": 1080,
+      "height": 810,
+      "alt": "AI Club members pose together for a group photo."
+    },
+    {
+      "src": "/photos/club-8.jpg",
+      "width": 1122,
+      "height": 832,
+      "alt": "Students attend an AI Club event in a large room with tables."
+    },
+    {
+      "src": "/photos/club-9.jpg",
+      "width": 559,
+      "height": 374,
+      "alt": "A presenter speaks to students using computers in a classroom."
+    },
+    {
+      "src": "/photos/club-10.jpg",
+      "width": 1234,
+      "height": 926,
+      "alt": "A speaker presents AI slides to an audience from a stage."
+    },
+    {
+      "src": "/photos/club-11.jpg",
+      "width": 559,
+      "height": 373,
+      "alt": "Students watch an AI Club lesson in a computer lab."
+    }
+  ],
+  "events": {
+    "mishkin": [
+      {
+        "src": "/photos/mishkin-1.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Bryan Mishkin speaks beside an AI presentation slide at a club event."
+      },
+      {
+        "src": "/photos/mishkin-2.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Students and guests watch Bryan Mishkin present in a classroom."
+      },
+      {
+        "src": "/photos/mishkin-3.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Bryan Mishkin speaks at a podium beside a projected AI slide."
+      },
+      {
+        "src": "/photos/mishkin-4.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Bryan Mishkin and AI Club students pose for a group photo."
+      }
+    ],
+    "teffer": [
+      {
+        "src": "/photos/teffer-1.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "Dr. Dean Teffer speaks beside a projected cybersecurity slide."
+      },
+      {
+        "src": "/photos/teffer-2.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "Dr. Dean Teffer introduces AI in Cybersecurity on a projection screen."
+      },
+      {
+        "src": "/photos/teffer-3.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "Dr. Dean Teffer and AI Club students pose for a group photo."
+      }
+    ],
+    "moore": [
+      {
+        "src": "/photos/moore-1.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "Keith Moore presents supply chain AI to students in a computer classroom."
+      }
+    ],
+    "dsouza": [
+      {
+        "src": "/photos/dsouza-1.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "AI Club members pose together after Myra D’Souza’s talk."
+      },
+      {
+        "src": "/photos/dsouza-2.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "A presentation screen glows above the audience during the AI event."
+      },
+      {
+        "src": "/photos/dsouza-3.jpg",
+        "width": 1080,
+        "height": 810,
+        "alt": "Students sit in a lecture hall for Myra D’Souza’s AI talk."
+      }
+    ],
+    "paul": [
+      {
+        "src": "/photos/paul-1.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Dr. C. J. Paul explains real-time AI beside a projected diagram."
+      },
+      {
+        "src": "/photos/paul-2.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "Students listen to Dr. C. J. Paul in a classroom."
+      }
+    ],
+    "moondra": [
+      {
+        "src": "/photos/moondra-1.jpg",
+        "width": 694,
+        "height": 926,
+        "alt": "Anshul Moondra presents baseball analytics from a stage."
+      },
+      {
+        "src": "/photos/moondra-2.jpg",
+        "width": 1234,
+        "height": 926,
+        "alt": "A projected slide is shown during the baseball analytics talk."
+      },
+      {
+        "src": "/photos/moondra-3.jpg",
+        "width": 926,
+        "height": 926,
+        "alt": "Anshul Moondra speaks beside a projected slide."
+      },
+      {
+        "src": "/photos/moondra-4.jpg",
+        "width": 1234,
+        "height": 926,
+        "alt": "Audience members gather for the machine learning in sports presentation."
+      },
+      {
+        "src": "/photos/moondra-5.jpg",
+        "width": 1234,
+        "height": 926,
+        "alt": "Students sit at tables while Anshul Moondra presents onstage."
+      }
+    ]
+  }
+}

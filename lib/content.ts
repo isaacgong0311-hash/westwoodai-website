@@ -11,6 +11,7 @@ import officersData from "@/data/officers.json";
 import projectsData from "@/data/projects.json";
 import promptData from "@/data/prompt.json";
 import specialEventsData from "@/data/special-events.json";
+import photosData from "@/data/photos.json";
 import type {
   Competition,
   FaqItem,
@@ -20,6 +21,7 @@ import type {
   NewsItem,
   OfficerTeam,
   OutreachEvent,
+  PhotosData,
   Project,
   PromptChallenge,
   Talk,
@@ -36,6 +38,7 @@ export const learningPath = lessonsData.path as PathStep[];
 export const talks = specialEventsData.talks as Talk[];
 export const outreach = specialEventsData.outreach as OutreachEvent[];
 export const faq = faqData as FaqItem[];
+export const photos = photosData as PhotosData;
 export const sponsor = officersData.sponsor;
 export const pastTeams = officersData.pastTeams as OfficerTeam[];
 
@@ -76,4 +79,13 @@ export function siteLinks(): SiteLink[] {
 
 export function memberName(id: string): string {
   return members.find((m) => m.id === id)?.name ?? id;
+}
+
+/** "Name, Role at Org", dropping "at Org" for speakers without one. */
+export function speakerLine(t: Talk): string {
+  return t.org ? `${t.speaker}, ${t.role} at ${t.org}` : `${t.speaker}, ${t.role}`;
+}
+
+export function talkPhotos(t: Talk) {
+  return t.photos ? photos.events[t.photos] ?? [] : [];
 }

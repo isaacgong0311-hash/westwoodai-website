@@ -10,7 +10,8 @@ import { getUpcomingEvents } from "@/lib/calendar";
 import configData from "@/data/config.json";
 import type { SiteConfig } from "@/lib/types";
 import JsonLd from "@/components/ui/JsonLd";
-import { clubHistory, lessonYears, members } from "@/lib/content";
+import PhotoGrid from "@/components/ui/PhotoGrid";
+import { clubHistory, lessonYears, members, photos } from "@/lib/content";
 import { SITE_URL, LINKS } from "@/lib/site";
 
 const config = configData as SiteConfig;
@@ -78,6 +79,11 @@ export default async function HomePage() {
       <div className="border-y border-rule bg-white">
         <StartHere />
       </div>
+
+      <section aria-labelledby="photos-title" className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
+        <SectionHeader id="photos-title" title="Around the club" count="meetings, talks, and events" />
+        <PhotoGrid photos={photos.club.slice(0, 6)} className="lg:grid-cols-3" sizes="(min-width: 1024px) 360px, 50vw" />
+      </section>
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <GuestSpeakers />
