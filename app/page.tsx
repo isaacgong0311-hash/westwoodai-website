@@ -1,14 +1,16 @@
+import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import MeetingInfo from "@/components/home/MeetingInfo";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Panel from "@/components/ui/Panel";
+import PhotoGrid from "@/components/content/PhotoGrid";
 import configData from "@/data/config.json";
-import membersData from "@/data/members.json";
-import type { SiteConfig, Member } from "@/lib/types";
+import { photos, slides } from "@/lib/content";
+import type { SiteConfig } from "@/lib/types";
 
 const config = configData as SiteConfig;
-const members = membersData as Member[];
 
 // The homepage is statically prerendered, but NextMeetingCard's "in N days"
 // badge is computed from `new Date()` at render time — without revalidation
@@ -16,24 +18,23 @@ const members = membersData as Member[];
 // hourly regen is more than enough freshness for a day-granularity countdown.
 export const revalidate = 3600;
 
-// Club history — pulled from Google Sites officer page
-const HISTORY = [
-  { year: "2026–27", president: "Reett Aulakh & Aanya Pathak" },
-  { year: "2025–26", president: "Victor Lehr" },
-  { year: "2024–25", president: "Indivara Kolluru" },
-  { year: "2023–24", president: "Raghav Aggarwal" },
-  { year: "2022–23", president: "Evan Lai" },
-  { year: "2021–22", president: "Shoumik Roychowdhury" },
-  { year: "2020–21", president: "Aarya Agarwal" },
-  { year: "2019–20", president: "Aarya Agarwal" },
+const ACTIVITIES = [
+  "Lessons on AI and machine learning topics",
+  "Interactive demos you can follow along with",
+  "Discussions about new AI tools and how they're used",
+  "Student-led projects",
+  "Competitions, inside the club and out",
+  "Talks from guest speakers who work in AI",
 ];
 
 export default function HomePage() {
+  const latest = slides.current.meetings[slides.current.meetings.length - 1];
+
   return (
     <div>
       <Hero founded={config.founded} />
 
-      <section className="px-4 sm:px-6 pb-14">
+      <section aria-label="Meeting schedule" className="px-4 sm:px-6 pb-14">
         <div className="max-w-5xl mx-auto">
           <MeetingInfo />
         </div>
@@ -41,58 +42,55 @@ export default function HomePage() {
 
       <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-6">
             <NextMeetingCard config={config.nextMeeting} />
+            {latest && (
+              <Panel className="p-5">
+                <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-3">Missed a meeting?</h2>
+                <p className="text-base text-ink leading-snug mb-3">
+                  Meeting {latest.number}: {latest.title}
+                </p>
+                <Link href="/meetings" className="text-sm underline underline-offset-4 decoration-ink-muted hover:decoration-ink">
+                  Catch up with this year&rsquo;s meeting slides
+                </Link>
+              </Panel>
+            )}
           </div>
 
           <div className="lg:col-span-2">
-            <SectionHeader title="Officers, 2026–27" count={`${members.length} people`} />
+            <SectionHeader title="What we do" />
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-              {members.map((m, i) => (
-                <li
-                  key={m.id}
-                  className={`flex items-center justify-between py-3 border-b border-rule last:border-b-0 ${
-                    i < members.length - 2 ? "sm:border-b" : "sm:border-b-0"
-                  }`}
-                >
-                  <span className="text-sm text-ink">{m.name}</span>
-                  <span className="text-xs text-ink-muted">{m.role}</span>
+              {ACTIVITIES.map((a) => (
+                <li key={a} className="py-3 border-b border-rule text-base text-ink">
+                  {a}
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-base text-ink">
+              New here?{" "}
+              <Link href="/join" className="underline underline-offset-4 decoration-ink-muted hover:decoration-ink">
+                Here&rsquo;s how to join
+              </Link>
+              , or read the{" "}
+              <Link href="/faq" className="underline underline-offset-4 decoration-ink-muted hover:decoration-ink">
+                frequently asked questions
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="photos-heading" className="px-4 sm:px-6 pb-16">
+        <div className="max-w-5xl mx-auto">
+          <SectionHeader title="Around the club" id="photos-heading" />
+          <div className="mt-4">
+            <PhotoGrid photos={photos.club.slice(0, 6)} />
           </div>
         </div>
       </section>
 
       <GuestSpeakers />
-
-      <section className="px-4 sm:px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
-          <SectionHeader title="Club history" count={`${HISTORY.length} years running`} />
-          <ul>
-            {HISTORY.map((h, i) => (
-              <li
-                key={h.year}
-                className="flex items-center justify-between py-3 border-b border-rule last:border-b-0"
-              >
-                <span className={`text-sm ${i === 0 ? "text-accent" : "text-ink-muted"}`}>
-                  {h.year}
-                </span>
-                <div className="flex items-center gap-2">
-                  {i === 0 && (
-                    <span className="text-xs text-accent border border-accent px-1.5 py-0.5">
-                      current<span className="sr-only"> year</span>
-                    </span>
-                  )}
-                  <span className={`text-sm ${i === 0 ? "text-ink" : "text-ink-muted"}`}>
-                    {h.president}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
     </div>
   );
 }

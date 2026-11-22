@@ -1,0 +1,45 @@
+[
+  {
+    "q": "Is there an official registry I have to fill out to become a member?",
+    "a": "No. As long as you fill out the interest form, you'll be added to the mailing list and considered a member of the club.",
+    "link": {
+      "label": "Fill out the interest form",
+      "href": "https://forms.gle/m1a5LrzEBHhacpbg6",
+      "external": true
+    }
+  },
+  {
+    "q": "Do I need previous experience in computer science or AI to join?",
+    "a": "Not at all. The club is for people of every experience level. We teach the programming and machine learning fundamentals you need during our demos and projects."
+  },
+  {
+    "q": "Do I need to install anything?",
+    "a": "No. Most demos and projects run in Google Colab, which works like Google Docs: you create a notebook from your own Drive and start coding for free. Everything runs on Google's servers."
+  },
+  {
+    "q": "Why do we use Python?",
+    "a": "Python is easy to learn (it's taught in the principles computer science classes at Westwood), and almost every library we use is written for it. It's the most common language for AI and machine learning, used by university researchers and developers at Google alike."
+  },
+  {
+    "q": "Do I need to be good at Python already?",
+    "a": "No. We teach all the Python you need for machine learning. If you want to review or get a head start, Codecademy's free Python course is a good place to begin.",
+    "link": {
+      "label": "Codecademy's free Python 3 course",
+      "href": "https://www.codecademy.com/learn/learn-python-3",
+      "external": true
+    }
+  },
+  {
+    "q": "What is the student project?",
+    "a": "Each year there's an optional (but highly recommended) student-led project on any AI topic you like. You can research an AI tool or concept, or build your own model, and present it at a meeting."
+  },
+  {
+    "q": "Where can we have discussions?",
+    "a": "On our Discord server, and in the discussion thread in the club's Schoology group, where you can post questions, comments, and interesting tools or resources.",
+    "link": {
+      "label": "Join our Discord server",
+      "href": "https://tinyurl.com/aicord",
+      "external": true
+    }
+  }
+]

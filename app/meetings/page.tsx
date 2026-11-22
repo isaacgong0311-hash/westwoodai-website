@@ -1,96 +1,61 @@
-import meetingsData from "@/data/meetings.json";
-import type { Meeting } from "@/lib/types";
-import EmptyState from "@/components/ui/EmptyState";
+import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
-import Panel from "@/components/ui/Panel";
-import { formatDate } from "@/lib/utils";
-
-const meetings = meetingsData as Meeting[];
+import SectionHeader from "@/components/ui/SectionHeader";
+import SlideList from "@/components/content/SlideList";
+import ExternalLink from "@/components/ui/ExternalLink";
+import GoogleEmbed from "@/components/content/GoogleEmbed";
+import { LINKS } from "@/lib/site";
+import { embedUrl, slides } from "@/lib/content";
 
 export const metadata = {
-  title: "Meetings — Westwood AI Club",
-};
-
-const typeLabels: Record<string, string> = {
-  lesson: "Lesson",
-  speaker: "Guest Speaker",
-  workshop: "Workshop",
-  competition: "Comp Prep",
-  social: "Social",
+  title: "Meeting Slides — Westwood AI Club",
+  description: "Slides from every Westwood AI Club meeting this school year.",
 };
 
 export default function MeetingsPage() {
-  const upcoming = meetings.find((m) => m.isUpcoming);
-  const past = meetings.filter((m) => !m.isUpcoming);
+  const { year, meetings } = slides.current;
+  const latest = meetings[meetings.length - 1];
 
   return (
     <div className="px-4 sm:px-6 py-12">
       <div className="max-w-3xl mx-auto">
         <PageHeader
-          eyebrow="Every other week · 4:30 PM · Room E1307"
-          title="Meetings"
-          description="Meetings alternate Mondays and Wednesdays in Mr. Kluge's room."
+          eyebrow={`${year} school year`}
+          title="Meeting slides"
+          description="Missed a meeting? Every slideshow from this year goes up here (and in the Discord server) after the meeting, so you can catch up."
         />
 
-        {upcoming && (
-          <div className="mb-10">
-            <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-3">Next up</h2>
-            <Panel raised className="p-5">
-              <p className="text-xs uppercase tracking-wider text-accent mb-2">
-                {typeLabels[upcoming.type]}
-              </p>
-              <h3 className="text-lg text-ink mb-1">{upcoming.topic}</h3>
-              <p className="text-sm text-ink-muted">{upcoming.presenter}</p>
-              <p className="text-sm text-ink-muted mt-1">
-                {upcoming.date ? <time dateTime={upcoming.date}>{formatDate(upcoming.date)}</time> : "Date TBD"}
-              </p>
-              {upcoming.notes && (
-                <p className="text-sm leading-relaxed text-ink mt-3">{upcoming.notes}</p>
-              )}
-            </Panel>
-          </div>
+        {latest && (
+          <section aria-labelledby="latest-heading" className="mb-14">
+            <SectionHeader title="Latest meeting" id="latest-heading" />
+            <h3 className="text-base text-ink mt-4 mb-4">
+              Meeting {latest.number}: {latest.title}
+            </h3>
+            <GoogleEmbed
+              src={embedUrl(latest.url)}
+              href={latest.url}
+              title={`Meeting ${latest.number} slides: ${latest.title}`}
+              linkLabel={`Open the Meeting ${latest.number} slides in Google Slides`}
+            />
+          </section>
         )}
 
-        <div>
-          <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-3">Archive</h2>
-          {past.length === 0 ? (
-            <EmptyState
-              title="Nothing logged yet"
-              description="Once the year starts, every meeting will be listed here with the topic, presenter, and slides."
-            />
-          ) : (
-            <ul className="divide-y divide-rule">
-              {past.map((m) => (
-                <li key={m.id} className="py-4 flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs uppercase tracking-wider text-accent mb-1">
-                      {typeLabels[m.type]}
-                    </p>
-                    <p className="text-sm text-ink">{m.topic}</p>
-                    <p className="text-sm text-ink-muted mt-0.5">{m.presenter}</p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <p className="text-sm text-ink-muted">
-                      {m.date ? <time dateTime={m.date}>{formatDate(m.date)}</time> : "TBD"}
-                    </p>
-                    {m.slidesUrl && (
-                      <a
-                        href={m.slidesUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-ink-muted hover:text-ink underline underline-offset-4 inline-block py-1"
-                      >
-                        Slides<span className="sr-only"> for {m.topic}</span>
-                        <span aria-hidden="true"> ↗</span>
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <section aria-labelledby="year-heading" className="mb-10">
+          <SectionHeader title={`All ${year} meetings`} id="year-heading" count={`${meetings.length} so far`} />
+          <SlideList decks={[...meetings].reverse()} year={year} />
+        </section>
+
+        <p className="text-base text-ink leading-relaxed">
+          Looking for an older lesson?{" "}
+          <Link href="/meetings/archive" className="underline underline-offset-4 decoration-ink-muted hover:decoration-ink">
+            Browse slides and code from every year since 2019
+          </Link>
+          . You can also find demo code on{" "}
+          <ExternalLink href={LINKS.github} className="underline underline-offset-4 decoration-ink-muted hover:decoration-ink">
+            the club&rsquo;s GitHub
+          </ExternalLink>
+          .
+        </p>
       </div>
     </div>
   );

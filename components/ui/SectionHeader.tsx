@@ -1,6 +1,8 @@
 interface SectionHeaderProps {
   title: string;
   count?: string;
+  /** Heading id, for a section's aria-labelledby. */
+  id?: string;
 }
 
 /**
@@ -9,10 +11,10 @@ interface SectionHeaderProps {
  * the old "Pages" grid) — and promotes the title to a real <h2>, since the
  * old version rendered it as a styled <p> with no heading at all.
  */
-export default function SectionHeader({ title, count }: SectionHeaderProps) {
+export default function SectionHeader({ title, count, id }: SectionHeaderProps) {
   return (
     <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-2">
-      <h2 className="font-serif text-2xl font-normal text-ink">{title}</h2>
+      <h2 id={id} className="font-serif text-2xl font-normal text-ink">{title}</h2>
       {count && <span className="text-sm text-ink-muted">{count}</span>}
     </div>
   );

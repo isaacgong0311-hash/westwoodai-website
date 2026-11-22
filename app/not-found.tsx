@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
+import { LINKS } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -13,7 +14,7 @@ export default function NotFound() {
         />
         <div className="flex flex-wrap justify-center gap-6">
           <Button href="/" variant="primary">Back home</Button>
-          <Button href="https://discord.gg/7QctqCABR" external variant="secondary">
+          <Button href={LINKS.discord} external variant="secondary">
             Join our Discord
           </Button>
         </div>

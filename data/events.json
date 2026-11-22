@@ -1,0 +1,120 @@
+[
+  {
+    "id": "mishkin-2026",
+    "date": "2026-03-09",
+    "kind": "speaker",
+    "title": "AI: Power, Responsibility & the Future",
+    "speaker": "Bryan Mishkin",
+    "affiliation": "CTO, MIT Sloan Management",
+    "slides": [
+      { "label": "Bryan Mishkin's presentation", "url": "https://drive.google.com/file/d/1kDRTi5YZ8hWH-gwt-9BBWj5xRjOCJ6nF/view" }
+    ],
+    "photos": "mishkin"
+  },
+  {
+    "id": "teffer-2026",
+    "date": "2026-02-25",
+    "kind": "speaker",
+    "title": "AI in Cybersecurity: From Rules to Reasoning Agents",
+    "speaker": "Dr. Dean Teffer",
+    "affiliation": "VP of AI, Arctic Wolf",
+    "slides": [
+      { "label": "Dr. Dean Teffer's slides", "url": "https://docs.google.com/presentation/d/12gGgMhy6syjYoS3k0XVAvkidyTcnW0K3h1z6F3gXOC4/edit" }
+    ],
+    "photos": "teffer"
+  },
+  {
+    "id": "moore-2025",
+    "date": "2025-12-03",
+    "kind": "speaker",
+    "title": "Life, Supply Chain, and AI",
+    "speaker": "Keith Moore",
+    "affiliation": "CEO, AutoScheduler.AI",
+    "slides": [
+      { "label": "Keith Moore's slides", "url": "https://docs.google.com/presentation/d/1Wtes9XRymPCC_HHZXS_7hUn8DrMCIj4oJC91AVii840/edit" }
+    ],
+    "photos": "moore"
+  },
+  {
+    "id": "dsouza-2025",
+    "date": "2025-09-16",
+    "kind": "speaker",
+    "title": "AI Today: Power, Pitfalls & Possibilities",
+    "speaker": "Myra D'Souza",
+    "affiliation": "Co-founder & CEO, Autyn",
+    "slides": [
+      { "label": "Myra D'Souza's slides", "url": "https://docs.google.com/presentation/d/1nF5J1MgaMgeXY0r58FSad737yYEiGSZtHiNFW_g8PUw/edit" }
+    ],
+    "photos": "dsouza"
+  },
+  {
+    "id": "paul-2025",
+    "date": "2025-03-27",
+    "kind": "speaker",
+    "title": "Real-Time AI at IBM and Kyndryl",
+    "speaker": "Dr. C. J. Paul",
+    "affiliation": "Global CTO Office, Kyndryl / IBM",
+    "slides": [
+      { "label": "Dr. C. J. Paul's slides", "url": "https://docs.google.com/presentation/d/1A_VmBuUHdF6bDGOXB0rEBEDhIRyIZNRNDSyd1GQIAvk/edit" }
+    ],
+    "photos": "paul"
+  },
+  {
+    "id": "moondra-2025",
+    "date": "2025-02-20",
+    "kind": "speaker",
+    "title": "Machine Learning in Baseball Analytics",
+    "speaker": "Anshul Moondra",
+    "affiliation": "ML Engineer",
+    "slides": [
+      { "label": "Anshul Moondra's slides", "url": "https://docs.google.com/presentation/d/1-bKFH31YaZGVN_xIclyZLqxYIDDXgYCaFo_1ZFVDpZs/edit" }
+    ],
+    "photos": "moondra"
+  },
+  {
+    "id": "spicewood-steam-2024",
+    "date": "2024-03-08",
+    "kind": "outreach",
+    "title": "Spicewood STEAM Day",
+    "description": "Club members presented an introduction to AI to elementary school students. The same presentation was also given at Patsy Sommer Elementary.",
+    "slides": [
+      { "label": "The club's Spicewood STEAM Day presentation", "url": "https://docs.google.com/presentation/d/1Me17woPoQSfEqBajkKQaWg3OG-ZXjsLPBmHBxNQW_6c/edit" }
+    ]
+  },
+  {
+    "id": "griffin-2023",
+    "date": "2023-02-10",
+    "kind": "speaker",
+    "title": "The Future of AI",
+    "speaker": "Sarah Griffin",
+    "affiliation": "Software Engineer, Dell",
+    "slides": [
+      { "label": "Sarah Griffin's slides", "url": "https://docs.google.com/presentation/d/18zWC5a0hU_ew4fS3hFlmVmXUXycxmF6P-BmRPJZ1ayU/edit" }
+    ]
+  },
+  {
+    "id": "patsy-sommer-code-jam-2020",
+    "date": "2020-03-07",
+    "kind": "outreach",
+    "title": "Patsy Sommer Elementary Code Jam",
+    "description": "The club hosted a booth at Patsy Sommer Elementary's Code Jam."
+  },
+  {
+    "id": "spicewood-steam-2020",
+    "date": "2020-03-06",
+    "kind": "outreach",
+    "title": "Spicewood STEAM Day (middle school)",
+    "description": "Club members gave two introductory AI presentations to middle school students.",
+    "slides": [
+      { "label": "Middle school introduction presentation", "url": "https://drive.google.com/file/d/1g8v5IZfr8H3mf-TWhOKYwTECxGGvT4g2/view" },
+      { "label": "Second middle school presentation", "url": "https://docs.google.com/presentation/d/18ttb11Zkn3bhtKzKWupsGgFWyohjQKS8t9_bS95CL1g/edit" }
+    ]
+  },
+  {
+    "id": "herstory-makers-2019",
+    "date": "2019-12-14",
+    "kind": "outreach",
+    "title": "HERStory Makers",
+    "description": "The club hosted a booth at HERStory Makers."
+  }
+]

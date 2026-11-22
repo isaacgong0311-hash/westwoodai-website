@@ -25,17 +25,6 @@ export interface Project {
   date: string;
 }
 
-export interface Meeting {
-  id: string;
-  date: string | null;
-  topic: string;
-  presenter: string;
-  type: "lesson" | "speaker" | "workshop" | "competition" | "social";
-  slidesUrl?: string;
-  notes?: string;
-  isUpcoming?: boolean;
-}
-
 export interface Competition {
   id: string;
   name: string;
@@ -94,4 +83,76 @@ export interface SiteConfig {
     note: string | null;
   };
   founded: number;
+}
+
+export interface Officer {
+  role: string;
+  name: string;
+}
+
+export interface OfficerYear {
+  year: string;
+  officers: Officer[];
+}
+
+export interface OfficersData {
+  sponsor: string;
+  current: OfficerYear;
+  past: OfficerYear[];
+}
+
+export interface SlideDeck {
+  /** Meeting number within the school year; omitted for years that didn't number meetings. */
+  number?: number;
+  title: string;
+  url: string;
+  /** ISO date (YYYY-MM-DD), only when it's actually known. */
+  date?: string;
+}
+
+export interface CodeLink {
+  title: string;
+  url: string;
+}
+
+export interface SlideYear {
+  year: string;
+  meetings: SlideDeck[];
+  code?: CodeLink[];
+}
+
+export interface SlidesData {
+  current: SlideYear;
+  archive: SlideYear[];
+}
+
+export interface Photo {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export interface PhotosData {
+  club: Photo[];
+  events: Record<string, Photo[]>;
+}
+
+export interface ClubEvent {
+  id: string;
+  date: string;
+  kind: "speaker" | "outreach";
+  title: string;
+  speaker?: string;
+  affiliation?: string;
+  description?: string;
+  slides?: { label: string; url: string }[];
+  /** Key into photos.json `events`. */
+  photos?: string;
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+  link?: { label: string; href: string; external?: boolean };
 }

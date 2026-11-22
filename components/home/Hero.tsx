@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { LINKS } from "@/lib/site";
 
 interface HeroProps {
   founded: number;
@@ -33,17 +34,21 @@ export default function Hero({ founded }: HeroProps) {
             Room E1307 &middot; Est. {founded}
           </p>
           <div className="max-w-xl">
+            <p className="text-base leading-relaxed text-ink mb-4">
+              The official site of Westwood High School&rsquo;s student-run AI
+              club. We teach artificial intelligence and machine learning from
+              the ground up, enter AI and data science competitions, and host
+              guest speakers who work in the field.
+            </p>
             <p className="text-base leading-relaxed text-ink mb-7">
-              A student-run club for anyone curious about how AI actually
-              works &mdash; no experience required. We meet every other week
-              to build things, hear from people who work in the field, and
-              enter the occasional competition.
+              No coding experience required and no membership fees. Anyone
+              can join at any point in the year.
             </p>
             <div className="flex flex-wrap items-center gap-6">
-              <Button href="https://forms.gle/m1a5LrzEBHhacpbg6" external variant="primary">
+              <Button href={LINKS.interestForm} external variant="primary">
                 Fill out the club interest form
               </Button>
-              <Button href="https://discord.gg/7QctqCABR" external variant="secondary">
+              <Button href={LINKS.discord} external variant="secondary">
                 Join our Discord
               </Button>
             </div>

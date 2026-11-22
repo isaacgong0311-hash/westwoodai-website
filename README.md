@@ -1,6 +1,7 @@
 # Westwood AI Club Website
 
-Built with Next.js 16, TypeScript, Tailwind CSS, and Framer Motion.  
+Built with Next.js 16, TypeScript, and Tailwind CSS. It replaces the old Google Site
+(sites.google.com/view/westwoodaiclub); everything from that site now lives here.  
 Deployed on Vercel. All content is in `/data/*.json` — no database needed.
 
 ---
@@ -43,24 +44,51 @@ This is the most common update you'll make.
 
 ---
 
-### Meetings archive — `data/meetings.json`
+### Meeting slides — `data/slides.json`
+
+After each meeting, add the deck to the **end** of `current.meetings`. Make sure the
+deck is shared as "Anyone with the link can view" first.
 
 ```json
 {
-  "id": "meet-19",
-  "date": "2026-09-08",        ← null for TBD
-  "topic": "Intro to Neural Networks",
-  "presenter": "Shruti Sivaraman",
-  "type": "lesson",            ← lesson | speaker | workshop | competition | social
-  "slidesUrl": "https://...",  ← null if no slides
-  "notes": "Brief recap.",
-  "isUpcoming": true           ← true = shown as "Next Up". Only one should be true.
+  "number": 6,
+  "title": "Reinforcement learning",
+  "url": "https://docs.google.com/presentation/d/DECK_ID/edit",
+  "date": "2026-12-07"
 }
 ```
 
-**To add a new meeting:**
-1. Find the current upcoming entry, change `"isUpcoming": false`
-2. Add a new object at the top of the array with `"isUpcoming": true`
+- `date` is optional; leave it out rather than guess.
+- The last entry is shown as "Latest meeting" with an embedded viewer, and on the homepage.
+- **New school year:** move the whole `current` object to the top of `archive`, then
+  start a fresh `current` with the new `year` and an empty `meetings` list.
+- Colab notebooks and datasets for a year go in that year's `code` list.
+
+---
+
+### Speakers & events — `data/events.json`
+
+Newest first. `kind` is `"speaker"` (shown on the homepage and under Guest speakers)
+or `"outreach"`. `photos` is a key into `data/photos.json` → `events`.
+
+### Photos — `public/photos/` + `data/photos.json`
+
+Add the image to `public/photos/`, then add an entry with its `width`, `height`, and
+**alt text describing what's in the photo** (required for accessibility). Strip location
+data from phone photos before committing.
+
+### Officers — `data/officers.json`
+
+At officer elections, move `current` to the top of `past` and fill in the new team.
+
+### FAQ — `data/faq.json`
+
+Each item is a question `q`, answer `a`, and an optional `link`.
+
+### Links (interest form, Discord, etc.) — `lib/site.ts`
+
+Every outside link is defined once in `LINKS`. The Discord link is the
+`tinyurl.com/aicord` short link so officers can change the invite without editing code.
 
 ---
 
@@ -171,8 +199,9 @@ Vercel dashboard → your project → Settings → Domains.
 
 | | |
 |---|---|
+| Interest form | https://forms.gle/m1a5LrzEBHhacpbg6 |
 | Instagram | https://www.instagram.com/warriorai/ |
-| Discord | https://discord.gg/7QctqCABR |
+| Discord | https://tinyurl.com/aicord |
 | GitHub | https://github.com/westwoodai |
 | Email | wwhs.aiexploration@gmail.com |
 | Linktree | https://linktr.ee/westwoodhsaiclub |
@@ -186,7 +215,6 @@ Vercel dashboard → your project → Settings → Domains.
 | Next.js 16 (App Router) | Framework |
 | TypeScript | Type safety |
 | Tailwind CSS v4 | Styling |
-| Framer Motion | Animations |
 | Vercel | Hosting |
 
 **Upgrading to a real database later:** all TypeScript interfaces are in `/lib/types.ts`. When you switch to Supabase, replace the JSON imports in each `app/*/page.tsx` with async fetch calls — the component code stays the same.

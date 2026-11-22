@@ -2,6 +2,7 @@ import projectsData from "@/data/projects.json";
 import type { Project } from "@/lib/types";
 import EmptyState from "@/components/ui/EmptyState";
 import PageHeader from "@/components/ui/PageHeader";
+import { LINKS } from "@/lib/site";
 
 const projects = projectsData as Project[];
 
@@ -25,7 +26,7 @@ export default function ProjectsPage() {
             description="Projects go up here as members share them. If you're working on something, post it in #show-and-tell and an officer will add it."
             cta={{
               label: "Open Discord",
-              href: "https://discord.gg/7QctqCABR",
+              href: LINKS.discord,
               external: true,
             }}
           />

@@ -4,12 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
-import ExternalLink from "@/components/ui/ExternalLink";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/#speakers", label: "Speakers" },
-  { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/meetings", label: "Meeting Slides" },
+  { href: "/events", label: "Events" },
+  { href: "/officers", label: "Officers" },
+  { href: "/faq", label: "FAQ" },
+];
+
+// Shown only in the mobile menu; the desktop header keeps to the main four
+// and the footer lists everything.
+const moreLinks = [
+  { href: "/attendance", label: "Attendance" },
+  { href: "/resources", label: "Resources" },
 ];
 
 export default function Nav() {
@@ -18,9 +25,7 @@ export default function Nav() {
   const menuButton = useRef<HTMLButtonElement>(null);
 
   function isActive(href: string) {
-    if (href === "/") return pathname === "/";
-    if (href === "/leaderboard") return pathname.startsWith("/leaderboard");
-    return false;
+    return pathname === href || pathname.startsWith(`${href}/`);
   }
 
   return (
@@ -66,12 +71,13 @@ export default function Nav() {
           })}
         </nav>
 
-        <ExternalLink
-          href="https://discord.gg/7QctqCABR"
-          className="hidden md:inline-flex items-center min-h-11 text-sm text-ink-muted hover:text-ink underline underline-offset-4 decoration-rule hover:decoration-ink"
+        <Link
+          href="/join"
+          aria-current={isActive("/join") ? "page" : undefined}
+          className="hidden md:inline-flex items-center min-h-11 px-4 text-sm bg-ink text-paper hover:bg-accent transition-colors"
         >
-          Join our Discord
-        </ExternalLink>
+          Join the club
+        </Link>
 
         <button
           ref={menuButton}
@@ -99,7 +105,7 @@ export default function Nav() {
       {open && (
         <div id="mobile-nav" className="md:hidden border-t border-rule">
           <nav aria-label="Mobile" className="px-4 py-3 flex flex-col gap-1">
-            {links.map(({ href, label }) => (
+            {[{ href: "/", label: "Home" }, ...links, ...moreLinks, { href: "/join", label: "Join the club" }].map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
@@ -112,12 +118,6 @@ export default function Nav() {
                 {label}
               </Link>
             ))}
-            <ExternalLink
-              href="https://discord.gg/7QctqCABR"
-              className="text-base px-3 py-3 min-h-11 text-ink-muted"
-            >
-              Join our Discord
-            </ExternalLink>
           </nav>
         </div>
       )}

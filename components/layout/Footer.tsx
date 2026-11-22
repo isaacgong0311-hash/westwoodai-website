@@ -1,17 +1,26 @@
 import Link from "next/link";
 import ExternalLink from "@/components/ui/ExternalLink";
+import { LINKS } from "@/lib/site";
 
 const socials = [
-  { label: "Westwood AI Club on Instagram", href: "https://www.instagram.com/warriorai/" },
-  { label: "Join our Discord server", href: "https://discord.gg/7QctqCABR" },
-  { label: "All club links on Linktree", href: "https://linktr.ee/westwoodhsaiclub" },
-  { label: "Email wwhs.aiexploration@gmail.com", href: "mailto:wwhs.aiexploration@gmail.com", external: false },
+  { label: "Fill out the interest form", href: LINKS.interestForm },
+  { label: "Join our Discord server", href: LINKS.discord },
+  { label: "Westwood AI Club on Instagram", href: LINKS.instagram },
+  { label: "Club code on GitHub", href: LINKS.github },
+  { label: "All club links on Linktree", href: LINKS.linktree },
+  { label: `Email ${LINKS.email}`, href: `mailto:${LINKS.email}`, external: false },
 ];
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/#speakers", label: "Speakers" },
-  { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/join", label: "Join the club" },
+  { href: "/meetings", label: "Meeting slides" },
+  { href: "/meetings/archive", label: "Slides & code archive" },
+  { href: "/events", label: "Speakers & events" },
+  { href: "/officers", label: "Officers & sponsor" },
+  { href: "/attendance", label: "Member attendance" },
+  { href: "/resources", label: "Resources" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Footer() {
@@ -30,7 +39,7 @@ export default function Footer() {
 
           <div>
             <h2 className="text-xs uppercase tracking-wider text-ink-muted mb-4">Pages</h2>
-            <nav aria-label="Footer" className="flex flex-col">
+            <nav aria-label="Footer" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-x-6">
               {navLinks.map(({ href, label }) => (
                 <Link key={href} href={href} className="text-sm text-ink-muted hover:text-ink underline underline-offset-4 decoration-rule hover:decoration-ink py-2">
                   {label}
@@ -61,7 +70,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-rule">
           <p className="text-xs text-ink-muted">
-            &copy; 2026 Westwood AI Club &middot; Austin Independent School District
+            {`© ${new Date().getFullYear()} Westwood AI Club · Westwood High School · Round Rock ISD`}
           </p>
         </div>
       </div>
