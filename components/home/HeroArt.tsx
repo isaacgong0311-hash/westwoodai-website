@@ -70,11 +70,16 @@ for (let row = 0; row < GRID; row++) {
   }
 }
 
-export default function HeroArt() {
+/**
+ * `compact` drops the caption (and its link) and hides the picture from screen
+ * readers, for when the whole thing sits inside another link that already
+ * describes it.
+ */
+export default function HeroArt({ compact = false }: { compact?: boolean }) {
   return (
     <figure className="w-full">
       <div className="overflow-hidden rounded-lg border border-rule bg-white">
-        <svg viewBox={`0 0 ${GRID} ${GRID}`} className="block aspect-square w-full" role="img" aria-label="Two interlocking half-moon shaped groups of points, blue circles and rust squares, with a curved shaded boundary between them drawn by a trained neural network.">
+        <svg viewBox={`0 0 ${GRID} ${GRID}`} className="block aspect-square w-full" {...(compact ? { "aria-hidden": true } : { role: "img" })} aria-label={compact ? undefined : "Two interlocking half-moon shaped groups of points, blue circles and rust squares, with a curved shaded boundary between them drawn by a trained neural network."}>
           <defs>
             <filter id="hero-soften" filterUnits="userSpaceOnUse" x={-BLEED} y={-BLEED} width={GRID + 2 * BLEED} height={GRID + 2 * BLEED}>
               <feGaussianBlur stdDeviation="0.9" />
@@ -97,6 +102,7 @@ export default function HeroArt() {
           })}
         </svg>
       </div>
+      {!compact && (
       <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-mono text-xs text-ink-muted">
         <span>
           A 6-neuron network, trained when this page was built. {Math.round(accuracy * 100)}% correct.
@@ -105,6 +111,7 @@ export default function HeroArt() {
           Train your own
         </Link>
       </figcaption>
+      )}
     </figure>
   );
 }

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
+import Image from "next/image";
 import SectionHeader from "@/components/ui/SectionHeader";
+import OfficerCards from "@/components/home/OfficerCards";
 import configData from "@/data/config.json";
-import { lessonYears, members, pastTeams, sponsor, talks } from "@/lib/content";
+import { lessonYears, members, pastTeams, photos, sponsor, talks } from "@/lib/content";
 import type { SiteConfig } from "@/lib/types";
 import { LINKS } from "@/lib/site";
 import NewTabNote from "@/components/ui/NewTabNote";
 
 const config = configData as SiteConfig;
+const meetingPhoto = photos.club.find((p) => p.alt.includes("gather around tables")) ?? photos.club[0];
 
 export const metadata: Metadata = {
   title: "About",
@@ -40,11 +43,19 @@ export default function AboutPage() {
         <div>
           <SectionHeader id="meetings" title="Meetings" />
           <p className="text-sm leading-relaxed text-ink-muted">
-            Every week after school at {config.nextMeeting.time}, alternating between Mondays and Wednesdays, in{" "}
+            After school from {config.nextMeeting.time} to 5:30 PM, alternating between Mondays and Wednesdays, in{" "}
             {config.nextMeeting.teacher}&apos;s room ({config.nextMeeting.room}). Dates are on the calendar and go out to the mailing list.
             You can join at any point in the year.
           </p>
           <p className="mt-4 text-sm text-ink-muted">Sponsor: <span className="text-ink">{sponsor}</span></p>
+          <Image
+            src={meetingPhoto.src}
+            alt={meetingPhoto.alt}
+            width={meetingPhoto.width}
+            height={meetingPhoto.height}
+            sizes="(min-width: 768px) 400px, 100vw"
+            className="mt-6 aspect-[4/3] w-full rounded-lg border border-rule object-cover"
+          />
         </div>
         <div>
           <h2 className="mb-6 text-2xl font-semibold tracking-tight text-ink">Stay in the loop</h2>
@@ -64,14 +75,7 @@ export default function AboutPage() {
 
       <section aria-labelledby="officers" className="mb-16">
         <SectionHeader id="officers" title="Officers" count={`${lessonYears[0].year}`} />
-        <dl className="grid gap-x-10 border-t border-rule sm:grid-cols-2">
-          {members.map((m) => (
-            <div key={m.id} className="flex items-baseline justify-between gap-4 border-b border-rule py-3 text-sm">
-              <dt className="text-ink-muted">{m.role}</dt>
-              <dd className="font-medium text-ink">{m.name}</dd>
-            </div>
-          ))}
-        </dl>
+        <OfficerCards officers={members} />
       </section>
 
       <section aria-labelledby="past-officers">

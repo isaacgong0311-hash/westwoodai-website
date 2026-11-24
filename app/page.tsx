@@ -3,6 +3,8 @@ import Hero from "@/components/home/Hero";
 import NextMeetingCard from "@/components/home/NextMeetingCard";
 import GuestSpeakers from "@/components/home/GuestSpeakers";
 import StartHere from "@/components/home/StartHere";
+import MeetingFlow from "@/components/home/MeetingFlow";
+import OfficerCards from "@/components/home/OfficerCards";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AgendaList from "@/components/calendar/AgendaList";
 import FileLink from "@/components/ui/FileLink";
@@ -11,7 +13,7 @@ import configData from "@/data/config.json";
 import type { SiteConfig } from "@/lib/types";
 import JsonLd from "@/components/ui/JsonLd";
 import PhotoGrid from "@/components/ui/PhotoGrid";
-import { clubHistory, lessonYears, members, photos } from "@/lib/content";
+import { lessonYears, members, photos } from "@/lib/content";
 import { SITE_URL, LINKS } from "@/lib/site";
 
 const config = configData as SiteConfig;
@@ -22,7 +24,6 @@ const config = configData as SiteConfig;
 // calendar fetch cache in lib/calendar.ts) so both stay current.
 export const revalidate = 900;
 
-const HISTORY = clubHistory();
 const thisYear = lessonYears[0];
 const latestLessons = [...thisYear.lessons].reverse().slice(0, 4);
 
@@ -50,7 +51,9 @@ export default async function HomePage() {
       />
       <Hero />
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[.8fr_1.2fr]">
+      <MeetingFlow />
+
+      <section className="mx-auto grid max-w-6xl gap-12 border-t border-rule px-4 py-16 sm:px-6 lg:grid-cols-[.8fr_1.2fr]">
         <div>
           <NextMeetingCard event={cardEvent} defaults={config.nextMeeting} checkinUrl={config.checkinUrl} />
           {rest.length > 0 && (
@@ -82,37 +85,24 @@ export default async function HomePage() {
 
       <section aria-labelledby="photos-title" className="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
         <SectionHeader id="photos-title" title="Around the club" count="meetings, talks, and events" />
-        <PhotoGrid photos={photos.club.slice(0, 6)} className="lg:grid-cols-3" sizes="(min-width: 1024px) 360px, 50vw" />
+        <PhotoGrid
+          photos={photos.club.filter((p) => !p.alt.includes("pose together")).slice(0, 6)}
+          className="lg:grid-cols-3"
+          sizes="(min-width: 1024px) 360px, 50vw"
+        />
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <GuestSpeakers />
       </div>
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-4 pb-8 sm:px-6 lg:grid-cols-2">
-        <div>
-          <SectionHeader title="Officers" count={`${thisYear.year} team`} />
-          <dl className="border-t border-rule">
-            {members.map((m) => (
-              <div key={m.id} className="flex items-baseline justify-between gap-4 border-b border-rule py-3 text-sm">
-                <dt className="text-ink-muted">{m.role}</dt>
-                <dd className="font-medium text-ink">{m.name}</dd>
-              </div>
-            ))}
-          </dl>
-          <Link href="/about" className="mt-4 inline-block text-sm link">Past officers and how to reach us</Link>
-        </div>
-        <div>
-          <SectionHeader title="Presidents by year" count={`${HISTORY.length} years`} />
-          <dl className="border-t border-rule">
-            {HISTORY.map((h) => (
-              <div key={h.year} className="flex items-baseline justify-between gap-4 border-b border-rule py-3 text-sm">
-                <dt className="font-mono text-xs text-ink-muted">{h.year}</dt>
-                <dd className="text-right text-ink">{h.presidents}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+      <section aria-labelledby="officers-title" className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader id="officers-title" title="Meet the officers" count={`${thisYear.year} team`} />
+        <p className="-mt-3 mb-6 max-w-2xl text-ink-muted">
+          Students run everything: the lessons, the competitions, the guest speakers, and this website. Say hi at a meeting.
+        </p>
+        <OfficerCards officers={members} />
+        <Link href="/about" className="mt-5 inline-block text-sm link">Past officers and how to reach us</Link>
       </section>
     </div>
   );
