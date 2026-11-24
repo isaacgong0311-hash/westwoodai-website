@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { siteLinks, sponsor } from "@/lib/content";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 const contact = [
-  { label: "Interest form", href: "https://forms.gle/m1a5LrzEBHhacpbg6" },
-  { label: "Discord", href: "https://discord.gg/7QctqCABR" },
-  { label: "Instagram", href: "https://www.instagram.com/warriorai/" },
-  { label: "GitHub", href: "https://github.com/westwoodai" },
+  { label: "Interest form", href: LINKS.interestForm },
+  { label: "Discord", href: LINKS.discord },
+  { label: "Instagram", href: LINKS.instagram },
+  { label: "GitHub", href: LINKS.github },
   { label: "wwhs.aiexploration@gmail.com", href: "mailto:wwhs.aiexploration@gmail.com" },
 ];
 
@@ -36,6 +38,7 @@ export default function Footer() {
               <li key={label}>
                 <a href={href} {...(href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })} className="break-all text-ink hover:text-accent">
                   {label}
+                  {href.startsWith("http") && <NewTabNote />}
                 </a>
               </li>
             ))}

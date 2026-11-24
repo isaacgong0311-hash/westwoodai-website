@@ -6,6 +6,7 @@ import configData from "@/data/config.json";
 import { members as fallbackMembers } from "@/lib/content";
 import { getLeaderboard } from "@/lib/leaderboard";
 import type { SiteConfig } from "@/lib/types";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 const config = configData as SiteConfig;
 
@@ -57,6 +58,7 @@ export default async function LeaderboardPage() {
                       className="text-accent hover:text-ink"
                     >
                       check-in form
+                      <NewTabNote />
                     </a>
                     )
                   </>

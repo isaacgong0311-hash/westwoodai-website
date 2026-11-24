@@ -4,6 +4,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import configData from "@/data/config.json";
 import { lessonYears, members, pastTeams, sponsor, talks } from "@/lib/content";
 import type { SiteConfig } from "@/lib/types";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 const config = configData as SiteConfig;
 
@@ -13,10 +15,10 @@ export const metadata: Metadata = {
 };
 
 const CHANNELS = [
-  { label: "Interest form", detail: "Puts you on the mailing list for meeting dates, speakers, and competitions.", href: "https://forms.gle/m1a5LrzEBHhacpbg6" },
-  { label: "Discord", detail: "Meeting reminders, and where members talk between meetings.", href: "https://discord.gg/7QctqCABR" },
-  { label: "Instagram, @warriorai", detail: "Reminders and meeting recaps.", href: "https://www.instagram.com/warriorai/" },
-  { label: "GitHub, westwoodai", detail: "Code from demos and coding activities.", href: "https://github.com/westwoodai" },
+  { label: "Interest form", detail: "Puts you on the mailing list for meeting dates, speakers, and competitions.", href: LINKS.interestForm },
+  { label: "Discord", detail: "Meeting reminders, and where members talk between meetings.", href: LINKS.discord },
+  { label: "Instagram, @warriorai", detail: "Reminders and meeting recaps.", href: LINKS.instagram },
+  { label: "GitHub, westwoodai", detail: "Code from demos and coding activities.", href: LINKS.github },
   { label: "Email", detail: "wwhs.aiexploration@gmail.com, for questions or ideas.", href: "mailto:wwhs.aiexploration@gmail.com" },
 ];
 
@@ -51,6 +53,7 @@ export default function AboutPage() {
               <li key={c.label} className="border-b border-rule py-3">
                 <a href={c.href} {...(c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })} className="text-sm font-medium link">
                   {c.label}
+                  {c.href.startsWith("http") && <NewTabNote />}
                 </a>
                 <p className="text-sm text-ink-muted">{c.detail}</p>
               </li>

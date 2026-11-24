@@ -5,6 +5,7 @@ import { CodeList, LessonRow } from "@/components/lessons/LessonList";
 import SectionHeader from "@/components/ui/SectionHeader";
 import PageHeader from "@/components/ui/PageHeader";
 import { learningPath, lessonYears, resourcesDoc } from "@/lib/content";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const metadata: Metadata = {
   title: "Lessons",
@@ -43,6 +44,7 @@ export default function LessonsPage() {
                 <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                   <a href={step.lesson} target="_blank" rel="noopener noreferrer" className={linkClass}>
                     Slides<span className="sr-only"> for {step.title}</span>
+                    <NewTabNote />
                   </a>
                   {step.lab && (
                     <Link href={step.lab} className={linkClass}>
@@ -52,6 +54,7 @@ export default function LessonsPage() {
                   {step.notebook && (
                     <a href={step.notebook} target="_blank" rel="noopener noreferrer" className={linkClass}>
                       Colab notebook<span className="sr-only"> for {step.title}</span>
+                      <NewTabNote />
                     </a>
                   )}
                 </p>
@@ -77,7 +80,7 @@ export default function LessonsPage() {
         <h2 className="font-semibold text-ink">More reading</h2>
         <p className="mt-1 text-sm leading-relaxed text-ink-muted">
           The officers keep a Google Doc of AI tools, tutorials, and articles, split into technical and non-technical sections.{" "}
-          <a href={resourcesDoc} target="_blank" rel="noopener noreferrer" className={linkClass}>Open the resources doc</a>
+          <a href={resourcesDoc} target="_blank" rel="noopener noreferrer" className={linkClass}>Open the resources doc<NewTabNote /></a>
         </p>
       </aside>
     </div>

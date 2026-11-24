@@ -5,8 +5,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import type { SiteLink } from "@/lib/content";
 import { cn } from "@/lib/cn";
+import { LINKS } from "@/lib/site";
+import NewTabNote from "@/components/ui/NewTabNote";
 
-const JOIN_URL = "https://forms.gle/m1a5LrzEBHhacpbg6";
+const JOIN_URL = LINKS.interestForm;
 
 export default function Nav({ links }: { links: SiteLink[] }) {
   const pathname = usePathname();
@@ -48,6 +50,7 @@ export default function Nav({ links }: { links: SiteLink[] }) {
 
         <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" className="hidden h-9 items-center rounded-md bg-ink px-3.5 text-sm font-medium text-white transition-colors hover:bg-accent lg:inline-flex">
           Join the club
+          <NewTabNote />
         </a>
 
         <details className="group lg:hidden">
@@ -73,6 +76,7 @@ export default function Nav({ links }: { links: SiteLink[] }) {
             ))}
             <a href={JOIN_URL} target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="mt-3 rounded-md bg-ink px-3 py-3 text-center text-sm font-medium text-white">
               Join the club
+              <NewTabNote />
             </a>
           </nav>
         </details>

@@ -1,5 +1,6 @@
 import type { FileFormat } from "@/lib/types";
 import { cn } from "@/lib/cn";
+import NewTabNote from "@/components/ui/NewTabNote";
 
 export const FORMAT_LABEL: Record<FileFormat, string> = {
   slides: "Slides",
@@ -34,6 +35,7 @@ export default function FileLink({ href, format, children, className = "" }: Fil
       </span>
       <span className="sr-only">, </span>
       <span className="shrink-0 font-mono text-[11px] text-ink-muted">{FORMAT_LABEL[format]}</span>
+      <NewTabNote />
     </a>
   );
 }

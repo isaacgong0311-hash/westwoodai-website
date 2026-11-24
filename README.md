@@ -137,7 +137,11 @@ Colab notebooks and datasets go in that year's `"code"` list in the same shape. 
 
 ### Special events — `data/special-events.json`
 
-`"talks"` (newest first) feeds both the Events page and the homepage speaker cards: `id`, `date`, `speaker`, `role`, `org`, `topic` (short, for the homepage), `title` (the talk's full title), and optional `slides: { url, format }`. `"outreach"` lists booths and presentations for younger students: `id`, `date`, `title`, `description`, optional `files: [{ label, url, format }]`.
+`"talks"` (newest first) feeds both the Events page and the homepage speaker cards: `id`, `date`, `speaker`, `role`, `org`, `topic` (short, for the homepage), `title` (the talk's full title), and optional `slides: { url, format }`, and optional `photos` (a key into `data/photos.json`). `org` can be `""` for speakers without one. `"outreach"` lists booths and presentations for younger students: `id`, `date`, `title`, `description`, optional `files: [{ label, url, format }]`.
+
+### Photos — `public/photos/` and `data/photos.json`
+
+Put the image in `public/photos/` (resize to about 1600px wide and strip location data from phone photos first), then add `{ "src", "width", "height", "alt" }` to `data/photos.json`: under `"club"` for the homepage grid, or under `"events"` → a key that a talk's `photos` field points to. **Every photo needs `alt` text describing what's in it**, e.g. "Students watch Keith Moore speak beside a projected slide."
 
 ### About & FAQ — `data/officers.json`, `data/faq.json`
 
@@ -246,10 +250,12 @@ Vercel dashboard → your project → Settings → Domains.
 
 ## Club links
 
+These are defined once in `lib/site.ts` (`LINKS`); change them there.
+
 | | |
 |---|---|
 | Instagram | https://www.instagram.com/warriorai/ |
-| Discord | https://discord.gg/7QctqCABR |
+| Discord | https://tinyurl.com/aicord |
 | GitHub | https://github.com/westwoodai |
 | Email | wwhs.aiexploration@gmail.com |
 | Linktree | https://linktr.ee/westwoodhsaiclub |

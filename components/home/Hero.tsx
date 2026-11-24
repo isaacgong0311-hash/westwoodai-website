@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import HeroArt from "@/components/home/HeroArt";
+import { LINKS } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -23,7 +24,7 @@ export default function Hero() {
             </div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="https://forms.gle/m1a5LrzEBHhacpbg6" external>Join the mailing list</Button>
+            <Button href={LINKS.interestForm} external>Join the mailing list</Button>
             <Button href="/calendar" variant="secondary">See the calendar</Button>
           </div>
         </div>

@@ -145,6 +145,8 @@ export interface Talk {
   /** The talk's full title, as it appears on the slides. */
   title: string;
   slides?: { url: string; format: FileFormat };
+  /** Key into data/photos.json `events`. */
+  photos?: string;
 }
 
 export interface OutreachEvent {
@@ -177,4 +179,19 @@ export interface SiteConfig {
   };
   /** The meeting check-in Google Form (see README "Leaderboard"); null hides check-in links. */
   checkinUrl: string | null;
+}
+
+export interface Photo {
+  src: string;
+  width: number;
+  height: number;
+  /** Describes what's in the photo; required for every image. */
+  alt: string;
+}
+
+export interface PhotosData {
+  /** General club photos, shown on the homepage. */
+  club: Photo[];
+  /** Photos from specific events, keyed by the event's `photos` field. */
+  events: Record<string, Photo[]>;
 }
