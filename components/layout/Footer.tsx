@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteLinks, sponsor } from "@/lib/content";
 import { LINKS } from "@/lib/site";
 import NewTabNote from "@/components/ui/NewTabNote";
+import SeeYouThere from "@/components/layout/SeeYouThere";
 
 const contact = [
   { label: "Interest form", href: LINKS.interestForm },
@@ -13,7 +14,8 @@ const contact = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-rule bg-white">
+    <footer className="mt-16 bg-white">
+      <SeeYouThere />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <p className="font-semibold text-ink">Westwood AI Club</p>
