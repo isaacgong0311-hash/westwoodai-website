@@ -1,28 +1,26 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import { Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
+import { siteLinks } from "@/lib/content";
 
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Westwood AI Club",
+  title: { default: "Westwood AI Club", template: "%s | Westwood AI Club" },
   description:
-    "Westwood High School's student-run AI club. Meetings, guest speakers, and projects in Austin, TX.",
+    "Westwood High School's student-run AI club in Austin, TX. Meeting slides since 2019, guest talks, and an in-browser machine learning playground.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
@@ -31,7 +29,6 @@ export const metadata: Metadata = {
     title: "Westwood AI Club",
     description: "Westwood High School's student-run AI club in Austin, TX.",
     siteName: "Westwood AI Club",
-    images: ["/logo.png"],
   },
 };
 
@@ -43,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${instrumentSerif.variable} h-full`}
+      className={`${geist.variable} ${geistMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <a
@@ -52,7 +49,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Nav />
+        <Nav links={siteLinks().filter((l) => l.primary)} />
         <main id="main" className="flex-1 relative z-10">
           {children}
         </main>

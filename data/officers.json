@@ -1,0 +1,76 @@
+{
+  "sponsor": "Mr. Kluge",
+  "pastTeams": [
+    {
+      "year": "2025–26",
+      "officers": [
+        { "role": "President", "name": "Victor Lehr" },
+        { "role": "Vice President", "name": "Vasin Sannareddy" },
+        { "role": "Secretary", "name": "Aarav Karumanchi" },
+        { "role": "Webmaster", "name": "Aanya Pathak" },
+        { "role": "Teaching Coordinator", "name": "Srirang Girish" },
+        { "role": "Outreach Coordinator", "name": "Reett Aulakh" }
+      ]
+    },
+    {
+      "year": "2024–25",
+      "officers": [
+        { "role": "President", "name": "Indivara Kolluru" },
+        { "role": "Vice President", "name": "Victor Lehr" },
+        { "role": "Secretary", "name": "Prithvi Krishnan" },
+        { "role": "Webmaster", "name": "Roshan Paul" },
+        { "role": "Student Council Representative", "name": "Diya Shakkottai" }
+      ]
+    },
+    {
+      "year": "2023–24",
+      "officers": [
+        { "role": "President", "name": "Raghav Aggarwal" },
+        { "role": "Vice President", "name": "Aditya Madhan" },
+        { "role": "Secretary", "name": "Indivara Kolluru" },
+        { "role": "Webmaster", "name": "Varshini Loganathan" },
+        { "role": "Student Council Representative", "name": "Blake Zhang" }
+      ]
+    },
+    {
+      "year": "2022–23",
+      "officers": [
+        { "role": "President", "name": "Evan Lai" },
+        { "role": "Vice President", "name": "Raghav Aggarwal" },
+        { "role": "Secretary", "name": "Samarth Bikki" },
+        { "role": "Researcher", "name": "Jadon Lee" },
+        { "role": "Teaching Coordinator", "name": "Sohum Sharma" }
+      ]
+    },
+    {
+      "year": "2021–22",
+      "officers": [
+        { "role": "President", "name": "Shoumik Roychowdhury" },
+        { "role": "Vice President", "name": "Raghav Aggarwal" },
+        { "role": "Secretary", "name": "Akshay Gaitonde" },
+        { "role": "Researcher", "name": "Shreyaa Arun" },
+        { "role": "Teaching Coordinator", "name": "Evan Lai" }
+      ]
+    },
+    {
+      "year": "2020–21",
+      "officers": [
+        { "role": "President", "name": "Aarya Agarwal" },
+        { "role": "Vice President", "name": "Athena Wang" },
+        { "role": "Secretary", "name": "Glen Liu" },
+        { "role": "Researcher", "name": "Shoumik Roychowdhury" },
+        { "role": "Teaching Coordinator", "name": "Ananth Madan" }
+      ]
+    },
+    {
+      "year": "2019–20",
+      "officers": [
+        { "role": "President", "name": "Aarya Agarwal" },
+        { "role": "Vice President", "name": "Athena Wang" },
+        { "role": "Secretary", "name": "Glen Liu" },
+        { "role": "Researcher", "name": "Shoumik Roychowdhury" },
+        { "role": "Teaching Coordinator", "name": "Ananth Madan" }
+      ]
+    }
+  ]
+}
