@@ -1,0 +1,34 @@
+{
+  "ideasForm": "https://forms.gle/E5fzvB6Yktr7foam6",
+  "steps": [
+    { "title": "Pick a topic", "body": "Build an AI model, or research an AI concept and explain it. Any topic works; the list below is a starting point from the officers." },
+    { "title": "Send in your idea", "body": "Submit your idea through the form so an officer can check in and help you scope it." },
+    { "title": "Build it", "body": "Most projects run in Google Colab, so there's nothing to install. Email the club with any questions while you work." },
+    { "title": "Present it", "body": "Members present their projects at meetings throughout the year. Finished projects get posted on this page." }
+  ],
+  "topics": [
+    "Q-learning",
+    "Actor-critic models",
+    "Transformer neural networks",
+    "Large language models",
+    "Generative AI",
+    "Hyperparameter optimization",
+    "Principal component analysis",
+    "Logarithmic regression",
+    "Support vector machines",
+    "Lasso regression",
+    "Ridge regression",
+    "Recurrent neural networks",
+    "Long short-term memory (LSTM)",
+    "Cosine similarity",
+    "K-means clustering",
+    "K-nearest neighbors",
+    "Decision trees",
+    "Random forest classifiers",
+    "Dimensionality reduction",
+    "Mini-batches",
+    "One-hot encoding",
+    "Applications of activation functions",
+    "Integrate-and-fire neuron models"
+  ]
+}

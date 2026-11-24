@@ -108,7 +108,8 @@ function toClubEvent(e: GoogleEvent): ClubEvent {
 
 /** Competition deadlines as all-day "deadline" events. IDs are prefixed so they can't collide with Google's. */
 function competitionDeadlines(): ClubEvent[] {
-  return competitions.map((c) => {
+  return competitions.flatMap((c) => {
+    if (!c.deadline) return [];
     const next = new Date(Date.parse(c.deadline) + 86400000).toISOString().slice(0, 10);
     return {
       id: `comp-${c.id}`,
@@ -119,7 +120,7 @@ function competitionDeadlines(): ClubEvent[] {
       allDay: true,
       description: [c.description, c.link && `Details: ${c.link}`].filter(Boolean).join("\n\n"),
       related: { label: "All competitions", href: "/competitions" },
-    };
+    } satisfies ClubEvent;
   });
 }
 

@@ -12,6 +12,7 @@ import projectsData from "@/data/projects.json";
 import promptData from "@/data/prompt.json";
 import specialEventsData from "@/data/special-events.json";
 import photosData from "@/data/photos.json";
+import studentProjectsData from "@/data/student-projects.json";
 import type {
   Competition,
   FaqItem,
@@ -39,6 +40,8 @@ export const talks = specialEventsData.talks as Talk[];
 export const outreach = specialEventsData.outreach as OutreachEvent[];
 export const faq = faqData as FaqItem[];
 export const photos = photosData as PhotosData;
+/** How the student-project program works; shown on /projects whether or not any projects are posted. */
+export const studentProjects = studentProjectsData;
 export const sponsor = officersData.sponsor;
 export const pastTeams = officersData.pastTeams as OfficerTeam[];
 
@@ -66,7 +69,7 @@ export function siteLinks(): SiteLink[] {
     { href: "/lessons", label: "Lessons", primary: true, show: true },
     { href: "/playground", label: "Playground", primary: true, show: true },
     { href: "/events", label: "Events", primary: true, show: true },
-    { href: "/projects", label: "Projects", primary: true, show: projects.length > 0 },
+    { href: "/projects", label: "Projects", primary: true, show: true },
     { href: "/competitions", label: "Competitions", primary: true, show: competitions.length > 0 },
     { href: "/leaderboard", label: "Leaderboard", primary: true, show: true },
     { href: "/about", label: "About", primary: true, show: true },

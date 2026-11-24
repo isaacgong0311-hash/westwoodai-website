@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "ai-innovator-challenge-2026",
+    "name": "AI Innovator Student Challenge",
+    "organizer": "ISTE+ASCD",
+    "type": "external",
+    "timing": "Kicks off in November; date to be announced",
+    "difficulty": "beginner",
+    "status": "forming",
+    "description": "Find a real problem in your community and design an AI-powered solution for it. Teams of up to 3 students. Announced at Meeting 3; ask an officer if you want help finding a team.",
+    "link": "https://iste-ascd.org/ai-innovator"
+  },
+  {
+    "id": "usaaio-2027",
+    "name": "USA AI Olympiad (USAAIO)",
+    "organizer": "USA AI Olympiad",
+    "type": "external",
+    "timing": "Registration opens January 2027",
+    "difficulty": "advanced",
+    "status": "upcoming",
+    "description": "A national contest that tests both AI theory and programming: math foundations, machine learning, deep learning with PyTorch, natural language processing, transformers, computer vision, and generative AI. The club is tentatively planning to prepare for it together."
+  }
+]
