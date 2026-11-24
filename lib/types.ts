@@ -60,7 +60,10 @@ export interface Competition {
   name: string;
   organizer: string;
   type: "internal" | "external";
-  deadline: string;
+  /** ISO date, only once it is announced; it also goes on the calendar. */
+  deadline?: string;
+  /** Plain-text timing while there is no firm deadline, e.g. "Registration opens January 2027". */
+  timing?: string;
   difficulty: "beginner" | "intermediate" | "advanced";
   prize?: string;
   status: "open" | "forming" | "closed" | "upcoming";

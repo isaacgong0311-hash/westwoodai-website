@@ -147,6 +147,10 @@ Put the image in `public/photos/` (resize to about 1600px wide and strip locatio
 
 The current officer team is `data/members.json`. When a new team takes over, move the outgoing team into `officers.json` → `"pastTeams"` (newest first) as `{ "year": "2026–27", "officers": [{ "role", "name" }] }`; the homepage club history is built from it. FAQ entries are `{ "question", "answer", "link"?: { "label", "href" } }`.
 
+### Student project program — `data/student-projects.json`
+
+The top of the Projects page: the four steps, the project idea form (`ideasForm`), and the topic list. Update the form link if the officers make a new one.
+
 ### Projects — `data/projects.json`
 
 ```json
@@ -174,7 +178,8 @@ The current officer team is `data/members.json`. When a new team takes over, mov
   "name": "Competition Name",
   "organizer": "Organizer",
   "type": "external",          ← internal | external
-  "deadline": "2026-10-01",
+  "deadline": "2026-10-01",     ← optional; only once it's announced
+  "timing": "Registration opens January 2027", ← shown instead while there's no deadline
   "difficulty": "intermediate", ← beginner | intermediate | advanced
   "prize": "$500",
   "status": "open",            ← open | forming | upcoming | closed
@@ -184,7 +189,7 @@ The current officer team is `data/members.json`. When a new team takes over, mov
 }
 ```
 
-Each competition's `deadline` also shows up on the Calendar automatically — don't add it to Google Calendar too.
+Each competition's `deadline` also shows up on the Calendar automatically, so don't add it to Google Calendar too. Leave `deadline` out until there's a real date and use `timing` instead.
 
 ---
 

@@ -23,6 +23,9 @@ const STATUS: Record<Competition["status"], { label: string; order: number }> = 
 };
 
 function DeadlineNote({ competition }: { competition: Competition }) {
+  if (!competition.deadline) {
+    return <span className="text-ink">{competition.timing ?? "Dates to be announced"}</span>;
+  }
   const days = daysUntil(competition.deadline);
   if (competition.status === "closed" || days < 0) {
     return <span className="text-ink-muted">Closed {formatShortDate(competition.deadline)}</span>;
@@ -37,7 +40,7 @@ function DeadlineNote({ competition }: { competition: Competition }) {
 
 export default function CompetitionsPage() {
   const sorted = [...competitions].sort(
-    (a, b) => STATUS[a.status].order - STATUS[b.status].order || a.deadline.localeCompare(b.deadline),
+    (a, b) => STATUS[a.status].order - STATUS[b.status].order || (a.deadline ?? "9999").localeCompare(b.deadline ?? "9999"),
   );
 
   return (
@@ -76,12 +79,14 @@ export default function CompetitionsPage() {
                 <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-sm">
                   <DeadlineNote competition={c} />
                   <div className="flex items-center gap-5">
-                    <Link href={`/calendar/comp-${c.id}`} className="text-ink-muted hover:text-ink">
-                      On the calendar
-                    </Link>
+                    {c.deadline && (
+                      <Link href={`/calendar/comp-${c.id}`} className="text-ink-muted hover:text-ink">
+                        On the calendar
+                      </Link>
+                    )}
                     {c.link && (
                       <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-ink">
-                        Details
+                        Details<span className="sr-only"> about {c.name}</span>
                         <NewTabNote />
                       </a>
                     )}
